@@ -8,34 +8,11 @@
  * Controller of the htdocsApp
  */
 angular.module('htdocsApp')
-  .controller('HeaderCtrl', function ($scope, $http, $modal, PlayDate, Search) {
+  .controller('HeaderCtrl', function ($scope, $http, $modal, PlayDate, Search, Autocomplete) {
   	this.search = {};
-
-
-  	//getters for autocomplete fields
-  	this.getSteamgame = function(val) {
-	    return $http.get('api/steamapps', {
-	      params: {
-	        q: val,
-	      }
-	    }).then(function(response){
-	    	return response.data;
-	    });
-	};
-
-  	//getters for autocomplete fields
-  	this.getLanguage = function(val) {
-  		console.log(this.newPlayDate);
-  		if(val && val.length > 2) {
-		    return $http.get('api/languages', {
-		      params: {
-		        q: val,
-		      }
-		    }).then(function(response){
-		    	return response.data;
-		    });
-  		}
-	};
+  	this.getSteamgame = Autocomplete.getSteamgame;
+  	this.getLanguage = Autocomplete.getLanguage;
+  	this.getRegion = Autocomplete.getRegion;
 
 	this.openCreateModal = function () {
 
@@ -49,16 +26,6 @@ angular.module('htdocsApp')
         console.log(message);
       });
     };
-
-  	this.getRegion = function(val) {
-	    return $http.get('api/regions', {
-	      params: {
-	        q: val,
-	      }
-	    }).then(function(response){
-	    	return response.data;
-	    });
-	};
 
 	this.savePlayDate = function(){
 		this.saving = true;
