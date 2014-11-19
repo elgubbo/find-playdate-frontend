@@ -42,7 +42,7 @@ var app = angular
 
 app.factory('PlayDate', ["$resource", function($resource) {
 
-  return $resource('\\:3000/api/playdate/:id/:parname/:updateHash/',
+  return $resource('http://find-playdate.com\\:3000/api/playdate/:id/:parname/:updateHash/',
     {
       id: '@id',
       updateHash: '@updateHash',
@@ -167,34 +167,11 @@ angular.module('htdocsApp')
  * Controller of the htdocsApp
  */
 angular.module('htdocsApp')
-  .controller('HeaderCtrl', ["$scope", "$http", "$modal", "PlayDate", "Search", function ($scope, $http, $modal, PlayDate, Search) {
+  .controller('HeaderCtrl', ["$scope", "$http", "$modal", "PlayDate", "Search", "Autocomplete", function ($scope, $http, $modal, PlayDate, Search, Autocomplete) {
   	this.search = {};
-
-
-  	//getters for autocomplete fields
-  	this.getSteamgame = function(val) {
-	    return $http.get('api/steamapps', {
-	      params: {
-	        q: val,
-	      }
-	    }).then(function(response){
-	    	return response.data;
-	    });
-	};
-
-  	//getters for autocomplete fields
-  	this.getLanguage = function(val) {
-  		console.log(this.newPlayDate);
-  		if(val && val.length > 2) {
-		    return $http.get('api/languages', {
-		      params: {
-		        q: val,
-		      }
-		    }).then(function(response){
-		    	return response.data;
-		    });
-  		}
-	};
+  	this.getSteamgame = Autocomplete.getSteamgame;
+  	this.getLanguage = Autocomplete.getLanguage;
+  	this.getRegion = Autocomplete.getRegion;
 
 	this.openCreateModal = function () {
 
@@ -208,16 +185,6 @@ angular.module('htdocsApp')
         console.log(message);
       });
     };
-
-  	this.getRegion = function(val) {
-	    return $http.get('api/regions', {
-	      params: {
-	        q: val,
-	      }
-	    }).then(function(response){
-	    	return response.data;
-	    });
-	};
 
 	this.savePlayDate = function(){
 		this.saving = true;
@@ -335,7 +302,7 @@ angular.module('htdocsApp')
 
         //getters for autocomplete fields
         getSteamgame : function(val) {
-            return $http.get('api/steamapps', {
+            return $http.get('http://find-playdate.com:3000/api/steamapps', {
               params: {
                 q: val,
               }
@@ -347,7 +314,7 @@ angular.module('htdocsApp')
         //getters for autocomplete fields
         getLanguage : function(val) {
             if(val && val.length > 2) {
-                return $http.get('api/languages', {
+                return $http.get('http://find-playdate.com:3000/api/languages', {
                   params: {
                     q: val,
                   }
@@ -358,7 +325,7 @@ angular.module('htdocsApp')
         },
 
         getRegion : function(val) {
-            return $http.get('api/regions', {
+            return $http.get('http://find-playdate.com:3000/api/regions', {
               params: {
                 q: val,
               }
