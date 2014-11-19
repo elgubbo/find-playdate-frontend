@@ -43,7 +43,7 @@ var app = angular
 
 app.factory('PlayDate', function($resource) {
 
-  return $resource('/api/playdate/:id/:parname/:updateHash/',
+  return $resource(':3000/api/playdate/:id/:parname/:updateHash/',
     {
       id: '@id',
       updateHash: '@updateHash',
