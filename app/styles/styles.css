@@ -1,0 +1,74 @@
+/*
+A custom Bootstrap 3.1 theme from http://bootply.com\
+
+This CSS code should follow the 'bootstrap.css'
+in your HTML file.
+
+license: MIT
+author: bootply.com
+*/
+
+
+html,body{
+  	height:100%;
+}
+
+body{
+  	padding-top:0px; /*padding for navbar*/
+}
+
+.animate-show.ng-hide-add.ng-hide-add-active,
+.animate-show.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+
+
+#header{
+/*    margin: 5px;
+  background-color:#fff;
+    border: 1px solid;
+    padding: 5px;*/
+}
+
+#search-form {
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.add-playdate-row {
+  margin-left: -5px;
+  margin-right: 5px;
+}
+
+.masonry-brick {
+  display: none;
+}
+
+.loaded {
+  display: block;
+}
+
+.masonry-brick .item-image {
+  width: 100%;
+}
+.masonry-brick .item-footer {
+  margin: 5px;
+}
+.mb-5 {
+  margin-bottom: 5px;
+}
+.mt-5 {
+	margin-top: 5px;
+}
+.mt-10 {
+	margin-top: 10px;
+}
+.mt-15 {
+	margin-top: 15px;
+}
+
+.search-row {
+  padding-right: 20px;
+  padding-left: 20px;
+}

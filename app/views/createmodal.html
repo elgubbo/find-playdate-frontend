@@ -1,0 +1,98 @@
+<div class="modal-header">
+    <h6 class="modal-title">Here you can create a new PlayDate</h6>
+</div>
+<div class="modal-body">
+	<div class="modal-form">
+        <form class="form-inline">
+            <fieldset ng-disabled="saving">
+                <div class="row mt-5">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="input-group">
+                              <input
+                                required
+                                type="text"
+                                ng-model="newPlayDate.game"
+                                typeahead="game as game.label for game in getSteamgame($viewValue)"
+                                class="form-control"
+                                typeahead-editable="'false'"
+                                placeholder="Steamgame?">
+                                <span class="input-group-addon">
+                                    <span class="fa fa-gamepad"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                              <input
+                                required
+                                type="text"
+                                ng-model="newPlayDate.geoRegion"
+                                typeahead="region as region.label for region in getRegion($viewValue)"
+                                class="form-control"
+                                typeahead-editable="'false'"
+                                placeholder="Your timezone?">
+                                <span class="input-group-addon">
+                                    <span class="fa fa-globe"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div class="input-group">
+                              <input
+                                required
+                                type="text"
+                                class="form-control"
+                                ng-model="newPlayDate.name"
+                                placeholder="Your (ingame) Name?">
+                                <span class="input-group-addon">
+                                    <span class="fa fa-user"></span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group">
+                              <input
+                                required
+                                type="text"
+                                class="form-control"
+                                ng-model="newPlayDate.email"
+                                placeholder="Your e-mail?">
+                                <span class="input-group-addon">
+                                    <span class="fa fa-at"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-form">
+                    <div class="row">
+                        <div class="form-group col-md-12 mt-5">
+                            <div class="input-group">
+                                <textarea
+                                    required
+                                    class="form-control"
+                                    placeholder = "Additional Info?"
+                                    ng-model="newPlayDate.description"
+                                    cols="80"
+                                    rows="4">
+                                </textarea>
+                                <span class="input-group-addon">
+                                    <span class="fa fa-info mt-5"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+	</div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="save()">Save <span class="fa fa-save"></span></button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel <span class="fa fa-close"></span> </button>
+</div>

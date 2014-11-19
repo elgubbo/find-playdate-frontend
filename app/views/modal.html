@@ -1,0 +1,52 @@
+<div class="modal-header">
+    <h3 class="modal-title">Message {{message.to}}</h3>
+</div>
+<div class="modal-body">
+	<div class="modal-form">
+		<form>
+			<fieldset>
+	            <div class="form-group">
+	                <div class="input-group">
+	                  	<input
+		                    type="email"
+		                    ng-model="message.email"
+		                    class="form-control"
+		                    placeholder="Your E-Mail"
+		                    required>
+	                    <span class="input-group-addon">
+	                        <span class="fa fa-at"></span>
+	                    </span>
+	                </div>
+	                <div class="input-group mt-5">
+	                  	<input
+		                    type="text"
+		                    ng-model="message.name"
+		                    class="form-control"
+		                    placeholder="Your (ingame) name"
+		                    required>
+	                    <span class="input-group-addon">
+	                        <span class="fa fa-user"></span>
+	                    </span>
+	                </div>
+	                <div class="input-group mt-5">
+	                    <textarea
+	                        class="form-control"
+	                        placeholder = "Your message to {{message.to}}"
+	                        ng-model="message.content"
+	                        cols="80"
+	                        rows="4"
+	                        required>
+	                    </textarea>
+	                    <span class="input-group-addon">
+	                        <span class="fa fa-info"></span>
+	                    </span>
+	                </div>
+	            </div>
+			</fieldset>
+		</form>
+	</div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" ng-click="send()">Send <span class="fa fa-send"></span> </button>
+    <button class="btn btn-warning" ng-click="cancel()">Cancel <span class="fa fa-close"></span> </button>
+</div>

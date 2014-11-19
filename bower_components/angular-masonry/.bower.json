@@ -1,0 +1,40 @@
+{
+  "name": "angular-masonry",
+  "description": "An AngularJS directive for Masonry.",
+  "version": "0.9.1",
+  "main": "./angular-masonry.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "src",
+    "*.min.js",
+    "*.conf.js",
+    "*.html",
+    "Gruntfile.js",
+    "package.json"
+  ],
+  "dependencies": {
+    "masonry": "~3.1.0",
+    "angular": "~1.2.0",
+    "jquery": "~2.1.0",
+    "imagesloaded": "~3.1.0"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.0",
+    "sinonjs": "~1.10.0",
+    "jasmine-sinon": "~0.3.0"
+  },
+  "homepage": "https://github.com/passy/angular-masonry",
+  "_release": "0.9.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.9.1",
+    "commit": "b839ab253968ff05242e93ca814c90f7a39cea47"
+  },
+  "_source": "git://github.com/passy/angular-masonry.git",
+  "_target": "~0.9.1",
+  "_originalSource": "angular-masonry",
+  "_direct": true
+}
