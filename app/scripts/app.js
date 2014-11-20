@@ -31,6 +31,10 @@ var app = angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl as main',
       })
+      .when('/delete/:id/:hash', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl as main',
+      })
       .when('/tos', {
         templateUrl: 'views/tos.html',
       })

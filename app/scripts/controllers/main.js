@@ -73,14 +73,14 @@ angular.module('htdocsApp')
             $scope.main.receiveMore(data);
         });
         console.log('[INIT MAIN]');
-        console.log($routeParams);
-        //545e632310ac81372c000001
-        //3490ca258f0b5d86f24fe8fb2374644f
         if($routeParams.hash && $routeParams.id){
             PlayDate.getForUpdate({id: $routeParams.id, updateHash: $routeParams.hash}).$promise.then(function (playdate)
             {
               $scope.main.openUpdateModal(playdate, $routeParams.hash);
-              console.log(playdate);
+            });
+            PlayDate.getForUpdate({id: $routeParams.id, updateHash: $routeParams.hash}).$promise.then(function (playdate)
+            {
+              $scope.main.openDeleteModal(playdate, $routeParams.hash);
             });
         }
         Search.findPlayDates();

@@ -16,11 +16,17 @@ angular.module('htdocsApp')
   	$scope.getLanguage = Autocomplete.getLanguage;
   	$scope.getRegion = Autocomplete.getRegion;
 
-console.log($scope.playdate);
 	$scope.save = function () {
 		$scope.playdate.updateHash = $scope.updateHash;
 		$scope.playdate.$update().then(function(data){
 			console.log(data);
+			$modalInstance.close('success');
+		});
+	};
+
+	$scope.delete = function () {
+		$scope.playdate.updateHash = $scope.updateHash;
+		$scope.playdate.delete().then(function(data){
 			$modalInstance.close('success');
 		});
 	};
