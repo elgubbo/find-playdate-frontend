@@ -5,7 +5,7 @@
         </div>
         <form class="form-inline col-md-8 col-md-offset-5 col-sm-8 mt-10 pull-right" id="search-form">
             <div class="row search-row" >
-                <div class="form-group col-md-3 col-xs-12" ng-show="!header.formShown">
+                <div class="form-group col-md-3 col-sm-6 col-xs-12" ng-show="!header.formShown">
                     <div class="input-group">
                       <input
                         type="text"
@@ -19,7 +19,7 @@
                         </span>
                     </div>
                 </div>
-                <div class="form-group col-md-3 col-xs-12" ng-show="!header.formShown">
+                <div class="form-group col-md-3 col-sm-6 col-xs-12" ng-show="!header.formShown">
                     <div class="input-group">
                       <input
                         type="text"
@@ -33,12 +33,15 @@
                         </span>
                     </div>
                 </div>
-                <div class="btn btn-default mt-5 col-md-2 col-xs-12" style="margin-bottom: 5px" ng-click="header.doSearch()" ng-show="!header.formShown">
-                    Search
+                <div
+                    class="btn btn-default mt-5 col-md-2 col-sm-5 col-xs-12"
+                    ng-click="header.doSearch()" ng-show="!header.formShown">
+                    <span>Search</span>
                     <span class="fa fa-search"></span>
                 </div>
                 <div
-                    class="btn btn-primary mt-5 mb-5 pull-right col-md-3 col-xs-12"
+                    class="btn btn-primary mt-5 mb-5 pull-right col-md-3 col-sm-6 col-xs-12"
+                    style="margin-bottom: 5px;"
                     ng-click="header.openCreateModal()">
                     <span>Add PlayDate</span>
                     <span class="fa fa-plus"></span>
