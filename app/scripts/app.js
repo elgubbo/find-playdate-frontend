@@ -70,6 +70,14 @@ app.factory('PlayDate', function($resource) {
           id: '@_id',
           updateHash: '@updateHash',
         }
+      },
+      disable: {
+        method: 'DELETE',
+        params: {
+          parname: 'hash',
+          id: '@_id',
+          updateHash: '@updateHash',
+        }
       }
     });
 });

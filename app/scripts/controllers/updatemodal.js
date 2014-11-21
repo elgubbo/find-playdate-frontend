@@ -26,7 +26,7 @@ angular.module('htdocsApp')
 
 	$scope.delete = function () {
 		$scope.playdate.updateHash = $scope.updateHash;
-		$scope.playdate.$delete(
+		$scope.playdate.disable.$promise.then(
 			function(data){
 				$modalInstance.close('success');
 			});
