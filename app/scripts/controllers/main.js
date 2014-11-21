@@ -78,10 +78,6 @@ angular.module('htdocsApp')
             {
               $scope.main.openUpdateModal(playdate, $routeParams.hash);
             });
-            PlayDate.getForUpdate({id: $routeParams.id, updateHash: $routeParams.hash}).$promise.then(function (playdate)
-            {
-              $scope.main.openDeleteModal(playdate, $routeParams.hash);
-            });
         }
         Search.findPlayDates();
     })();
