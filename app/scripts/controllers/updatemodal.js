@@ -15,13 +15,22 @@ angular.module('htdocsApp')
   	$scope.getSteamgame = Autocomplete.getSteamgame;
   	$scope.getLanguage = Autocomplete.getLanguage;
   	$scope.getRegion = Autocomplete.getRegion;
+  	$scope.errorMessage = null;
 
 	$scope.save = function () {
+		if(!$scope.updateForm.$dirty || !$scope.updateForm.$valid) {
+			$scope.errorMessage = "Please fill out all fields and try again";
+			return;
+		}
 		$scope.playdate.updateHash = $scope.updateHash;
-		$scope.playdate.$update().then(function(data){
-			console.log(data);
-			$modalInstance.close('success');
-		});
+		$scope.playdate.$update().then(
+			function(data){
+				$modalInstance.close('success');
+			},
+			function(err) {
+				$scope.errorMessage = err;
+			}
+		);
 	};
 
 	$scope.delete = function () {
