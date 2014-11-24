@@ -1,4 +1,6 @@
+<div class="modal-header" ng-class="{'bg-danger': errorMessage}" ng-bind="errorMessage">
 
+</div>
 <div class="modal-body">
 	<div class="modal-form">
         <form class="form-inline" name="createForm" novalidate>
@@ -55,11 +57,11 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="form-group" ng-class="{'has-error': createForm.email.$error.required&&createForm.email.$dirty}">
+                        <div class="form-group" ng-class="{'has-error': createForm.email.$error.required||createForm.email.$error.email&&createForm.email.$dirty}">
                             <div class="input-group">
                               <input
                                 required
-                                type="text"
+                                type="email"
                                 class="form-control"
                                 ng-model="newPlayDate.email"
                                 name="email"

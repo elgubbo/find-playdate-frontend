@@ -20,6 +20,10 @@ angular.module('htdocsApp')
   	$scope.getRegion = Autocomplete.getRegion;
 
 	$scope.save = function () {
+		if(!$scope.createForm.$dirty || !$scope.createForm.$valid) {
+			$scope.errorMessage = "Please fill out all fields and try again";
+			return;
+		}
 		$scope.saving = true;
 		$scope.errorMessage = null;
 		$scope.successMessage = null;
@@ -35,8 +39,7 @@ angular.module('htdocsApp')
 			},
 			function(err){
 				that.saving = false;
-				that.errorMessage = err.data;
-				//error
+				that.errorMessage = err;
 			}
 		);
 	};
