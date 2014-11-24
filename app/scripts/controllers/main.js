@@ -31,7 +31,6 @@ angular.module('htdocsApp')
       });
 
       modalInstance.result.then(function (message) {
-        console.log(message);
       });
     };
 

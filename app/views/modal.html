@@ -1,9 +1,8 @@
-<div class="modal-header">
-    <h3 class="modal-title">Message {{message.to}}</h3>
+<div class="modal-header" ng-class="{'bg-danger': errorMessage}" ng-bind="errorMessage">
 </div>
 <div class="modal-body">
 	<div class="modal-form">
-		<form name="messageForm">
+		<form name="messageForm" novalidate>
 			<fieldset>
 	            <div class="form-group">
 	                <div class="input-group" ng-class="{'has-error': messageForm.email.$error.required&&messageForm.email.$dirty}">
