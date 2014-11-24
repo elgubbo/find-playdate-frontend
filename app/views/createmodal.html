@@ -6,7 +6,7 @@
                 <div class="row mt-5">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <div class="input-group" ng-class="{'has-error': createForm.game.$error&&createForm.game.$dirty}">
+                            <div class="input-group" ng-class="{'has-error': createForm.game.$error.required&&createForm.game.$dirty}">
                               <input
                                 required
                                 type="text"
@@ -21,7 +21,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="form-group" ng-class="{'has-error': createForm.georegion.$error&&createForm.georegion.$dirty}">
+                        <div class="form-group" ng-class="{'has-error': createForm.georegion.$error.required&&createForm.georegion.$dirty}">
                             <div class="input-group">
                               <input
                                 required
@@ -41,7 +41,7 @@
                 </div>
                 <div class="row mt-5">
                     <div class="col-md-12">
-                        <div class="form-group" ng-class="{'has-error': createForm.name.$error&&createForm.name.$dirty}">
+                        <div class="form-group" ng-class="{'has-error': createForm.name.$error.required&&createForm.name.$dirty}">
                             <div class="input-group">
                               <input
                                 required
@@ -55,7 +55,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="form-group" ng-class="{'has-error': createForm.email.$error&&createForm.email.$dirty}">
+                        <div class="form-group" ng-class="{'has-error': createForm.email.$error.required&&createForm.email.$dirty}">
                             <div class="input-group">
                               <input
                                 required
@@ -74,7 +74,7 @@
                 <div class="add-form">
                     <div class="row">
                         <div class="form-group col-md-12 mt-5"
-                            ng-class="{'has-error': createForm.additional.$error&&createForm.additional.$dirty}">
+                            ng-class="{'has-error': createForm.additional.$error.required&&createForm.additional.$dirty}">
                             <div class="input-group">
                                 <textarea
                                     required
