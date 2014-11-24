@@ -3,7 +3,7 @@
 </div>
 <div class="modal-body">
 	<div class="modal-form">
-		<form>
+		<form ng-submit="send()">
 			<fieldset>
 	            <div class="form-group">
 	                <div class="input-group">
@@ -47,6 +47,6 @@
 	</div>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="send()">Send <span class="fa fa-send"></span> </button>
+    <button class="btn btn-primary">Send <span class="fa fa-send"></span> </button>
     <button class="btn btn-warning" ng-click="cancel()">Cancel <span class="fa fa-close"></span> </button>
 </div>

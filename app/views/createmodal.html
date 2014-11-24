@@ -1,9 +1,7 @@
-<div class="modal-header">
-    <h6 class="modal-title">Here you can create a new PlayDate</h6>
-</div>
+
 <div class="modal-body">
 	<div class="modal-form">
-        <form class="form-inline">
+        <form class="form-inline" name="createForm" ng-submit="save()">
             <fieldset ng-disabled="saving">
                 <div class="row mt-5">
                     <div class="col-md-12">
@@ -93,6 +91,6 @@
 	</div>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="save()">Save <span class="fa fa-save"></span></button>
+    <button class="btn btn-primary">Save <span class="fa fa-save"></span></button>
     <button class="btn btn-warning" ng-click="cancel()">Cancel <span class="fa fa-close"></span> </button>
 </div>

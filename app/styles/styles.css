@@ -23,6 +23,22 @@ body{
   transition:all linear 0.5s;
 }
 
+#header-brand {
+  font-size: 26px;
+  font-variant:  small-caps;
+  font-weight: bold;
+  letter-spacing: 4px;
+  text-shadow: 1px 1px 4px rgba(150, 150, 150, 0.78);
+
+}
+
+#header-brand .orange {
+  color: orange;
+}
+
+#header-brand:hover{
+  text-shadow: 1px 1px 1px rgba(150, 150, 150, 0.78);
+}
 
 #header{
 /*    margin: 5px;
