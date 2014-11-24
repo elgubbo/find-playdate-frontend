@@ -1,16 +1,17 @@
 
 <div class="modal-body">
 	<div class="modal-form">
-        <form class="form-inline" name="createForm" ng-submit="save()">
+        <form class="form-inline" name="createForm" novalidate>
             <fieldset ng-disabled="saving">
                 <div class="row mt-5">
                     <div class="col-md-12">
                         <div class="form-group">
-                            <div class="input-group">
+                            <div class="input-group" ng-class="{'has-error': createForm.game.$error&&createForm.game.$dirty}">
                               <input
                                 required
                                 type="text"
                                 ng-model="newPlayDate.game"
+                                name="game"
                                 typeahead="game as game.label for game in getSteamgame($viewValue)"
                                 class="form-control"
                                 typeahead-editable="'false'"
@@ -20,12 +21,13 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" ng-class="{'has-error': createForm.georegion.$error&&createForm.georegion.$dirty}">
                             <div class="input-group">
                               <input
                                 required
                                 type="text"
                                 ng-model="newPlayDate.geoRegion"
+                                name="georegion"
                                 typeahead="region as region.label for region in getRegion($viewValue)"
                                 class="form-control"
                                 typeahead-editable="'false'"
@@ -39,26 +41,28 @@
                 </div>
                 <div class="row mt-5">
                     <div class="col-md-12">
-                        <div class="form-group">
+                        <div class="form-group" ng-class="{'has-error': createForm.name.$error&&createForm.name.$dirty}">
                             <div class="input-group">
                               <input
                                 required
                                 type="text"
                                 class="form-control"
                                 ng-model="newPlayDate.name"
+                                name="name"
                                 placeholder="Your (ingame) Name?">
                                 <span class="input-group-addon">
                                     <span class="fa fa-user"></span>
                                 </span>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" ng-class="{'has-error': createForm.email.$error&&createForm.email.$dirty}">
                             <div class="input-group">
                               <input
                                 required
                                 type="text"
                                 class="form-control"
                                 ng-model="newPlayDate.email"
+                                name="email"
                                 placeholder="Your e-mail?">
                                 <span class="input-group-addon">
                                     <span class="fa fa-at"></span>
@@ -69,13 +73,15 @@
                 </div>
                 <div class="add-form">
                     <div class="row">
-                        <div class="form-group col-md-12 mt-5">
+                        <div class="form-group col-md-12 mt-5"
+                            ng-class="{'has-error': createForm.additional.$error&&createForm.additional.$dirty}">
                             <div class="input-group">
                                 <textarea
                                     required
                                     class="form-control"
                                     placeholder = "Additional Info?"
                                     ng-model="newPlayDate.description"
+                                    name="additional"
                                     cols="80"
                                     rows="4">
                                 </textarea>
@@ -91,6 +97,6 @@
 	</div>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary">Save <span class="fa fa-save"></span></button>
+    <button class="btn btn-primary" ng-click="save()">Save <span class="fa fa-save"></span></button>
     <button class="btn btn-warning" ng-click="cancel()">Cancel <span class="fa fa-close"></span> </button>
 </div>
