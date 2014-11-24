@@ -3,10 +3,10 @@
 </div>
 <div class="modal-body">
 	<div class="modal-form">
-		<form ng-submit="send()">
+		<form name="messageForm">
 			<fieldset>
 	            <div class="form-group">
-	                <div class="input-group">
+	                <div class="input-group" ng-class="{'has-error': messageForm.email.$error.required&&messageForm.email.$dirty}">
 	                  	<input
 		                    type="email"
 		                    ng-model="message.email"
@@ -17,7 +17,7 @@
 	                        <span class="fa fa-at"></span>
 	                    </span>
 	                </div>
-	                <div class="input-group mt-5">
+	                <div class="input-group mt-5" ng-class="{'has-error': messageForm.name.$error.required&&messageForm.name.$dirty}">
 	                  	<input
 		                    type="text"
 		                    ng-model="message.name"
@@ -28,7 +28,7 @@
 	                        <span class="fa fa-user"></span>
 	                    </span>
 	                </div>
-	                <div class="input-group mt-5">
+	                <div class="input-group mt-5" ng-class="{'has-error': messageForm.content.$error.required&&messageForm.content.$dirty}">
 	                    <textarea
 	                        class="form-control"
 	                        placeholder = "Your message to {{message.to}}"
@@ -47,6 +47,6 @@
 	</div>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary">Send <span class="fa fa-send"></span> </button>
+    <button class="btn btn-primary" ng-click="send()">Send <span class="fa fa-send"></span> </button>
     <button class="btn btn-warning" ng-click="cancel()">Cancel <span class="fa fa-close"></span> </button>
 </div>
