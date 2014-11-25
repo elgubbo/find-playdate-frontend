@@ -101,7 +101,7 @@ body{
 }
 
 .tb-shadow {
-    /*border: 1px  #CCC solid;*/
+    border: 1px  #CCC solid;
     box-shadow:
         inset 0px 11px 8px -10px #CCC,
         inset 0px -11px 8px -10px #CCC;
