@@ -8,15 +8,15 @@
                         {{playdate.name}} would like to play
                     </h6>
                 </div>
-                <div class="tb-shadow panel-content" back-img="{{playdate.game.image_url}}">
-                    <!-- item content/image -->
-                    <a href="http://store.steampowered.com/app/{{playdate.game.value}}/" target="_blank">
-                        <img class="item-image"
-                        style="visibility:hidden"
-                        ng-src="{{playdate.game.image_url}}" alt="no image"
-                        err-src="{{'http://placehold.it/460x215/f5f5f5&text='+playdate.game.label}}">
-                    </a>
-                </div>
+                <a href="http://store.steampowered.com/app/{{playdate.game.value}}/" target="_blank">
+                    <div class="tb-shadow panel-content" back-img="{{playdate.game.image_url}}">
+                        <!-- item content/image -->
+                            <img class="item-image"
+                            style="visibility:hidden"
+                            ng-src="{{playdate.game.image_url}}" alt="no image"
+                            err-src="{{'http://placehold.it/460x215/f5f5f5&text='+playdate.game.label}}">
+                    </div>
+                </a>
                 <!-- item footer -->
                 <div class="panel-footer">
                     <div class="item-footer" style="word-wrap: break-word">
