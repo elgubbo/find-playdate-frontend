@@ -88,6 +88,10 @@ app.directive('errSrc', function() {
       element.bind('error', function() {
         if (attrs.src !== attrs.errSrc) {
           attrs.$set('src', attrs.errSrc);
+          element.css({
+              'background-image': 'url(' + attrs.errSrc +')',
+              'background-size' : 'cover'
+          });
         }
       });
     }
