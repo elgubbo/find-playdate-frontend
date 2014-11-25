@@ -91,5 +91,5 @@ app.directive('errSrc', function() {
         }
       });
     }
-  }
+  };
 });
