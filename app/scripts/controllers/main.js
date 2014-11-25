@@ -17,12 +17,6 @@ angular.module('htdocsApp')
       this.data.playdates = data;
     };
 
-    $scope.getCardStyle = function(playdate) {
-      return {
-        "background-image": ''+playdate.game.image_url
-      };
-    };
-
     this.openModal = function (playdate) {
 
       var modalInstance = $modal.open({
