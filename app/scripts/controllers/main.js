@@ -19,7 +19,7 @@ angular.module('htdocsApp')
 
     this.getCardStyle = function(playdate) {
       return {
-        "background-image": playdate.game.image_url
+        "background-image": ''+playdate.game.image_url
       };
     };
 
