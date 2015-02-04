@@ -18,6 +18,7 @@ var app = angular
     'ui.bootstrap',
     'ngTagsInput',
     'wu.masonry',
+    'angular-loading-bar',
   ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
