@@ -1,7 +1,9 @@
 <div class="container-fluid" id="main">
-    <div ng-repeat="message in main.data.flashMessages" class="message row">
-        <div class="alert alert-{{message.type}}" role="alert">
-            <p ng-bind="message.title"></p>
+    <div class="messages row">
+        <div ng-repeat="message in main.data.flashMessages" class="message col-sm-12">
+            <div class="alert alert-{{message.type}}" role="alert">
+                <p ng-bind="message.title"></p>
+            </div>
         </div>
     </div>
     <div id="masonry-container" class="row" masonry>

@@ -17,6 +17,7 @@ angular.module('htdocsApp')
     this.updateSearchData = function(data){
       console.log('updatesearchdata called');
       this.data.flashMessages = FlashMessage.getMessages();
+      console.log(this.data.flashMessages);
       this.data.playdates = data;
     };
 

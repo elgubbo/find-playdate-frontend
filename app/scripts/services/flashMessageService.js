@@ -1,23 +1,13 @@
 'use strict';
 
-angular.module("htdocsApp", [])
+angular.module("htdocsApp")
 .factory('FlashMessage', function() {
-	var messages = {
-		warning : [],
-		error : [],
-		success: [],
-		info: [],};
+	var messages = [];
 	return {
-		hasMessage: function(type){
-			if((type === 'warning' || type === 'error' || type === 'success' || type === 'info')) {
-
-				return messages[type].length;
-			}
-		},
 		setMessage: function(type, message)
 		{
 			if((type === 'warning' || type === 'error' || type === 'success' || type === 'info') && message) {
-				messages[type].push(message);
+				messages.push({type: type, title: message});
 			}
 		},
 		getMessage: function(type)
