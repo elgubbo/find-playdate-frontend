@@ -6,7 +6,7 @@
             </div>
         </div>
     </div>
-    <div id="masonry-container" class="row" masonry ng-if="main.data.playdates.length != 0">
+    <div id="masonry-container" class="row" masonry load-images="false">
         <div ng-repeat="playdate in main.data.playdates track by $index" class="masonry-brick col-xs-12 col-md-3 col-sm-4">
             <div class="panel panel-default">
                 <!-- item head -->

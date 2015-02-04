@@ -18,7 +18,8 @@
     "font-awesome": "~4.2.0",
     "ng-tags-input": "~2.1.1",
     "angular-masonry": "~0.9.1",
-    "angular-loading-bar": "~0.6.0"
+    "angular-loading-bar": "~0.6.0",
+    "jquery-bridget": "latest"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",
@@ -27,6 +28,7 @@
   "appPath": "app",
   "resolutions": {
     "font-awesome": "~4.2.0",
-    "angular": ">=1.2.0"
+    "angular": ">=1.2.0",
+    "masonry": "3.1.5"
   }
 }

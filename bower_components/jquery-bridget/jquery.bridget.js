@@ -1,6 +1,7 @@
 /**
  * Bridget makes jQuery widgets
- * v1.0.1
+ * v1.1.0
+ * MIT license
  */
 
 ( function( window ) {
@@ -43,7 +44,6 @@ function addOptionMethod( PluginClass ) {
     this.options = $.extend( true, this.options, opts );
   };
 }
-
 
 // -------------------------- plugin bridge -------------------------- //
 
@@ -129,6 +129,8 @@ return $.bridget;
 if ( typeof define === 'function' && define.amd ) {
   // AMD
   define( [ 'jquery' ], defineBridget );
+} else if ( typeof exports === 'object' ) {
+  defineBridget( require('jquery') );
 } else {
   // get jquery from browser global
   defineBridget( window.jQuery );
