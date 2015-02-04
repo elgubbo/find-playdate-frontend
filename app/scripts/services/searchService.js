@@ -38,7 +38,7 @@ angular.module('htdocsApp')
 
         //call this when you know 'Search results have changed' has been changed
         notifyObservers : function(data){
-            if (data.length == 0) {
+            if (data.length === 0) {
                 FlashMessage.setMessage('warning', 'No PlayDates found, please try again.');
             }
             angular.forEach(this.observerCallbacks, function(callback){
