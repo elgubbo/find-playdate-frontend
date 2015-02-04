@@ -1,4 +1,9 @@
 <div class="container-fluid" id="main">
+    <div ng-repeat="message in main.data.flashMessages" class="message row">
+        <div class="alert {{message.type}}" role="alert">
+            <p ng-bind="message.title"></p>
+        </div>
+    </div>
     <div id="masonry-container" class="row" masonry>
         <div ng-repeat="playdate in main.data.playdates track by $index" class="masonry-brick col-xs-12 col-md-3 col-sm-4">
             <div class="panel panel-default">

@@ -8,12 +8,15 @@
  * Controller of the htdocsApp
  */
 angular.module('htdocsApp')
-  .controller('MainCtrl',['$scope', '$modal', '$routeParams', 'Search', 'PlayDate',  function ($scope, $modal, $routeParams, Search, PlayDate) {
-  	this.data = {playdates: []};
+  .controller('MainCtrl',['$scope', '$modal', '$routeParams', 'Search', 'PlayDate', 'FlashMessage',  function ($scope, $modal, $routeParams, Search, PlayDate, FlashMessage) {
+  	this.data = {
+      playdates: [],
+      flashMessages: []
+    };
 
     this.updateSearchData = function(data){
       console.log('updatesearchdata called');
-      console.log(data);
+      this.data.flashMessages = FlashMessage.getMessages();
       this.data.playdates = data;
     };
 

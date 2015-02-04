@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('htdocsApp')
-.factory('Search', function(PlayDate) {
+.factory('Search', function(PlayDate, FlashMessage) {
     var search = {
         observerCallbacks : [],
         pushCallbacks : [],
@@ -38,6 +38,9 @@ angular.module('htdocsApp')
 
         //call this when you know 'Search results have changed' has been changed
         notifyObservers : function(data){
+            if (data.length == 0) {
+                FlashMessage.setMessage('warning', 'No PlayDates found, please try again.');
+            }
             angular.forEach(this.observerCallbacks, function(callback){
                 callback(data);
             });
