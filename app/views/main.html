@@ -1,6 +1,6 @@
 <div class="container-fluid" id="main">
     <div ng-repeat="message in main.data.flashMessages" class="message row">
-        <div class="alert {{message.type}}" role="alert">
+        <div class="alert alert-{{message.type}}" role="alert">
             <p ng-bind="message.title"></p>
         </div>
     </div>
