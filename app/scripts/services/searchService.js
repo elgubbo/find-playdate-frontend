@@ -79,6 +79,7 @@ angular.module('htdocsApp')
                 },
                 function(error) {
                     FlashMessage.setMessage('info', 'Unfortunately there has been an error, please try again later.');
+                    that.notifyObservers([]);
                 }
             );
         },

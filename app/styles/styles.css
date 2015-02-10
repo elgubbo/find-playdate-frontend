@@ -22,6 +22,18 @@ body{
   -webkit-transition:all linear 0.5s;
   transition:all linear 0.5s;
 }
+.message.ng-hide-add.ng-hide-add-active.ng-enter{
+    -webkit-animation: bounceInDown 0.4s;
+    -moz-animation: bounceInDown 0.4s;
+    -ms-animation: bounceInDown 0.4s;
+    animation: bounceInDown 0.4s;
+  }
+.amessage.ng-hide-remove.ng-hide-remove-active.ng-leave  {
+    -webkit-animation: bounceOutUp 0.4s;
+    -moz-animation: bounceOutUp 0.4s;
+    -ms-animation: bounceOutUp 0.4s;
+    animation: bounceOutUp 0.4s;
+}
 
 #header-brand {
   font-size: 26px;
