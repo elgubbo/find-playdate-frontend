@@ -8,7 +8,7 @@
  * Controller of the htdocsApp
  */
 angular.module('htdocsApp')
-  .controller('HeaderCtrl', function ($scope, $http, $modal, PlayDate, Search, Autocomplete) {
+  .controller('HeaderCtrl', function ($scope, $http, $modal, PlayDate, Search, Autocomplete, FlashMessage) {
   	this.search = {};
   	this.getSteamgame = Autocomplete.getSteamgame;
   	this.getLanguage = Autocomplete.getLanguage;
@@ -54,7 +54,11 @@ angular.module('htdocsApp')
 	};
 
 	this.doSearch = function(){
-		Search.findPlayDates(this.search);
+		if (this.search.game && this.search.getRegion) {
+			Search.findPlayDates(this.search);
+		} else {
+			FlashMessage.setMessage('warning', 'Please select game and timezone from the dropdowns!');
+		}
 	};
 
   });
