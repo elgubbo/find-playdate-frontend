@@ -50,8 +50,10 @@ angular.module('htdocsApp')
         //return the this in case someone wants to handle the promise themselves
         return PlayDate.query(data).$promise.then(
             function(data){
+                if (data.length === 0) {
+                    FlashMessage.setMessage('info', 'Unfortunately no playdates have been found for your search, be the first to!');
+                }
                 that.results = data;
-
             },
             function(error) {
                 FlashMessage.setMessage('info', 'Unfortunately there has been an error, please try again later.');
