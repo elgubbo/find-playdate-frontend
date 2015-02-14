@@ -8,7 +8,7 @@
  * Controller of the htdocsApp
  */
 angular.module('htdocsApp')
-  .controller('UpdatemodalCtrl', function ($scope, $modalInstance, playdate, updateHash, Autocomplete) {
+  .controller('UpdatemodalCtrl', function ($scope, $modalInstance, playdate, updateHash, Autocomplete, $location) {
   	//these will be resolved when opening the modal
   	$scope.playdate = playdate;
   	$scope.updateHash = updateHash;
@@ -36,9 +36,10 @@ angular.module('htdocsApp')
 	$scope.delete = function () {
 		$scope.playdate.updateHash = $scope.updateHash;
 		$scope.playdate.$disable(
-			function(data){
-				$modalInstance.close('success');
-			});
+		function(data){
+			$modalInstance.close('success');
+			$location.path( "/" );
+		});
 	};
 
 	$scope.cancel = function () {

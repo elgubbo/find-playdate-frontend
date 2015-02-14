@@ -8,7 +8,6 @@ angular.module("htdocsApp")
 
 	Messages.setMessage =  function(type, message)
 	{
-		console.log(this.messages);
 		if((type === 'warning' || type === 'error' || type === 'success' || type === 'info') && message) {
 			this.messages.push({type: type, title: message});
 		}
