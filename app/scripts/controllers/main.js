@@ -11,9 +11,7 @@ angular.module('htdocsApp')
     .controller('MainCtrl',['$scope', '$modal', '$routeParams', 'Search', 'PlayDate', 'FlashMessage',  function ($scope, $modal, $routeParams, Search, PlayDate, FlashMessage) {
 
     this.searchService = new Search();
-    this.data = {
-        flashMessages: []
-    };
+    this.flashMessage = FlashMessage;
 
     this.openModal = function (playdate) {
 
@@ -57,8 +55,6 @@ angular.module('htdocsApp')
 
     $scope.$on('$viewContentLoaded', function() {
         console.log('[WELCOME TO FIND-PLAYDATE.COM]');
-        console.log(this);
-        console.log($scope);
         if($routeParams.hash && $routeParams.id){
             PlayDate.getForUpdate({id: $routeParams.id, updateHash: $routeParams.hash}).$promise.then(function (playdate)
             {
