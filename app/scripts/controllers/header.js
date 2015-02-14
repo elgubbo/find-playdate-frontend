@@ -20,6 +20,7 @@ angular.module('htdocsApp')
         templateUrl: 'views/createmodal.html',
         controller: 'CreatemodalCtrl',
         size: 'lg',
+        backdrop: false,
       });
 
       modalInstance.result.then(function (message) {

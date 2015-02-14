@@ -19,6 +19,7 @@ angular.module('htdocsApp')
             templateUrl: 'views/modal.html',
             controller: 'ModalCtrl',
             size: 'lg',
+            backdrop: false,
             resolve: {
                 message : function () {
                     return {to: playdate.name, playdateId: playdate._id};
@@ -36,6 +37,7 @@ angular.module('htdocsApp')
             templateUrl: 'views/updatemodal.html',
             controller: 'UpdatemodalCtrl',
             size: 'lg',
+            backdrop: false,
             resolve: {
                 playdate: function () {
                     return playdate;
