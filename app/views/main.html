@@ -2,6 +2,7 @@
     <div class="messages row">
         <div ng-repeat="message in main.flashMessage.messages" class="message col-sm-12">
             <div class="alert alert-{{message.type}}" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
                 <p ng-bind="message.title"></p>
             </div>
         </div>

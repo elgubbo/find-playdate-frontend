@@ -10,7 +10,7 @@
 angular.module('htdocsApp')
     .controller('MainCtrl',['$scope', '$modal', '$routeParams', 'Search', 'PlayDate', 'FlashMessage',  function ($scope, $modal, $routeParams, Search, PlayDate, FlashMessage) {
 
-    this.searchService = new Search();
+    this.searchService = Search;
     this.flashMessage = FlashMessage;
 
     this.openModal = function (playdate) {
@@ -63,23 +63,4 @@ angular.module('htdocsApp')
         }
         $scope.main.searchService.findPlayDates();
     });
-
-    // //self executing init function
-    // (function() {
-    //     console.log(this);
-    //     // $scope.main.searchService.registerObserverCallback(function(data){
-    //     //     $scope.main.updateSearchData(data);
-    //     // });
-    //     // $scope.main.searchService.registerPushCallback(function(data){
-    //     //     $scope.main.receiveMore(data);
-    //     // });
-    //     console.log('[INIT MAIN]');
-    //     if($routeParams.hash && $routeParams.id){
-    //         PlayDate.getForUpdate({id: $routeParams.id, updateHash: $routeParams.hash}).$promise.then(function (playdate)
-    //         {
-    //           $scope.main.openUpdateModal(playdate, $routeParams.hash);
-    //       });
-    //     }
-    //     $scope.main.searchService.findPlayDates();
-    // })();
 }]);

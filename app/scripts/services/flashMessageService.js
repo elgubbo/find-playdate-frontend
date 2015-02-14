@@ -13,13 +13,6 @@ angular.module("htdocsApp")
 			this.messages.push({type: type, title: message});
 		}
 	};
-	Messages.getMessages =  function()
-	{
-		console.log(this.messages);
-		var ret = this.messages;
-		this.messages = [];
-		return ret;
-	};
 	return Messages;
 
 });
