@@ -8,9 +8,9 @@
  * Controller of the htdocsApp
  */
 angular.module('htdocsApp')
-  .controller('CreatemodalCtrl', function ($scope, $modalInstance, Autocomplete, PlayDate, Search) {
+  .controller('CreatemodalCtrl', function ($scope, $modalInstance, Autocomplete, PlayDate, Search, newPlayDate) {
   	//these will be resolved when opening the modal
-  	$scope.newPlayDate = {};
+  	$scope.newPlayDate = newPlayDate;
   	$scope.playDateMaster = {};
   	$scope.errorMessage = null;
   	$scope.successMessage = null;

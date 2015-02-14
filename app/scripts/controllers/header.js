@@ -14,13 +14,17 @@ angular.module('htdocsApp')
   	this.getLanguage = Autocomplete.getLanguage;
   	this.getRegion = Autocomplete.getRegion;
 
-	this.openCreateModal = function () {
-
+	this.openCreateModal = function (prefill) {
       var modalInstance = $modal.open({
         templateUrl: 'views/createmodal.html',
         controller: 'CreatemodalCtrl',
         size: 'lg',
         backdrop: false,
+        resolve: {
+            newPlayDate : function () {
+                return prefill;
+            },
+        },
       });
 
       modalInstance.result.then(function (message) {
