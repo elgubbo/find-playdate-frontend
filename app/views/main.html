@@ -7,7 +7,7 @@
         </div>
     </div>
     <div id="masonry-container" class="row" masonry>
-        <div ng-repeat="playdate in main.data.playdates track by $index" class="masonry-brick col-xs-12 col-md-3 col-sm-4">
+        <div ng-repeat="playdate in main.searchService.results track by $index" class="masonry-brick col-xs-12 col-md-3 col-sm-4">
             <div class="panel panel-default">
                 <!-- item head -->
                 <div class="panel-heading clearfix">
