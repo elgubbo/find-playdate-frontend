@@ -39,7 +39,7 @@ angular.module('htdocsApp')
 			},
 			function(err){
 				that.saving = false;
-				that.errorMessage = err;
+				that.errorMessage = err.name;
 			}
 		);
 	};
