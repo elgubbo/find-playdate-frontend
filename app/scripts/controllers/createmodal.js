@@ -10,7 +10,7 @@
 angular.module('htdocsApp')
   .controller('CreatemodalCtrl', function ($scope, $modalInstance, Autocomplete, PlayDate, Search, newPlayDate) {
   	//these will be resolved when opening the modal
-  	$scope.newPlayDate = newPlayDate;
+  	$scope.newPlayDate = angular.copy(newPlayDate);
   	$scope.playDateMaster = {};
   	$scope.errorMessage = null;
   	$scope.successMessage = null;
