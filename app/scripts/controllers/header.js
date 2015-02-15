@@ -54,7 +54,7 @@ angular.module('htdocsApp')
 	};
 
 	this.doSearch = function(){
-		if (this.search.game && this.search.getRegion) {
+		if (this.search.game || this.search.geoRegion) {
 			Search.findPlayDates(this.search);
 		} else {
 			FlashMessage.setMessage('warning', 'Please select game and timezone from the dropdowns!');
