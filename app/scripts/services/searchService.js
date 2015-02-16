@@ -51,7 +51,7 @@ angular.module('htdocsApp')
         return PlayDate.query(data).$promise.then(
             function(data){
                 if (data.length === 0) {
-                    FlashMessage.setMessage('info', 'Unfortunately no playdates have been found for your search, be the first to!');
+                    FlashMessage.setMessage('info', 'Unfortunately no playdates have been found for your search. Be the first and add one. Just click "ADD PLAYDATE"!');
                 }
                 that.results = data;
             },
