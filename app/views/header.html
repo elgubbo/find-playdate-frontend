@@ -10,7 +10,7 @@
                       <input
                         type="text"
                         ng-model="header.search.game"
-                        typeahead="game as game.label for game in header.getSteamgame($viewValue)"
+                        typeahead="game as game.label for game in header.getSteamgame($viewValue) | filter:$viewValue | limitTo:40"
                         class="form-control"
                         typeahead-editable="'false'"
                         placeholder="Steamgame?">

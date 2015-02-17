@@ -3,12 +3,13 @@
 angular.module('htdocsApp')
 .factory('Search', function(PlayDate, FlashMessage) {
     var Search = {
+        data : {},
         observerCallbacks : [],
         pushCallbacks : [],
         results : [],
-        page : 1,
         finishedLoading : false,
-        isLoading : false,
+        isLoading : true,
+        lastTime : '',
     };
 
     Search.findByPk = function(id)
@@ -24,20 +25,38 @@ angular.module('htdocsApp')
 
     Search.loadMore = function()
     {
-        if(!this.isLoading && !this.finishedLoading) {
+        if(!this.isLoading) {
+            this.isLoading = true;
+            var lastResult = this.results.slice(-1)[0];
+
+            if (!lastResult) return;
+            this.data.after = lastResult._id;
+            //if this happens, then we are done here
+            if (this.lastTime === this.data.after) {
+                return;
+            }
+
             var that = this;
-            this.page++;
-            this.data.page = this.page;
             //return the this in case someone wants to handle the promise themselves
             PlayDate.query(this.data).$promise.then(
                 function(data){
-                    if(!data.length) {
-                        that.finishedLoading = true;
-                    }
-                    that.pushObservers(data);
+                    that.appendResults(data);
+                    that.lastTime = that.data.after;
+                    that.isLoading = false;
+                },
+                function(err){
+                    console.log(err);
+                    that.isLoading = false;
                 }
             );
         }
+    };
+
+    Search.appendResults = function(items) {
+        var that = this;
+        angular.forEach(items, function(value, key) {
+            that.results.push(value);
+        });
     };
 
     Search.findPlayDates = function(data)
@@ -54,6 +73,7 @@ angular.module('htdocsApp')
                     FlashMessage.setMessage('info', 'Unfortunately no playdates have been found for your search. Be the first and add one. Just click "ADD PLAYDATE"!');
                 }
                 that.results = data;
+                that.isLoading = false;
             },
             function(error) {
                 FlashMessage.setMessage('info', 'Unfortunately there has been an error, please try again later.');

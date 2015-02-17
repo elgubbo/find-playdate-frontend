@@ -73,7 +73,7 @@ module.exports = function (grunt) {
       },
       livereload: {
         options: {
-          open: true,
+          open: 'http://playdate.local',
           middleware: function (connect) {
             return [
               connect.static('.tmp'),
