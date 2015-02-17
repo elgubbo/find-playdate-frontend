@@ -30,8 +30,7 @@ angular.module('htdocsApp')
 		var that = $scope;
 		PlayDate.save($scope.newPlayDate).$promise.then(
 			function(playdate){
-			//success
-				console.log(playdate);
+				//success
 				that.saving = false;
 				that.newPlayDate = angular.copy(that.playDateMaster);
 				Search.findPlayDates({});
@@ -39,7 +38,7 @@ angular.module('htdocsApp')
 			},
 			function(err){
 				that.saving = false;
-				that.errorMessage = err.name;
+				that.errorMessage = 'There has been an error saving your PlayDate. Please contact the admin with the following information: ' + angular.toJson(that.newPlayDate);
 			}
 		);
 	};
