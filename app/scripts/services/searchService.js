@@ -61,7 +61,6 @@ angular.module('htdocsApp')
 
     Search.findPlayDates = function(data)
     {
-
         if(data) {
             this.data = data;
         }

@@ -11,11 +11,12 @@
         id="masonry-container"
         class="row"
         masonry
+        preserve-order
         infinite-scroll='main.searchService.loadMore()'
         infinite-scroll-disabled='main.searchService.isLoading || main.searchService.finished'
         infinite-scroll-distance='1'>
-        <div ng-repeat="playdate in main.searchService.results track by playdate._id" class="masonry-brick col-xs-12 col-md-3 col-sm-4">
-            <div class="panel panel-default">
+        <div ng-repeat="playdate in main.searchService.results track by playdate._id | orderBy:_id" class="masonry-brick col-xs-12 col-md-3 col-sm-4">
+            <div class="panel panel-default possibly-long-text dn-fade">
                 <!-- item head -->
                 <div class="panel-heading clearfix">
                     <h6 class="panel-title pull-left">
@@ -23,12 +24,12 @@
                     </h6>
                 </div>
                 <a href="http://store.steampowered.com/app/{{playdate.game.value}}/" target="_blank">
-                    <div class="tb-shadow panel-content" back-img="{{playdate.game.image_url}}">
+                    <div class="tb-shadow panel-content steam-image" back-img="{{playdate.game.image_url}}">
                         <!-- item content/image -->
-                            <img class="item-image"
+<!--                             <img class="item-image"
                             style="visibility:hidden"
                             ng-src="{{playdate.game.image_url}}" alt="no image"
-                            err-src="{{'http://placehold.it/460x215/f5f5f5&text='+playdate.game.label}}">
+                            err-src="{{'http://placehold.it/460x215/f5f5f5&text='+playdate.game.label}}"> -->
                     </div>
                 </a>
                 <!-- item footer -->
