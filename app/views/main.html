@@ -11,12 +11,11 @@
         id="masonry-container"
         class="row"
         masonry
-        preserve-order
         infinite-scroll='main.searchService.loadMore()'
         infinite-scroll-disabled='main.searchService.isLoading || main.searchService.finished'
         infinite-scroll-distance='1'>
         <div ng-repeat="playdate in main.searchService.results track by playdate._id | orderBy:_id" class="masonry-brick col-xs-12 col-md-3 col-sm-4">
-            <div class="panel panel-default possibly-long-text dn-fade">
+            <div class="panel panel-default possibly-long-text playdate-item">
                 <!-- item head -->
                 <div class="panel-heading clearfix">
                     <h6 class="panel-title pull-left">

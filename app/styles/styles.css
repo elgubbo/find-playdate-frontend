@@ -28,7 +28,7 @@ body{
     -ms-animation: bounceInDown 0.4s;
     animation: bounceInDown 0.4s;
   }
-.amessage.ng-hide-remove.ng-hide-remove-active.ng-leave  {
+.message.ng-hide-remove.ng-hide-remove-active.ng-leave  {
     -webkit-animation: bounceOutUp 0.4s;
     -moz-animation: bounceOutUp 0.4s;
     -ms-animation: bounceOutUp 0.4s;
