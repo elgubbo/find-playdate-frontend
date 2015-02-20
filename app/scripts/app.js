@@ -7,8 +7,8 @@
  *
  * Main module of the application.
  */
-var app = angular
-  .module('findPlayDate', [
+ var app = angular
+ .module('findPlayDate', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -20,81 +20,81 @@ var app = angular
     'wu.masonry',
     'angular-loading-bar',
     'infinite-scroll'
-  ])
-  .config(function ($routeProvider, $locationProvider, $httpProvider) {
+    ])
+ .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
     $routeProvider
-      .when('/', {
+    .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl as main',
-      })
-      .when('/update/:id/:hash', {
+    })
+    .when('/update/:id/:hash', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl as main',
-      })
-      .when('/tos', {
+    })
+    .when('/tos', {
         templateUrl: 'views/tos.html',
-      })
-      .otherwise({
+    })
+    .otherwise({
         redirectTo: '/'
-      });
+    });
 
-      $locationProvider.html5Mode(false);
+    $locationProvider.html5Mode(false);
 
 
-  });
+});
 
-app.factory('PlayDate', function($resource) {
+ app.factory('PlayDate', function($resource) {
 
-  return $resource('/api/playdate/:id/:parname/:updateHash/',
+    return $resource('/api/playdate/:id/:parname/:updateHash/',
     {
-      id: '@id',
-      updateHash: '@updateHash',
+        id: '@id',
+        updateHash: '@updateHash',
     },
     {
-      getForUpdate: {
-        method: 'GET',
-        params: {
-          parname: 'hash',
-          id: '@_id',
-          updateHash: '@updateHash',
+        getForUpdate: {
+            method: 'GET',
+            params: {
+                parname: 'hash',
+                id: '@_id',
+                updateHash: '@updateHash',
+            }
+        },
+        update: {
+            method: 'POST',
+            params: {
+                parname: 'hash',
+                id: '@_id',
+                updateHash: '@updateHash',
+            }
+        },
+        disable: {
+            method: 'DELETE',
+            params: {
+                parname: 'hash',
+                id: '@_id',
+                updateHash: '@updateHash',
+            }
         }
-      },
-      update: {
-        method: 'POST',
-        params: {
-          parname: 'hash',
-          id: '@_id',
-          updateHash: '@updateHash',
-        }
-      },
-      disable: {
-        method: 'DELETE',
-        params: {
-          parname: 'hash',
-          id: '@_id',
-          updateHash: '@updateHash',
-        }
-      }
     });
 });
 
-app.directive('errSrc', function() {
-  return {
-    link: function(scope, element, attrs) {
-      element.bind('error', function() {
-        if (attrs.src !== attrs.errSrc) {
-          attrs.$set('src', attrs.errSrc);
-          element.css('visibility', 'initial');
-          element.css('margin-top', '-53.73%');
+ app.directive('errSrc', function() {
+    return {
+        link: function(scope, element, attrs) {
+            element.bind('error', function() {
+                if (attrs.src !== attrs.errSrc) {
+                    attrs.$set('src', attrs.errSrc);
+                    element.css('visibility', 'initial');
+                    element.css('margin-top', '-53.73%');
+                }
+            });
         }
-      });
-    }
-  };
+    };
 });
 
-app.directive('backImg', function(){
+ app.directive('backImg', function(){
     return function(scope, element, attrs){
         attrs.$observe('backImg', function(value) {
             element.css({
