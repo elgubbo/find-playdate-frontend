@@ -12,6 +12,7 @@ checkout the project: git clone https://github.com/elgubbo/find-playdate-fronten
 
 cd find-playdate-frontend
 
+bower install
 grunt serve
 
  --
