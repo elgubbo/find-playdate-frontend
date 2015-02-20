@@ -1,6 +1,6 @@
 ## What is this?
 
-the frontend for find-playdate.com
+The frontend for find-playdate.com
 
 ## Technologie
 
@@ -9,7 +9,9 @@ Uses angular and some libraries.
 ## Usage/Development
 
 checkout the project: git clone https://github.com/elgubbo/find-playdate-frontend.git
+
 cd find-playdate-frontend
+
 grunt serve
 
  --
