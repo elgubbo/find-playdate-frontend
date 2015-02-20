@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('htdocsApp')
+angular.module('findPlayDate')
 .factory('Search', function(PlayDate, FlashMessage) {
     var Search = {
         data : {},
@@ -36,8 +36,9 @@ angular.module('htdocsApp')
                 return;
             }
 
+            //wtf - scopes in js. i'm not good at this
             var that = this;
-            //return the this in case someone wants to handle the promise themselves
+
             PlayDate.query(this.data).$promise.then(
                 function(data){
                     that.appendResults(data);

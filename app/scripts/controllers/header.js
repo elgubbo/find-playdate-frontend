@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name htdocsApp.controller:HeaderCtrl
+ * @name findPlayDate.controller:HeaderCtrl
  * @description
  * # HeaderCtrl
- * Controller of the htdocsApp
+ * Controller of the findPlayDate
  */
-angular.module('htdocsApp')
+angular.module('findPlayDate')
   .controller('HeaderCtrl', function ($scope, $http, $modal, PlayDate, Search, Autocomplete, FlashMessage) {
   	this.search = {};
   	this.getSteamgame = Autocomplete.getSteamgame;

@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name htdocsApp.controller:CreatemodalCtrl
+ * @name findPlayDate.controller:CreatemodalCtrl
  * @description
  * # CreatemodalCtrl
- * Controller of the htdocsApp
+ * Controller of the findPlayDate
  */
-angular.module('htdocsApp')
+angular.module('findPlayDate')
   .controller('CreatemodalCtrl', function ($scope, $modalInstance, Autocomplete, PlayDate, Search, newPlayDate) {
   	//these will be resolved when opening the modal
   	$scope.newPlayDate = angular.copy(newPlayDate);

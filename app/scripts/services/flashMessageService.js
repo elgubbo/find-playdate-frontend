@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module("htdocsApp")
+angular.module("findPlayDate")
 .factory('FlashMessage', function() {
 	var Messages = {
 		messages : [],

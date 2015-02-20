@@ -15,7 +15,7 @@
         infinite-scroll='main.searchService.loadMore()'
         infinite-scroll-disabled='main.searchService.isLoading || main.searchService.finished'
         infinite-scroll-distance='1'>
-        <div ng-repeat="playdate in main.searchService.results track by playdate._id | orderBy:created" class="masonry-brick col-xs-12 col-md-3 col-sm-4">
+        <div ng-repeat="playdate in main.searchService.results track by playdate._id | orderBy:name" class="masonry-brick col-xs-12 col-md-3 col-sm-4">
             <div class="panel panel-default possibly-long-text playdate-item">
                 <!-- item head -->
                 <div class="panel-heading clearfix">
@@ -23,11 +23,11 @@
                         {{playdate.name}} would like to play
                     </h6>
                 </div>
-                <a href="http://store.steampowered.com/app/{{playdate.game.value}}/" target="_blank">
+                <a href="http://steamcommunity.com/app/{{playdate.game.vlaue}}/" target="_blank">
                     <div class="tb-shadow panel-content steam-image" back-img="{{playdate.game.image_url}}">
-                             <img class="item-image tb-shadow"
-                             style="visibility:hidden"
-                             ng-src="{{playdate.game.image_url}}" alt="no image"
+                        <img class="item-image tb-shadow"
+                            style="visibility:hidden"
+                            ng-src="{{playdate.game.image_url}}" alt="no image"
                             err-src="{{'http://placehold.it/460x215/f5f5f5&text='+playdate.game.label}}">
                     </div>
                 </a>

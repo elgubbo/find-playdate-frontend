@@ -1,14 +1,14 @@
 'use strict';
 /**
  * @ngdoc overview
- * @name htdocsApp
+ * @name findPlayDate
  * @description
- * # htdocsApp
+ * # findPlayDate
  *
  * Main module of the application.
  */
 var app = angular
-  .module('htdocsApp', [
+  .module('findPlayDate', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -30,10 +30,6 @@ var app = angular
         controller: 'MainCtrl as main',
       })
       .when('/update/:id/:hash', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl as main',
-      })
-      .when('/delete/:id/:hash', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl as main',
       })

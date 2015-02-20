@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('htdocsApp')
+angular.module('findPlayDate')
 .factory('Autocomplete', function($http) {
     var autocomplete = {
 
@@ -13,19 +13,6 @@ angular.module('htdocsApp')
             }).then(function(response){
                 return response.data;
             });
-        },
-
-        //getters for autocomplete fields
-        getLanguage : function(val) {
-            if(val && val.length > 2) {
-                return $http.get('/api/languages', {
-                  params: {
-                    q: val,
-                  }
-                }).then(function(response){
-                    return response.data;
-                });
-            }
         },
 
         getRegion : function(val) {

@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name htdocsApp.controller:ModalCtrl
+ * @name findPlayDate.controller:ModalCtrl
  * @description
  * # ModalCtrl
- * Controller of the htdocsApp
+ * Controller of the findPlayDate
  */
-angular.module('htdocsApp')
+angular.module('findPlayDate')
   .controller('ModalCtrl', function ($scope, $http, $modalInstance, message) {
   	$scope.message = message;
   	$scope.errorMessage = null;

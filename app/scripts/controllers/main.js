@@ -2,12 +2,12 @@
 
 /**
 * @ngdoc function
-* @name htdocsApp.controller:MainCtrl
+* @name findPlayDate.controller:MainCtrl
 * @description
 * # MainCtrl
-* Controller of the htdocsApp
+* Controller of the findPlayDate
 */
-angular.module('htdocsApp')
+angular.module('findPlayDate')
     .controller('MainCtrl',['$scope', '$modal', '$routeParams', 'Search', 'PlayDate', 'FlashMessage',  function ($scope, $modal, $routeParams, Search, PlayDate, FlashMessage) {
 
     this.searchService = Search;

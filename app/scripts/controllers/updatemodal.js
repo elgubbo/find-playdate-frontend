@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name htdocsApp.controller:UpdatemodalCtrl
+ * @name findPlayDate.controller:UpdatemodalCtrl
  * @description
  * # UpdatemodalCtrl
- * Controller of the htdocsApp
+ * Controller of the findPlayDate
  */
-angular.module('htdocsApp')
+angular.module('findPlayDate')
   .controller('UpdatemodalCtrl', function ($scope, $modalInstance, playdate, updateHash, Autocomplete, $location) {
   	//these will be resolved when opening the modal
   	$scope.playdate = playdate;
