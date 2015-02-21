@@ -10,10 +10,10 @@
                       <input
                         type="text"
                         ng-model="header.search.game"
+                        ng-model-options="{ updateOn: 'default keyup blur' }"
                         typeahead="game as game.label for game in header.getSteamgame($viewValue)"
                         class="form-control"
                         typeahead-editable="'false'"
-                        typeahead-append-to-body="true"
                         placeholder="Steamgame?">
                         <span class="input-group-addon">
                             <span class="fa fa-gamepad"></span>
@@ -25,9 +25,9 @@
                       <input
                         type="text"
                         ng-model="header.search.geoRegion"
+                        ng-model-options="{ updateOn: 'default keyup blur' }"
                         typeahead="region as region.label for region in header.getRegion($viewValue)"
                         class="form-control"
-                        typeahead-append-to-body="true"
                         typeahead-editable="'false'"
                         placeholder="Your timezone?">
                         <span class="input-group-addon">
