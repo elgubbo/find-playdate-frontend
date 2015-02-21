@@ -10,9 +10,10 @@
                       <input
                         type="text"
                         ng-model="header.search.game"
-                        typeahead="game as game.label for game in header.getSteamgame($viewValue) | filter:$viewValue | limitTo:40"
+                        typeahead="game as game.label for game in header.getSteamgame($viewValue)"
                         class="form-control"
                         typeahead-editable="'false'"
+                        typeahead-append-to-body="true"
                         placeholder="Steamgame?">
                         <span class="input-group-addon">
                             <span class="fa fa-gamepad"></span>
@@ -26,6 +27,7 @@
                         ng-model="header.search.geoRegion"
                         typeahead="region as region.label for region in header.getRegion($viewValue)"
                         class="form-control"
+                        typeahead-append-to-body="true"
                         typeahead-editable="'false'"
                         placeholder="Your timezone?">
                         <span class="input-group-addon">

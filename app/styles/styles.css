@@ -151,3 +151,7 @@ body{
   height: 6px;
   background: orange;
 }
+
+.modal-open {
+  overflow: auto;
+}
