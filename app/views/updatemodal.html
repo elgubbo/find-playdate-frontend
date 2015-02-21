@@ -6,68 +6,72 @@
             <fieldset ng-disabled="saving">
                 <div class="row mt-5">
                     <div class="col-md-12">
-                        <div class="form-group">
-                            <div class="input-group" ng-class="{'has-error': updateForm.game.$error.required&&updateForm.game.$dirty}">
-                              <input
-                                required
-                                type="text"
-                                ng-model="playdate.game"
-                                name="game"
-                                typeahead="game as game.label for game in getSteamgame($viewValue)"
-                                class="form-control"
-                                typeahead-editable="'false'"
-                                placeholder="Steamgame?">
-                                <span class="input-group-addon">
-                                    <span class="fa fa-gamepad"></span>
-                                </span>
+                        <div class="row">
+                            <div class="form-group col-md-6 col-sm-12">
+                                <div class="input-group" ng-class="{'has-error': updateForm.game.$error.required&&updateForm.game.$dirty}">
+                                  <input
+                                    required
+                                    type="text"
+                                    ng-model="playdate.game"
+                                    name="game"
+                                    typeahead="game as game.label for game in getSteamgame($viewValue)"
+                                    class="form-control"
+                                    typeahead-editable="'false'"
+                                    placeholder="Steamgame?">
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-gamepad"></span>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group" ng-class="{'has-error': updateForm.georegion.$error.required&&updateForm.georegion.$dirty}">
-                            <div class="input-group">
-                              <input
-                                required
-                                type="text"
-                                ng-model="playdate.geoRegion"
-                                name="georegion"
-                                typeahead="region as region.label for region in getRegion($viewValue)"
-                                class="form-control"
-                                typeahead-editable="'false'"
-                                placeholder="Your timezone?">
-                                <span class="input-group-addon">
-                                    <span class="fa fa-globe"></span>
-                                </span>
+                            <div class="form-group col-md-6 col-sm-12" ng-class="{'has-error': updateForm.georegion.$error.required&&updateForm.georegion.$dirty}">
+                                <div class="input-group">
+                                  <input
+                                    required
+                                    type="text"
+                                    ng-model="playdate.geoRegion"
+                                    name="georegion"
+                                    typeahead="region as region.label for region in getRegion($viewValue)"
+                                    class="form-control"
+                                    typeahead-editable="'false'"
+                                    placeholder="Your timezone?">
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-globe"></span>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="row mt-5">
                     <div class="col-md-12">
-                        <div class="form-group" ng-class="{'has-error': updateForm.name.$error.required&&updateForm.name.$dirty}">
-                            <div class="input-group">
-                              <input
-                                required
-                                type="text"
-                                class="form-control"
-                                ng-model="playdate.name"
-                                name="name"
-                                placeholder="Your (ingame) Name?">
-                                <span class="input-group-addon">
-                                    <span class="fa fa-user"></span>
-                                </span>
+                        <div class="row">
+                            <div class="form-group col-md-6 col-sm-12" ng-class="{'has-error': updateForm.name.$error.required&&updateForm.name.$dirty}">
+                                <div class="input-group">
+                                  <input
+                                    required
+                                    type="text"
+                                    class="form-control"
+                                    ng-model="playdate.name"
+                                    name="name"
+                                    placeholder="Your (ingame) Name?">
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-user"></span>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group" ng-class="{'has-error': (updateForm.email.$error.required||updateForm.email.$error.emai)&&updateForm.email.$dirty}">
-                            <div class="input-group">
-                              <input
-                                required
-                                type="email"
-                                class="form-control"
-                                ng-model="playdate.email"
-                                name="email"
-                                placeholder="Your e-mail?">
-                                <span class="input-group-addon">
-                                    <span class="fa fa-at"></span>
-                                </span>
+                            <div class="form-group col-md-6 col-sm-12" ng-class="{'has-error': (updateForm.email.$error.required||updateForm.email.$error.emai)&&updateForm.email.$dirty}">
+                                <div class="input-group">
+                                  <input
+                                    required
+                                    type="email"
+                                    class="form-control"
+                                    ng-model="playdate.email"
+                                    name="email"
+                                    placeholder="Your e-mail?">
+                                    <span class="input-group-addon">
+                                        <span class="fa fa-at"></span>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -98,9 +102,7 @@
     </div>
 </div>
 <div class="modal-footer">
-    <div class="row">
-        <button class="btn btn-warning" ng-click="delete()">Delete PlayDate <span class="fa fa-trash"></span> </button>
-    </div>
+    <button class="btn btn-danger" ng-click="delete()">Delete <span class="fa fa-trash"></span> </button>
     <button class="btn btn-primary" ng-click="save()">Save <span class="fa fa-save"></span></button>
     <button class="btn btn-warning" ng-click="cancel()">Cancel <span class="fa fa-close"></span> </button>
 </div>
