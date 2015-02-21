@@ -12,6 +12,7 @@
                                 required
                                 type="text"
                                 ng-model="newPlayDate.game"
+                                ng-model-options="{ updateOn: 'default keyup blur' }"
                                 name="game"
                                 typeahead="game as game.label for game in getSteamgame($viewValue)"
                                 class="form-control"
@@ -28,6 +29,7 @@
                                 required
                                 type="text"
                                 ng-model="newPlayDate.geoRegion"
+                                ng-model-options="{ updateOn: 'default keyup blur' }"
                                 name="georegion"
                                 typeahead="region as region.label for region in getRegion($viewValue)"
                                 class="form-control"
