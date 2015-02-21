@@ -17,22 +17,23 @@ body{
   	padding-top:0px; /*padding for navbar*/
 }
 
-.animate-show.ng-hide-add.ng-hide-add-active,
-.animate-show.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition:all linear 0.5s;
-  transition:all linear 0.5s;
+.masonry-brick.ng-enter {
+  opacity: 0 ;
+  transition: all ease 250ms ;
 }
-.message.ng-hide-add.ng-hide-add-active.ng-enter{
-    -webkit-animation: bounceInDown 0.4s;
-    -moz-animation: bounceInDown 0.4s;
-    -ms-animation: bounceInDown 0.4s;
-    animation: bounceInDown 0.4s;
-  }
-.message.ng-hide-remove.ng-hide-remove-active.ng-leave  {
-    -webkit-animation: bounceOutUp 0.4s;
-    -moz-animation: bounceOutUp 0.4s;
-    -ms-animation: bounceOutUp 0.4s;
-    animation: bounceOutUp 0.4s;
+.masonry-brick.ng-enter-stagger {
+  transition-delay: 0.1s ;
+    -webkit-transition-delay: 0.1s ;
+  /*
+    FROM THE DOCUMENTATION:
+    In case the stagger doesn't work then these two values must be set
+    to 0 to avoid an accidental CSS inheritance.
+  */
+  transition-duration: 0s ;
+    -webkit-transition-duration: 0s ;
+}
+.masonry-brick.ng-enter-active {
+  opacity: 1.0 ;
 }
 
 #header-brand {
