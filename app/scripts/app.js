@@ -19,7 +19,8 @@
     'ngTagsInput',
     'wu.masonry',
     'angular-loading-bar',
-    'infinite-scroll'
+    'infinite-scroll',
+    'modeloptions'
     ])
  .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
