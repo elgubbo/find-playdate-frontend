@@ -19,6 +19,36 @@
     $scope.getLanguage = Autocomplete.getLanguage;
     $scope.getRegion = Autocomplete.getRegion;
 
+    $scope.validateAttributes = [
+        {'game' :
+            {
+                gameValidator : 'Select a game from the Dropdown',
+                required : 'You have not entered a game'
+            }
+
+        },
+        {'geoRegion' :
+            {
+                regionValidator : 'Select a region from the Dropdown',
+                required : 'You have not entered a region'
+            }
+
+        },
+        {'email' :
+            {
+                required : 'You have not entered a email',
+                email: 'This is not a valid e-mail address'
+            }
+
+        },
+        {'name' :
+            {required : 'You have not entered a name'}
+        },
+        {'additional' :
+            {required : 'You have not entered additional info'}
+        },
+    ];
+
     $scope.save = function () {
         if(!$scope.createForm.$dirty || !$scope.createForm.$valid) {
             $scope.errorMessage = "Please fill out all fields and try again";

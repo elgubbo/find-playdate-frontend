@@ -1,39 +1,37 @@
-<div class="modal-header" ng-class="{'bg-danger': errorMessage}" ng-bind="errorMessage">
-</div>
 <div class="modal-body">
-	<div class="modal-form">
+    <div class="modal-form">
         <form class="form-inline" name="createForm" novalidate>
             <fieldset ng-disabled="saving">
                 <div class="row mt-5">
                     <div class="col-md-12">
-                        <div class="form-group">
-                            <div class="input-group" ng-class="{'has-error': createForm.game.$error.required&&createForm.game.$dirty}">
+                        <div class="form-group" ng-class="{'has-error': createForm.game.$invalid&&createForm.game.$touched}">
+                            <div class="input-group">
                               <input
-                                required
+                                name="game"
                                 type="text"
                                 ng-model="newPlayDate.game"
                                 ng-model-options="{ updateOn: 'default keyup blur' }"
-                                name="game"
                                 typeahead="game as game.label for game in getSteamgame($viewValue)"
-                                class="form-control"
                                 typeahead-editable="'false'"
+                                game-validator
+                                class="form-control"
                                 placeholder="Steamgame?">
                                 <span class="input-group-addon">
                                     <span class="fa fa-gamepad"></span>
                                 </span>
                             </div>
                         </div>
-                        <div class="form-group" ng-class="{'has-error': createForm.georegion.$error.required&&createForm.georegion.$dirty}">
+                        <div class="form-group" ng-class="{'has-error': createForm.geoRegion.$invalid&&createForm.geoRegion.$touched}">
                             <div class="input-group">
                               <input
-                                required
+                                name="geoRegion"
                                 type="text"
                                 ng-model="newPlayDate.geoRegion"
                                 ng-model-options="{ updateOn: 'default keyup blur' }"
-                                name="georegion"
                                 typeahead="region as region.label for region in getRegion($viewValue)"
-                                class="form-control"
                                 typeahead-editable="'false'"
+                                region-validator
+                                class="form-control"
                                 placeholder="Your timezone?">
                                 <span class="input-group-addon">
                                     <span class="fa fa-globe"></span>
@@ -44,7 +42,7 @@
                 </div>
                 <div class="row mt-5">
                     <div class="col-md-12">
-                        <div class="form-group" ng-class="{'has-error': createForm.name.$error.required&&createForm.name.$dirty}">
+                        <div class="form-group" ng-class="{'has-error': createForm.name.$invalid&&createForm.name.$touched}">
                             <div class="input-group">
                               <input
                                 required
@@ -58,7 +56,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="form-group" ng-class="{'has-error': (createForm.email.$error.required||createForm.email.$error.emai)&&createForm.email.$dirty}">
+                        <div class="form-group" ng-class="{'has-error': createForm.email.$invalid&&createForm.email.$touched}">
                             <div class="input-group">
                               <input
                                 required
@@ -77,7 +75,7 @@
                 <div class="add-form">
                     <div class="row">
                         <div class="form-group col-md-12 mt-5"
-                            ng-class="{'has-error': createForm.additional.$error.required&&createForm.additional.$dirty}">
+                            ng-class="{'has-error': createForm.additional.$invalid&&createForm.additional.$touched}">
                             <div class="input-group">
                                 <textarea
                                     required
@@ -97,7 +95,16 @@
                 </div>
             </fieldset>
         </form>
-	</div>
+    </div>
+</div>
+<div class="modal-header">
+    <div class="messages" ng-repeat="(attr, messages) in validateAttributes">
+        <div class="message row" ng-repeat="(err, msgs) in messages">
+            <div class="cases bg-danger col-sm-12" ng-repeat="(errAttr, value) in createForm[err].$error" ng-show="value&&createForm[err].$touched">
+                {{msgs[errAttr]}}
+            </div>
+        </div>
+    </div>
 </div>
 <div class="modal-footer">
     <button class="btn btn-primary" ng-click="save()">Save <span class="fa fa-save"></span></button>

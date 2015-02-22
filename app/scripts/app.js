@@ -14,6 +14,7 @@
     'ngResource',
     'ngRoute',
     'ngSanitize',
+    'ngMessages',
     'ngTouch',
     'ui.bootstrap',
     'ngTagsInput',
@@ -104,3 +105,42 @@
         });
     };
 });
+
+//Validators
+
+  app.directive('gameValidator', function() {
+    return {
+      require : 'ngModel',
+      link : function($scope, element, attrs, ngModel) {
+        ngModel.$validators.gameValidator = function(value) {
+          var status = true;
+          if (!angular.isObject(value)) {
+            status = false;
+          } else {
+            if ((!value.value)) {
+                status = false;
+            }
+          }
+          return status;
+        };
+      }
+    };
+  });
+  app.directive('regionValidator', function() {
+    return {
+      require : 'ngModel',
+      link : function($scope, element, attrs, ngModel) {
+        ngModel.$validators.regionValidator = function(value) {
+          var status = true;
+          if (!angular.isObject(value)) {
+            status = false;
+          } else {
+            if (!(value.value)) {
+                status = false;
+            }
+          }
+          return status;
+        };
+      }
+    };
+  });
