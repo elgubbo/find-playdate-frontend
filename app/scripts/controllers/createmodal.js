@@ -8,7 +8,7 @@
  * Controller of the findPlayDate
  */
  angular.module('findPlayDate')
- .controller('CreatemodalCtrl', function ($scope, $modalInstance, Autocomplete, PlayDate, Search, newPlayDate) {
+ .controller('CreatemodalCtrl', function ($scope, $modalInstance, Autocomplete, PlayDate, Search, newPlayDate, FlashMessage) {
     //these will be resolved when opening the modal
     $scope.newPlayDate = angular.copy(newPlayDate);
     $scope.playDateMaster = {};
@@ -36,13 +36,13 @@
         },
         {'email' :
             {
-                required : 'You have not entered a email',
-                email: 'This is not a valid e-mail address'
+                required : 'You have not entered an email',
+                pattern: 'This is not a valid e-mail address'
             }
 
         },
         {'name' :
-            {required : 'You have not entered a name'}
+            {required : 'You must enter a name'}
         },
         {'additional' :
             {required : 'You have not entered additional info'}
@@ -50,7 +50,7 @@
     ];
 
     $scope.save = function () {
-        if(!$scope.createForm.$dirty || !$scope.createForm.$valid) {
+        if($scope.createForm.$invalid) {
             $scope.errorMessage = "Please fill out all fields and try again";
             return;
         }
@@ -68,13 +68,43 @@
             },
             function(err){
                 that.saving = false;
-                that.errorMessage = 'There has been an error saving your PlayDate. Please contact the admin with the following information: ' + angular.toJson(that.newPlayDate);
+                FlashMessage.setMessage('warning', err.data);
             }
             );
+    };
+
+    $scope.goToSearch = function() {
+        console.log('createmodal gotosearch');
+        $modalInstance.close($scope.searchQuery);
     };
 
     $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
     };
+
+    //this
+    $scope.$watch('newPlayDate', function(newVal, oldVal) {
+        if (newVal) {
+            if (newVal.game && newVal.geoRegion) {
+                if (oldVal.game && oldVal.geoRegion) {
+                    if (angular.equals(oldVal.game, newVal.game) && angular.equals(oldVal.geoRegion, newVal.geoRegion)) {
+                        //nothing to do here, search has not changed
+                        return;
+                    }
+                }
+                var search = {game : newVal.game, geoRegion: newVal.geoRegion};
+                PlayDate.query(search).$promise.then(
+                    function(data){
+                        if (data.length > 0) {
+                            $scope.searchQuery = search;
+                        } else {
+                            $scope.searchQuery = null;
+                        }
+                    }
+                );
+            }
+        }
+    }, true);
+
 
 });

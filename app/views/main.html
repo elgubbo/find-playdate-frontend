@@ -15,7 +15,7 @@
         infinite-scroll='main.searchService.loadMore()'
         infinite-scroll-disabled='main.searchService.isLoading || main.searchService.finished'
         infinite-scroll-distance='1'>
-        <div ng-repeat="playdate in main.searchService.results track by playdate._id | orderBy:name" class="masonry-brick col-xs-12 col-md-3 col-sm-4 my-animation">
+        <div ng-repeat="playdate in main.searchService.results track by playdate._id | orderBy:name" class="masonry-brick col-xs-12 col-md-3 col-sm-4">
             <div class="panel panel-default possibly-long-text playdate-item">
                 <!-- item head -->
                 <div class="panel-heading clearfix">

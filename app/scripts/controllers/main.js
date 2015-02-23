@@ -28,6 +28,7 @@ angular.module('findPlayDate')
         });
 
       modalInstance.result.then(function (message) {
+        FlashMessage.setMessage(message);
       });
     };
 

@@ -20,14 +20,14 @@ angular.module('findPlayDate')
         // Simple POST request example (passing data) :
         $http.post('api/message', $scope.message, {params: {'playdate_id': message.playdateId}}).
           success(function() {
-            $modalInstance.close();
+            $modalInstance.dismiss('Your message was sent successfully.');
         }).error(function(err) {
             $scope.errorMessage = err;
         });
     };
 
     $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
+        $modalInstance.dismiss('There has been an error. Please try again later.');
     };
 
   });

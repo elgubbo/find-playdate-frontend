@@ -4,7 +4,7 @@
             <fieldset ng-disabled="saving">
                 <div class="row mt-5">
                     <div class="col-md-12">
-                        <div class="form-group" ng-class="{'has-error': createForm.game.$invalid&&createForm.game.$touched}">
+                        <div class="form-group" ng-class="{'has-error': createForm.game.$invalid&&createForm.game.$touched, 'has-success' : createForm.game.$valid}">
                             <div class="input-group">
                               <input
                                 name="game"
@@ -21,7 +21,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="form-group" ng-class="{'has-error': createForm.geoRegion.$invalid&&createForm.geoRegion.$touched}">
+                        <div class="form-group" ng-class="{'has-error': createForm.geoRegion.$invalid&&createForm.geoRegion.$touched, 'has-success' : createForm.geoRegion.$valid}">
                             <div class="input-group">
                               <input
                                 name="geoRegion"
@@ -42,7 +42,7 @@
                 </div>
                 <div class="row mt-5">
                     <div class="col-md-12">
-                        <div class="form-group" ng-class="{'has-error': createForm.name.$invalid&&createForm.name.$touched}">
+                        <div class="form-group" ng-class="{'has-error': createForm.name.$invalid&&createForm.name.$touched, 'has-success' : createForm.name.$valid}">
                             <div class="input-group">
                               <input
                                 required
@@ -56,13 +56,14 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="form-group" ng-class="{'has-error': createForm.email.$invalid&&createForm.email.$touched}">
+                        <div class="form-group" ng-class="{'has-error': createForm.email.$invalid&&createForm.email.$touched, 'has-success' : createForm.email.$valid}">
                             <div class="input-group">
                               <input
                                 required
                                 type="email"
                                 class="form-control"
                                 ng-model="newPlayDate.email"
+                                ng-pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/"
                                 name="email"
                                 placeholder="Your e-mail?">
                                 <span class="input-group-addon">
@@ -75,7 +76,7 @@
                 <div class="add-form">
                     <div class="row">
                         <div class="form-group col-md-12 mt-5"
-                            ng-class="{'has-error': createForm.additional.$invalid&&createForm.additional.$touched}">
+                            ng-class="{'has-error': createForm.additional.$invalid&&createForm.additional.$touched, 'has-success' : createForm.additional.$valid}">
                             <div class="input-group">
                                 <textarea
                                     required
@@ -99,14 +100,19 @@
 </div>
 <div class="modal-header">
     <div class="messages" ng-repeat="(attr, messages) in validateAttributes">
-        <div class="message row" ng-repeat="(err, msgs) in messages">
-            <div class="cases bg-danger col-sm-12" ng-repeat="(errAttr, value) in createForm[err].$error" ng-show="value&&createForm[err].$touched">
+        <div class="message row bg-danger"   ng-repeat="(err, msgs) in messages">
+            <div class="cases col-sm-10 col-sm-offset-1" ng-repeat="(errAttr, value) in createForm[err].$error" ng-show="value&&createForm[err].$touched">
                 {{msgs[errAttr]}}
             </div>
         </div>
     </div>
+    <div class="row bg-info clickable" ng-if="searchQuery">
+        <div class="col-sm-10 col-sm-offset-1" ng-click="goToSearch()">
+            There are PlayDates that match your game and timezone. Click here if you want to show them instead of adding a new Playdate.
+        </div>
+    </div>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="save()">Save <span class="fa fa-save"></span></button>
+    <button class="btn btn-primary" ng-disabled="createForm.$pristine" ng-click="save()">Save <span class="fa fa-save"></span></button>
     <button class="btn btn-warning" ng-click="cancel()">Cancel <span class="fa fa-close"></span> </button>
 </div>
