@@ -18,7 +18,6 @@
     $scope.getSteamgame = Autocomplete.getSteamgame;
     $scope.getLanguage = Autocomplete.getLanguage;
     $scope.getRegion = Autocomplete.getRegion;
-
     $scope.validateAttributes = [
         {'game' :
             {
@@ -31,6 +30,13 @@
             {
                 regionValidator : 'Select a region from the Dropdown',
                 required : 'You have not entered a region'
+            }
+
+        },
+        {'preferences.language' :
+            {
+                regionValidator : 'Select a language from the Dropdown',
+                required : 'You have not entered a language'
             }
 
         },

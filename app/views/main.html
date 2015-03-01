@@ -35,10 +35,18 @@
                 <div class="panel-footer">
                     <div class="item-footer" style="word-wrap: break-word">
                         <dl>
-                            <dt>Message</dt>
                             <dd>{{playdate.description}}</dd>
                             <dt>Timezone</dt>
                             <dd>{{playdate.geoRegion.label}}</dd>
+                            <dt ng-if="playdate.preferences && playdate.preferences.language">Language</dt>
+                            <dd>{{playdate.preferences.language.label}}</dd>
+                            <dt ng-if="playdate.preferences && (playdate.preferences.microphone || playdate.preferences.group)">Preferences</dt>
+                            <dd>
+                                <span ng-if="playdate.preferences.group"><i class="fa fa-group"></i> <span>A group of people wants to play</span></span>
+                            </dd>
+                            <dd>
+                                <span ng-if="playdate.preferences.microphone"><i class="fa fa-microphone"></i> <span>A microphone is required</span></span>
+                            </dd>
                         </dl>
                         <div class="row">
                             <button ng-click="main.openModal(playdate)" type="button" class="btn btn-primary btn-block">Message {{playdate.name}}</button>

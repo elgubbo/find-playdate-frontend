@@ -27,19 +27,19 @@
         },
     });
 
-      modalInstance.result.then(function (message) {
+    modalInstance.result.then(function (message) {
         console.log("[MODAL WAS CLOSED]");
         $scope.header.search = message;
         $scope.header.doSearch();
-    });
-  };
+        });
+    };
 
-  this.resetSearch = function() {
-    if (!angular.equals(this.search, {})) {
-        this.search = {};
-        Search.findPlayDates({});
-    }
-  };
+    this.resetSearch = function() {
+        if (!angular.equals(this.search, {})) {
+            this.search = {};
+            Search.findPlayDates({});
+        }
+    };
 
     this.savePlayDate = function() {
         this.saving = true;
@@ -61,11 +61,21 @@
         );
     };
     this.doSearch = function() {
-        if (this.search.game || this.search.geoRegion) {
+        if (this.search.game || this.search.geoRegion || this.search.preferences.language.label || this.search.preferences.microphone || this.search.preferences.group) {
             Search.findPlayDates(this.search);
         } else {
             FlashMessage.setMessage('warning', 'Please select game and timezone from the dropdowns!');
         }
     };
 
+    //compile valid search for each field that gets completed
+    $scope.$watch('header.search', function(newVal, oldVal){
+        var tempSearch = {};
+        angular.forEach(newVal, function(value, key) {
+            if (typeof value === 'object') {
+                tempSearch[key] = value;
+            }
+        });
+        Search.findPlayDates(tempSearch);
+    }, true);
 });

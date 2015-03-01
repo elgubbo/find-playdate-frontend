@@ -33,7 +33,7 @@ angular.module('findPlayDate')
     };
 
     this.openUpdateModal = function (playdate, mUpdateHash) {
-
+        console.log(playdate);
         var modalInstance = $modal.open({
             templateUrl: 'views/updatemodal.html',
             controller: 'UpdatemodalCtrl',
@@ -51,7 +51,7 @@ angular.module('findPlayDate')
 
         modalInstance.result.then(function (message) {
             if(message === 'success') {
-                this.searchService.findPlayDates({});
+                $scope.main.searchService.findPlayDates();
             }
         });
     };
