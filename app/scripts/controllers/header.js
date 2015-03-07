@@ -61,7 +61,7 @@
         );
     };
     this.doSearch = function() {
-        if (this.search.game || this.search.geoRegion || this.search.preferences.language.label || this.search.preferences.microphone || this.search.preferences.group) {
+        if (this.search.game || this.search.geoRegion || this.search.preferences.language.label) {
             Search.findPlayDates(this.search);
         } else {
             FlashMessage.setMessage('warning', 'Please select game and timezone from the dropdowns!');
@@ -72,8 +72,15 @@
     $scope.$watch('header.search', function(newVal, oldVal){
         var tempSearch = {};
         angular.forEach(newVal, function(value, key) {
+            console.log(value);
             if (typeof value === 'object') {
-                tempSearch[key] = value;
+                if (value.hasOwnProperty('language')) {
+                    if (typeof value.language === 'object') {
+                        tempSearch[key] = value;
+                    }
+                } else {
+                    tempSearch[key] = value;
+                }
             }
         });
         Search.findPlayDates(tempSearch);

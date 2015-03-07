@@ -80,7 +80,6 @@
     };
 
     $scope.goToSearch = function() {
-        console.log('createmodal gotosearch');
         $modalInstance.close($scope.searchQuery);
     };
 

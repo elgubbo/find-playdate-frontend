@@ -69,10 +69,15 @@ body{
 }
 
 #header{
+  margin-left: 5px;
 /*    margin: 5px;
   background-color:#fff;
     border: 1px solid;
     padding: 5px;*/
+}
+
+#header .form-group {
+  padding-right: 0px;
 }
 
 #search-form {
@@ -121,8 +126,8 @@ body{
   margin-right: 5px;
 }
 .search-row {
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 #footer {

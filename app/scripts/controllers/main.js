@@ -64,6 +64,6 @@ angular.module('findPlayDate')
               $scope.main.openUpdateModal(playdate, $routeParams.hash);
           });
         }
-        $scope.main.searchService.findPlayDates();
+        // $scope.main.searchService.findPlayDates();
     });
 }]);
