@@ -1,5 +1,6 @@
 <div class="container-fluid" ng-controller="HeaderCtrl as header">
-    <div id="header" class="navbar navbar-fixed-top" headroom>
+    <div id="topanchor"></div>
+    <div id="header" class="navbar navbar-fixed-top" headroom tolearance="15" offset="15">
         <div class="navbar-inner">
             <div class="col-md-1 col-xs-12 col-sm-3">
                   <a class="navbar-brand" id="header-brand" href="#/" ng-click="header.resetSearch()"><span class="bigfont orange">Play</span><span class="bigfont">Date</span></a>

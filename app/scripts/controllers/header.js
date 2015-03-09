@@ -8,7 +8,7 @@
  * Controller of the findPlayDate
  */
  angular.module('findPlayDate')
- .controller('HeaderCtrl', function ($scope, $http, $modal, PlayDate, Search, Autocomplete, FlashMessage, $rootScope) {
+ .controller('HeaderCtrl', function ($scope, $http, $modal, PlayDate, Search, Autocomplete, FlashMessage, $rootScope, $anchorScroll, $location) {
     this.search = {};
     this.getSteamgame = Autocomplete.getSteamgame;
     this.getLanguage = Autocomplete.getLanguage;
@@ -72,7 +72,6 @@
     $scope.$watch('header.search', function(newVal, oldVal){
         var tempSearch = {};
         angular.forEach(newVal, function(value, key) {
-            console.log(value);
             if (typeof value === 'object') {
                 if (value.hasOwnProperty('language')) {
                     if (typeof value.language === 'object') {
@@ -84,5 +83,11 @@
             }
         });
         Search.findPlayDates(tempSearch);
+        if (!angular.equals({}, tempSearch)) {
+            var old = $location.hash();
+            $location.hash('topanchor');
+            $anchorScroll();
+            $location.hash(old);
+        }
     }, true);
 });
