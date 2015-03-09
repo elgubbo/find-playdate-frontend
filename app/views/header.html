@@ -1,63 +1,65 @@
-<div id="header" class="navbar navbar-default" ng-controller="HeaderCtrl as header">
-    <div class="navbar-inner row">
-        <div class="col-md-1 col-xs-12 col-sm-3">
-              <a class="navbar-brand" id="header-brand" href="#/" ng-click="header.resetSearch()"><span class="bigfont orange">Play</span><span class="bigfont">Date</span></a>
-        </div>
-        <form class="form-inline col-md-10 col-sm-8 mt-10 pull-right" id="search-form">
-            <div class="row search-row" >
-                <div class="form-group col-md-3 col-sm-6 col-xs-12">
-                    <div class="input-group">
-                      <input
-                        type="text"
-                        ng-model="header.search.game"
-                        ng-model-options="{ updateOn: 'default keyup blur' }"
-                        typeahead="game as game.label for game in header.getSteamgame($viewValue)"
-                        class="form-control"
-                        typeahead-editable="'false'"
-                        placeholder="filter by Steamgame">
-                        <span class="input-group-addon">
-                            <span class="fa fa-gamepad"></span>
-                        </span>
-                    </div>
-                </div>
-                <div class="form-group col-md-3 col-sm-6 col-xs-12">
-                    <div class="input-group">
-                      <input
-                        type="text"
-                        ng-model="header.search.geoRegion"
-                        ng-model-options="{ updateOn: 'default keyup blur' }"
-                        typeahead="region as region.label for region in header.getRegion($viewValue)"
-                        class="form-control"
-                        typeahead-editable="'false'"
-                        placeholder="and timezone">
-                        <span class="input-group-addon">
-                            <span class="fa fa-globe"></span>
-                        </span>
-                    </div>
-                </div>
-                <div class="form-group col-md-3 col-sm-6 col-xs-12">
-                    <div class="input-group">
-                      <input
-                        type="text"
-                        ng-model="header.search.preferences.language"
-                        ng-model-options="{ updateOn: 'default keyup blur' }"
-                        typeahead="language as language.label for language in header.getLanguage($viewValue)"
-                        class="form-control"
-                        typeahead-editable="'false'"
-                        placeholder="and language">
-                        <span class="input-group-addon">
-                            <span class="fa fa-language"></span>
-                        </span>
-                    </div>
-                </div>
-                <div
-                    class="btn btn-primary mt-5 mb-5 col-md-2 col-sm-5 col-sm-offset-0 col-md-offset-0 col-xs-10 col-xs-offset-1"
-                    style="margin-bottom: 5px;"
-                    ng-click="header.openCreateModal(header.search)">
-                    <span>Add PlayDate</span>
-                    <span class="fa fa-plus"></span>
-                </div>
+<div class="container-fluid" ng-controller="HeaderCtrl as header">
+    <div id="header" class="navbar navbar-fixed-top" headroom>
+        <div class="navbar-inner">
+            <div class="col-md-1 col-xs-12 col-sm-3">
+                  <a class="navbar-brand" id="header-brand" href="#/" ng-click="header.resetSearch()"><span class="bigfont orange">Play</span><span class="bigfont">Date</span></a>
             </div>
-        </form>
+            <form class="form-inline col-md-10 col-sm-8 mt-10 pull-right" id="search-form">
+                <div class="row search-row" >
+                    <div class="form-group col-md-3 col-sm-6 col-xs-12">
+                        <div class="input-group">
+                          <input
+                            type="text"
+                            ng-model="header.search.game"
+                            ng-model-options="{ updateOn: 'default keyup blur' }"
+                            typeahead="game as game.label for game in header.getSteamgame($viewValue)"
+                            class="form-control"
+                            typeahead-editable="'false'"
+                            placeholder="filter by Steamgame">
+                            <span class="input-group-addon">
+                                <span class="fa fa-gamepad"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3 col-sm-6 col-xs-12">
+                        <div class="input-group">
+                          <input
+                            type="text"
+                            ng-model="header.search.geoRegion"
+                            ng-model-options="{ updateOn: 'default keyup blur' }"
+                            typeahead="region as region.label for region in header.getRegion($viewValue)"
+                            class="form-control"
+                            typeahead-editable="'false'"
+                            placeholder="and timezone">
+                            <span class="input-group-addon">
+                                <span class="fa fa-globe"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-3 col-sm-6 col-xs-12">
+                        <div class="input-group">
+                          <input
+                            type="text"
+                            ng-model="header.search.preferences.language"
+                            ng-model-options="{ updateOn: 'default keyup blur' }"
+                            typeahead="language as language.label for language in header.getLanguage($viewValue)"
+                            class="form-control"
+                            typeahead-editable="'false'"
+                            placeholder="and language">
+                            <span class="input-group-addon">
+                                <span class="fa fa-language"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <div
+                        class="btn btn-primary mt-5 mb-5 col-md-2 col-sm-5 col-sm-offset-0 col-md-offset-0 col-xs-10 col-xs-offset-1"
+                        style="margin-bottom: 5px;"
+                        ng-click="header.openCreateModal(header.search)">
+                        <span>Add PlayDate</span>
+                        <span class="fa fa-plus"></span>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

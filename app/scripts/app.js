@@ -21,6 +21,7 @@
     'wu.masonry',
     'angular-loading-bar',
     'infinite-scroll',
+    'headroom'
     ])
  .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';

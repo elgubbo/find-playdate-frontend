@@ -8,6 +8,29 @@ license: MIT
 author: bootply.com
 */
 
+@media only screen and (max-width: 480px) {
+    #main {
+      padding-top: 290px;
+
+    }
+}
+@media only screen and (min-width: 480px) and (max-width: 768px) {
+    #main {
+      padding-top: 290px;
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 970px) {
+    #main {
+      padding-top: 110px;
+
+    }
+}
+@media only screen and (min-width: 970px) {
+    #main {
+      padding-top: 80px;
+    }
+}
+
 
 html,body{
   	height:100%;
@@ -15,6 +38,21 @@ html,body{
 
 body{
   	padding-top:0px; /*padding for navbar*/
+}
+
+.headroom {
+    transition: transform 200ms linear;
+    -webkit-transition: transform 200ms linear;
+
+}
+.headroom--pinned {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+
+}
+.headroom--unpinned {
+    transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
 }
 
 .masonry-brick.ng-enter, .cases.ng-enter {
@@ -57,6 +95,7 @@ body{
   font-weight: bold;
   letter-spacing: 4px;
   text-shadow: 1px 1px 4px rgba(150, 150, 150, 0.78);
+  color: black;
 
 }
 
@@ -69,7 +108,7 @@ body{
 }
 
 #header{
-  margin-left: 5px;
+  background-color: white;
 /*    margin: 5px;
   background-color:#fff;
     border: 1px solid;
