@@ -17,17 +17,21 @@
     this.getRegion = Autocomplete.getRegion;
 
     this.openCreateModal = function (prefill) {
-      var modalInstance = $modal.open({
-        templateUrl: 'views/createmodal.html',
-        controller: 'CreatemodalCtrl',
-        size: 'lg',
-        backdrop: false,
-        resolve: {
-            newPlayDate : function () {
-                return prefill;
+        console.log(prefill);
+        if(typeof prefill.platform === 'object') {
+            prefill.platform = prefill.platform.apiName;
+        }
+        var modalInstance = $modal.open({
+            templateUrl: 'views/createmodal.html',
+            controller: 'CreatemodalCtrl',
+            size: 'lg',
+            backdrop: false,
+            resolve: {
+                newPlayDate : function () {
+                    return prefill;
+                },
             },
-        },
-    });
+        });
 
     modalInstance.result.then(function (message) {
         console.log("[MODAL WAS CLOSED]");
