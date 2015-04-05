@@ -82,6 +82,18 @@
     });
 });
 
+app.factory('PlatformService', function() {
+    return {
+        platforms : [
+            {id: 1, name: 'Steam', apiName: 'steam'},
+            {id: 2, name: 'XBOX360', apiName: 'xbox'},
+            {id: 3, name: 'XBOXOne', apiName: 'xboxOne'},
+            {id: 4, name: 'PS3', apiName: 'ps3'},
+            {id: 5, name: 'PS4', apiName: 'ps4'}
+        ]
+    };
+});
+
  app.directive('errSrc', function() {
     return {
         link: function(scope, element, attrs) {
@@ -114,6 +126,7 @@
       require : 'ngModel',
       link : function($scope, element, attrs, ngModel) {
         ngModel.$validators.gameValidator = function(value) {
+            console.log(value);
           var status = true;
           if (!angular.isObject(value)) {
             status = false;

@@ -39,6 +39,10 @@ html,body{
 body{
   	padding-top:0px; /*padding for navbar*/
 }
+#platform-select-button {
+    margin-left: -10px;
+    margin-bottom: 5px;
+}
 
 .headroom {
     transition: transform 200ms linear;
@@ -72,21 +76,6 @@ body{
 }
 .masonry-brick.ng-enter-active, .cases.ng-enter-active{
   opacity: 1.0 ;
-}
-
-
-#header-brand.ng-hide-add, #header-brand.ng-hide-remove {
-  /* this is required as of 1.3x to properly
-     apply all styling in a show/hide animation */
-  transition: 0s linear all;
-  -webkit-animation-name: bounceInDown;
-          animation-name: bounceInDown;
-}
-
-#header-brand.ng-hide-add-active,
-#header-brand.ng-hide-remove-active {
-  /* the transition is defined in the active class */
-  transition: 1s linear all;
 }
 
 #header-brand {
@@ -215,10 +204,6 @@ body{
 #loading-bar .bar {
   height: 6px;
   background: orange;
-}
-
-.modal-open {
-  overflow: auto;
 }
 
 .clickable {

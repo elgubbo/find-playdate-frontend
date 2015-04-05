@@ -20,11 +20,11 @@
                 <!-- item head -->
                 <div class="panel-heading clearfix">
                     <h6 class="panel-title pull-left">
-                        {{playdate.name}} would like to play
+                        {{playdate.name}} would like to play on {{playdate.platform.toUpperCase()}}
                     </h6>
                 </div>
-                <a ng-href="http://steamcommunity.com/app/{{playdate.game.value}}/" target="_blank">
-                    <div class="tb-shadow panel-content steam-image" back-img="{{playdate.game.image_url}}">
+                <a ng-href="{{playdate.detail_url}}" target="_blank">
+                    <div ng-class="{'steam-image': playdate.platform=='steam', 'console-image': playdate.platform!='steam'}" class="tb-shadow panel-content" back-img="{{playdate.game.image_url}}">
                         <img class="item-image tb-shadow"
                             style="visibility:hidden"
                             ng-src="{{playdate.game.image_url}}" alt="no image"
@@ -35,6 +35,7 @@
                 <div class="panel-footer">
                     <div class="item-footer" style="word-wrap: break-word">
                         <dl>
+                            <dt>{{playdate.game.label}}</dt>
                             <dd>{{playdate.description}}</dd>
                             <dt>Timezone</dt>
                             <dd>{{playdate.geoRegion.label}}</dd>

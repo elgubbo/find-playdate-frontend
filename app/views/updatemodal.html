@@ -14,10 +14,10 @@
                                     type="text"
                                     ng-model="playdate.game"
                                     name="game"
-                                    typeahead="game as game.label for game in getSteamgame($viewValue)"
+                                    typeahead="game as game.label for game in getGame($viewValue, playdate.platform)"
                                     class="form-control"
                                     typeahead-editable="'false'"
-                                    placeholder="Steamgame?">
+                                    placeholder="{{newPlayDate.platform.toUpperCase()}}-game?">
                                     <span class="input-group-addon">
                                         <span class="fa fa-gamepad"></span>
                                     </span>

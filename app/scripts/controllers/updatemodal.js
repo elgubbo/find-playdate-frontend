@@ -8,14 +8,15 @@
  * Controller of the findPlayDate
  */
 angular.module('findPlayDate')
-  .controller('UpdatemodalCtrl', function ($scope, $modalInstance, playdate, updateHash, Autocomplete, $location) {
+  .controller('UpdatemodalCtrl', function ($scope, $modalInstance, playdate, updateHash, Autocomplete, $location, PlatformService) {
     //these will be resolved when opening the modal
     $scope.playdate = playdate;
     $scope.updateHash = updateHash;
-    $scope.getSteamgame = Autocomplete.getSteamgame;
+    $scope.getGame = Autocomplete.getGame;
     $scope.getLanguage = Autocomplete.getLanguage;
     $scope.getRegion = Autocomplete.getRegion;
     $scope.errorMessage = null;
+    $scope.platforms = PlatformService.platforms;
 
     $scope.save = function () {
         if(!$scope.updateForm.$dirty || !$scope.updateForm.$valid) {

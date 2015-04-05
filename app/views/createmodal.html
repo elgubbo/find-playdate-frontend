@@ -4,18 +4,28 @@
             <fieldset ng-disabled="saving">
                 <div class="row mt-5">
                     <div class="col-md-12">
-                        <div class="form-group col-md-5" ng-class="{'has-error': createForm.game.$invalid&&createForm.game.$touched, 'has-success' : createForm.game.$valid}">
+                        <div class="btn-group col-md-5" dropdown is-open="status.isopen" ng-if="!newPlayDate.platform">
+                            <button type="button" class="btn btn-primary dropdown-toggle col-sm-12" dropdown-toggle ng-disabled="disabled">
+                            select Platform <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="platform in platforms">
+                                    <a href ng-click="newPlayDate.platform=platform.apiName">{{platform.name}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="form-group col-md-5" ng-if="newPlayDate.platform" ng-class="{'has-error': createForm.game.$invalid&&createForm.game.$touched, 'has-success' : createForm.game.$valid}">
                             <div class="input-group">
                               <input
                                 name="game"
                                 type="text"
                                 ng-model="newPlayDate.game"
                                 ng-model-options="{ updateOn: 'default keyup blur' }"
-                                typeahead="game as game.label for game in getSteamgame($viewValue)"
+                                typeahead="game as game.label for game in getGame($viewValue, newPlayDate.platform)"
                                 typeahead-editable="'false'"
                                 game-validator
                                 class="form-control"
-                                placeholder="Steamgame?">
+                                placeholder="{{newPlayDate.platform.toUpperCase()}}-game?">
                                 <span class="input-group-addon">
                                     <span class="fa fa-gamepad"></span>
                                 </span>

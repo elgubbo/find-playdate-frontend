@@ -2,21 +2,45 @@
     <div id="topanchor"></div>
     <div id="header" class="navbar navbar-fixed-top" headroom tolearance="15" offset="15">
         <div class="navbar-inner">
-            <div class="col-md-1 col-xs-12 col-sm-3">
-                  <a class="navbar-brand" id="header-brand" href="#/" ng-click="header.resetSearch()"><span class="bigfont orange">Play</span><span class="bigfont">Date</span></a>
+            <div class="col-md-2 col-xs-12 col-sm-3">
+                <a class="navbar-brand" id="header-brand" href="#/" ng-click="header.resetSearch()"><span class="bigfont orange">Play</span><span class="bigfont">Date</span></a>
             </div>
-            <form class="form-inline col-md-10 col-sm-8 mt-10 pull-right" id="search-form">
-                <div class="row search-row" >
+            <form class="form-inline col-md-9 col-sm-8 mt-10 pull-right" id="search-form">
+                <div class="row search-row">
                     <div class="form-group col-md-3 col-sm-6 col-xs-12">
-                        <div class="input-group">
+                        <div
+                            class="hidden-sm btn-group input-group col-xs-12 col-md-10"
+                            dropdown is-open="status.isopen" ng-if="!header.search.platform">
+                            <button id="platform-select-button" type="button" class="btn btn-primary dropdown-toggle col-xs-12 col-md-11" dropdown-toggle ng-disabled="disabled">
+                            filter by Platform <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu col-xs-12 col-md-10">
+                                <li ng-repeat="platform in header.platforms">
+                                    <a href ng-click="header.search.platform=platform">{{platform.name}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div
+                            class="hidden-lg hidden-md hidden-xs btn-group input-group col-xs-12 col-md-10"
+                            dropdown is-open="status.isopen" ng-if="!header.search.platform">
+                            <button id="platform-select-button" type="button" class="btn btn-primary btn-sm dropdown-toggle col-xs-12 col-md-11" dropdown-toggle ng-disabled="disabled">
+                            filter by Platform <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu col-xs-12 col-md-10">
+                                <li ng-repeat="platform in header.platforms">
+                                    <a href ng-click="header.search.platform=platform">{{platform.name}}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="input-group" ng-if="header.search.platform">
                           <input
                             type="text"
                             ng-model="header.search.game"
                             ng-model-options="{ updateOn: 'default keyup blur' }"
-                            typeahead="game as game.label for game in header.getSteamgame($viewValue)"
+                            typeahead="game as game.label for game in header.getGame($viewValue, header.search.platform.apiName)"
                             class="form-control"
                             typeahead-editable="'false'"
-                            placeholder="filter by Steamgame">
+                            placeholder="filter by {{header.search.platform.name}}game">
                             <span class="input-group-addon">
                                 <span class="fa fa-gamepad"></span>
                             </span>
@@ -53,7 +77,14 @@
                         </div>
                     </div>
                     <div
-                        class="btn btn-primary mt-5 mb-5 col-md-2 col-sm-5 col-sm-offset-0 col-md-offset-0 col-xs-10 col-xs-offset-1"
+                        class="hidden-sm btn btn-primary mt-5 mb-5 col-md-2 col-sm-5 col-sm-offset-0 col-md-offset-0 col-xs-10 col-xs-offset-1"
+                        style="margin-bottom: 5px;"
+                        ng-click="header.openCreateModal(header.search)">
+                        <span>Add PlayDate</span>
+                        <span class="fa fa-plus"></span>
+                    </div>
+                    <div
+                        class="hidden-lg hidden-md hidden-xs btn btn-primary btn-sm mt-5 mb-5 col-md-2 col-sm-5 col-sm-offset-0 col-md-offset-0 col-xs-10 col-xs-offset-1"
                         style="margin-bottom: 5px;"
                         ng-click="header.openCreateModal(header.search)">
                         <span>Add PlayDate</span>

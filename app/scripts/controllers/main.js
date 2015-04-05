@@ -58,6 +58,7 @@ angular.module('findPlayDate')
 
     $scope.$on('$viewContentLoaded', function() {
         console.log('[WELCOME TO FIND-PLAYDATE.COM]');
+        Search.findPlayDates({});
         if($routeParams.hash && $routeParams.id){
             PlayDate.getForUpdate({id: $routeParams.id, updateHash: $routeParams.hash}).$promise.then(function (playdate)
             {

@@ -5,10 +5,11 @@ angular.module('findPlayDate')
     var autocomplete = {
 
         //getters for autocomplete fields
-        getSteamgame : function(val) {
-            return $http.get('/api/steamapps', {
+        getGame: function(val, platform) {
+            return $http.get('/api/games', {
               params: {
                 q: val,
+                platform: platform
               }
             }).then(function(response){
                 return response.data;

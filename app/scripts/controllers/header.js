@@ -8,9 +8,11 @@
  * Controller of the findPlayDate
  */
  angular.module('findPlayDate')
- .controller('HeaderCtrl', function ($scope, $http, $modal, PlayDate, Search, Autocomplete, FlashMessage, $rootScope, $anchorScroll, $location) {
+ .controller('HeaderCtrl', function ($scope, $http, $modal, PlayDate, Search, Autocomplete, FlashMessage, $rootScope, $anchorScroll, $location, PlatformService) {
     this.search = {};
-    this.getSteamgame = Autocomplete.getSteamgame;
+    this.lastSearch = {};
+    this.platforms = PlatformService.platforms;
+    this.getGame = Autocomplete.getGame;
     this.getLanguage = Autocomplete.getLanguage;
     this.getRegion = Autocomplete.getRegion;
 
@@ -60,13 +62,6 @@
             }
         );
     };
-    this.doSearch = function() {
-        if (this.search.game || this.search.geoRegion || this.search.preferences.language.label) {
-            Search.findPlayDates(this.search);
-        } else {
-            FlashMessage.setMessage('warning', 'Please select game and timezone from the dropdowns!');
-        }
-    };
 
     //compile valid search for each field that gets completed
     $scope.$watch('header.search', function(newVal, oldVal){
@@ -80,9 +75,26 @@
                 } else {
                     tempSearch[key] = value;
                 }
+                if (value.hasOwnProperty('game')) {
+                    if (typeof value.game === 'object') {
+                        tempSearch[key] = value;
+                    }
+                } else {
+                    tempSearch[key] = value;
+                }
+                if (value.hasOwnProperty('platform')) {
+                    if (typeof value.platform === 'object') {
+                        tempSearch[key] = value;
+                    }
+                } else {
+                    tempSearch[key] = value;
+                }
             }
         });
-        Search.findPlayDates(tempSearch);
+        if (!angular.equals($scope.header.lastSearch, tempSearch)) {
+            Search.findPlayDates(tempSearch);
+            $scope.header.lastSearch = tempSearch;
+        }
         if (!angular.equals({}, tempSearch)) {
             var old = $location.hash();
             $location.hash('topanchor');
