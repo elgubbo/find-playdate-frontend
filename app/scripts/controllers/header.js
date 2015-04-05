@@ -17,7 +17,6 @@
     this.getRegion = Autocomplete.getRegion;
 
     this.openCreateModal = function (prefill) {
-        console.log(prefill);
         if(typeof prefill.platform === 'object') {
             prefill.platform = prefill.platform.apiName;
         }
@@ -55,7 +54,6 @@
         PlayDate.save(this.newPlayDate).$promise.then(
             function(playdate){
                 //success
-                console.log(playdate);
                 that.saving = false;
                 that.newPlayDate = angular.copy(that.playDateMaster);
                 Search.findPlayDates({});

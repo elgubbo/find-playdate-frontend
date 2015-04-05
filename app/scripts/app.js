@@ -126,7 +126,6 @@ app.factory('PlatformService', function() {
       require : 'ngModel',
       link : function($scope, element, attrs, ngModel) {
         ngModel.$validators.gameValidator = function(value) {
-            console.log(value);
           var status = true;
           if (!angular.isObject(value)) {
             status = false;
