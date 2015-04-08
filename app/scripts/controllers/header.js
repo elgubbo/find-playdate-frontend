@@ -70,10 +70,8 @@
         var tempSearch = {};
         angular.forEach(newVal, function(value, key) {
             if (typeof value === 'object') {
-                console.log(value);
                 if (value.hasOwnProperty('language')) {
                     if (typeof value.language === 'object') {
-                        console.log(value.language);
                         tempSearch[key] = value;
                     }
                 }
