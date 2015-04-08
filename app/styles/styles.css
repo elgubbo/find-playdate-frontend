@@ -157,6 +157,10 @@ body{
 .mr-5 {
   margin-right: 5px;
 }
+
+.pr-5 {
+  padding-right: 5px;
+}
 .search-row {
   padding-right: 0px;
   padding-left: 0px;

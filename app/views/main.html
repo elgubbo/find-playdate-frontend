@@ -20,7 +20,7 @@
                 <!-- item head -->
                 <div class="panel-heading clearfix">
                     <h6 class="panel-title pull-left">
-                        {{playdate.name}} would like to play on {{playdate.platform.toUpperCase()}}
+                        {{playdate.name}} would like to play on <b>{{playdate.platform.toUpperCase()}}</b>
                     </h6>
                 </div>
                 <a ng-href="{{playdate.detail_url}}" target="_blank">
@@ -35,18 +35,18 @@
                 <div class="panel-footer">
                     <div class="item-footer" style="word-wrap: break-word">
                         <dl>
-                            <dt>{{playdate.game.label}}</dt>
+                            <dt><span class="fa fa-gamepad pr-5"></span>{{playdate.game.label}}</dt>
                             <dd>{{playdate.description}}</dd>
-                            <dt>Timezone</dt>
+                            <dt><span class="fa pr-5 fa-globe"></span>Timezone</dt>
                             <dd>{{playdate.geoRegion.label}}</dd>
-                            <dt ng-if="playdate.preferences && playdate.preferences.language">Language</dt>
+                            <dt ng-if="playdate.preferences && playdate.preferences.language"><span class="fa pr-5 fa-language"></span>Language</dt>
                             <dd>{{playdate.preferences.language.label}}</dd>
                             <dt ng-if="playdate.preferences && (playdate.preferences.microphone || playdate.preferences.group)">Preferences</dt>
                             <dd>
-                                <span ng-if="playdate.preferences.group"><i class="fa fa-group"></i> <span>A group of people wants to play</span></span>
+                                <span ng-if="playdate.preferences.group"><i class="fa pr-5 fa-group"></i> <span>A group of people wants to play</span></span>
                             </dd>
                             <dd>
-                                <span ng-if="playdate.preferences.microphone"><i class="fa fa-microphone"></i> <span>A microphone is required</span></span>
+                                <span ng-if="playdate.preferences.microphone"><i class="fa pr-5 fa-microphone"></i> <span>A microphone is required</span></span>
                             </dd>
                         </dl>
                         <div class="row">
