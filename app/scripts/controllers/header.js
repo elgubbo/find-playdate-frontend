@@ -70,25 +70,22 @@
         var tempSearch = {};
         angular.forEach(newVal, function(value, key) {
             if (typeof value === 'object') {
+                console.log(value);
                 if (value.hasOwnProperty('language')) {
                     if (typeof value.language === 'object') {
+                        console.log(value.language);
                         tempSearch[key] = value;
                     }
-                } else {
-                    tempSearch[key] = value;
                 }
                 if (value.hasOwnProperty('game')) {
                     if (typeof value.game === 'object') {
                         tempSearch[key] = value;
                     }
-                } else {
+                }
+                if (value.hasOwnProperty('apiName')) {
                     tempSearch[key] = value;
                 }
-                if (value.hasOwnProperty('platform')) {
-                    if (typeof value.platform === 'object') {
-                        tempSearch[key] = value;
-                    }
-                } else {
+                if (value.hasOwnProperty('offset')) {
                     tempSearch[key] = value;
                 }
             }
