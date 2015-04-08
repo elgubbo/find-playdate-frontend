@@ -7,26 +7,26 @@
             </div>
             <form class="form-inline col-md-9 col-sm-8 mt-10 pull-right" id="search-form">
                 <div class="row search-row">
-                    <div class="form-group col-md-3 col-sm-6 col-xs-12">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
                         <div
-                            class="hidden-sm btn-group input-group col-xs-12 col-md-10"
+                            class="hidden-sm btn-group"
                             dropdown is-open="status.isopen" ng-if="!header.search.platform">
-                            <button id="platform-select-button" type="button" class="btn btn-primary dropdown-toggle col-xs-12 col-md-11" dropdown-toggle ng-disabled="disabled">
+                            <a class="btn btn-primary dropdown-toggle" dropdown-toggle>
                             filter by Platform <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu col-xs-12 col-md-10">
+                            </a>
+                            <ul class="dropdown-menu">
                                 <li ng-repeat="platform in header.platforms">
                                     <a href ng-click="header.search.platform=platform">{{platform.name}}</a>
                                 </li>
                             </ul>
                         </div>
                         <div
-                            class="hidden-lg hidden-md hidden-xs btn-group input-group col-xs-12 col-md-10"
+                            class="hidden-lg hidden-md hidden-xs btn-group"
                             dropdown is-open="status.isopen" ng-if="!header.search.platform">
-                            <button id="platform-select-button" type="button" class="btn btn-primary btn-sm dropdown-toggle col-xs-12 col-md-11" dropdown-toggle ng-disabled="disabled">
+                            <a class="btn btn-primary btn-sm dropdown-toggle" dropdown-toggle ng-disabled="disabled">
                             filter by Platform <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu col-xs-12 col-md-10">
+                            </a>
+                            <ul class="dropdown-menu">
                                 <li ng-repeat="platform in header.platforms">
                                     <a href ng-click="header.search.platform=platform">{{platform.name}}</a>
                                 </li>
@@ -77,15 +77,13 @@
                         </div>
                     </div>
                     <div
-                        class="hidden-sm btn btn-primary mt-5 mb-5 col-md-2 col-sm-5 col-sm-offset-0 col-md-offset-0 col-xs-10 col-xs-offset-1"
-                        style="margin-bottom: 5px;"
+                        class="hidden-sm btn btn-primary form-control"
                         ng-click="header.openCreateModal(header.search)">
                         <span>Add PlayDate</span>
                         <span class="fa fa-plus"></span>
                     </div>
                     <div
-                        class="hidden-lg hidden-md hidden-xs btn btn-primary btn-sm mt-5 mb-5 col-md-2 col-sm-5 col-sm-offset-0 col-md-offset-0 col-xs-10 col-xs-offset-1"
-                        style="margin-bottom: 5px;"
+                        class="hidden-lg hidden-md hidden-xs form-group col-sm-4 btn btn-primary btn-sm"
                         ng-click="header.openCreateModal(header.search)">
                         <span>Add PlayDate</span>
                         <span class="fa fa-plus"></span>

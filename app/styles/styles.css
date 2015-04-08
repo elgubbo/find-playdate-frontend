@@ -104,6 +104,10 @@ body{
     padding: 5px;*/
 }
 
+.form-group {
+   margin-top: 5px;
+}
+
 #header .form-group {
   padding-right: 0px;
 }
