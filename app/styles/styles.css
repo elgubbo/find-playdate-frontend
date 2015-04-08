@@ -10,13 +10,13 @@ author: bootply.com
 
 @media only screen and (max-width: 480px) {
     #main {
-      padding-top: 290px;
+      padding-top: 255px;
 
     }
 }
 @media only screen and (min-width: 480px) and (max-width: 768px) {
     #main {
-      padding-top: 290px;
+      padding-top: 245px;
     }
 }
 @media only screen and (min-width: 768px) and (max-width: 970px) {
@@ -39,6 +39,32 @@ html,body{
 body{
   	padding-top:0px; /*padding for navbar*/
 }
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 13px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
 #platform-select-button {
     margin-left: -10px;
     margin-bottom: 5px;
@@ -49,6 +75,18 @@ body{
     -webkit-transition: transform 200ms linear;
 
 }
+
+.panel-default.playdate-item > .panel-heading {
+  background-color: white;
+}
+.panel-default.playdate-item > .panel-footer {
+  background-color: white;
+}
+
+.container-fluid {
+  background-color: #F5F5F5;
+}
+
 .headroom--pinned {
     transform: translateY(0%);
     -webkit-transform: translateY(0%);
