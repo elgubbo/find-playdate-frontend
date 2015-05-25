@@ -75,8 +75,8 @@
                         tempSearch[key] = value;
                     }
                 }
-                if (value.hasOwnProperty('game')) {
-                    if (typeof value.game === 'object') {
+                if (key === 'game') {
+                    if (typeof value === 'object') {
                         tempSearch[key] = value;
                     }
                 }
