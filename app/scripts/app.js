@@ -89,7 +89,9 @@ app.factory('PlatformService', function() {
             {id: 2, name: 'XBOX360', apiName: 'xbox'},
             {id: 3, name: 'XBOXOne', apiName: 'xboxOne'},
             {id: 4, name: 'PS3', apiName: 'ps3'},
-            {id: 5, name: 'PS4', apiName: 'ps4'}
+            {id: 5, name: 'PS4', apiName: 'ps4'},
+            {id: 6, name: 'WiiU', apiName: 'wiiu'},
+            {id: 7, name: '3DS', apiName: 'threeds'}
         ]
     };
 });

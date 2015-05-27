@@ -8,10 +8,11 @@
 * Controller of the findPlayDate
 */
 angular.module('findPlayDate')
-    .controller('MainCtrl',['$scope', '$modal', '$routeParams', 'Search', 'PlayDate', 'FlashMessage',  function ($scope, $modal, $routeParams, Search, PlayDate, FlashMessage) {
+    .controller('MainCtrl',['$scope', '$modal', '$routeParams', 'Search', 'PlayDate', 'FlashMessage', 'PlatformService',  function ($scope, $modal, $routeParams, Search, PlayDate, FlashMessage, PlatformService) {
 
     this.searchService = Search;
     this.flashMessage = FlashMessage;
+    this.platforms = PlatformService.platforms;
 
     this.openModal = function (playdate) {
 
@@ -54,6 +55,20 @@ angular.module('findPlayDate')
                 $scope.main.searchService.findPlayDates();
             }
         });
+    };
+
+    this.getPlatformPrettyName = function (apiname) {
+        for (var i = this.platforms.length - 1; i >= 0; i--) {
+            if (this.platforms[i].hasOwnProperty('apiName')) {
+                console.log(this.platforms[i]);
+                if (this.platforms[i].apiName === apiname)
+                {
+                    if (this.platforms[i].hasOwnProperty('name')) {
+                        return this.platforms[i].name;
+                    }
+                }
+            }
+        }
     };
 
     $scope.$on('$viewContentLoaded', function() {

@@ -1,7 +1,7 @@
 <div class="container-fluid" id="main">
     <div class="messages row">
         <div ng-repeat="message in main.flashMessage.messages" class="message col-sm-12">
-            <div class="alert alert-{{message.type}}" role="alert">
+            <div class="alert alert-{{::message.type}}" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
                 <p ng-bind="message.title"></p>
             </div>
@@ -20,27 +20,27 @@
                 <!-- item head -->
                 <div class="panel-heading clearfix">
                     <h6 class="panel-title pull-left">
-                        {{playdate.name}} would like to play on <b>{{playdate.platform.toUpperCase()}}</b>
+                        {{::playdate.name}} would like to play on <b>{{::main.getPlatformPrettyName(playdate.platform)}}</b>
                     </h6>
                 </div>
-                <a ng-href="{{playdate.detail_url}}" target="_blank">
-                    <div ng-class="{'steam-image': playdate.platform=='steam', 'console-image': playdate.platform!='steam'}" class="tb-shadow panel-content" back-img="{{playdate.game.image_url}}">
+                <a ng-href="{{::playdate.detail_url}}" target="_blank">
+                    <div ng-class="{'steam-image': playdate.platform=='steam', 'console-image': playdate.platform!='steam'}" class="tb-shadow panel-content" back-img="{{::playdate.game.image_url}}">
                         <img class="item-image tb-shadow"
                             style="visibility:hidden"
-                            ng-src="{{playdate.game.image_url}}" alt="no image"
-                            err-src="{{'http://placehold.it/460x215/f5f5f5&text='+playdate.game.label}}">
+                            ng-src="{{::playdate.game.image_url}}" alt="no image"
+                            err-src="{{::'http://placehold.it/460x215/f5f5f5&text='+playdate.game.label}}">
                     </div>
                 </a>
                 <!-- item footer -->
                 <div class="panel-footer">
                     <div class="item-footer" style="word-wrap: break-word">
                         <dl>
-                            <dt><span class="fa fa-gamepad pr-5"></span>{{playdate.game.label}}</dt>
-                            <dd>{{playdate.description}}</dd>
+                            <dt><span class="fa fa-gamepad pr-5"></span>{{::playdate.game.label}}</dt>
+                            <dd>{{::playdate.description}}</dd>
                             <dt><span class="fa pr-5 fa-globe"></span>Timezone</dt>
-                            <dd>{{playdate.geoRegion.label}}</dd>
+                            <dd>{{::playdate.geoRegion.label}}</dd>
                             <dt ng-if="playdate.preferences && playdate.preferences.language"><span class="fa pr-5 fa-language"></span>Language</dt>
-                            <dd>{{playdate.preferences.language.label}}</dd>
+                            <dd>{{::playdate.preferences.language.label}}</dd>
                             <dt ng-if="playdate.preferences && (playdate.preferences.microphone || playdate.preferences.group)">Preferences</dt>
                             <dd>
                                 <span ng-if="playdate.preferences.group"><i class="fa pr-5 fa-group"></i> <span>A group of people wants to play</span></span>
@@ -50,7 +50,7 @@
                             </dd>
                         </dl>
                         <div class="row">
-                            <button ng-click="main.openModal(playdate)" type="button" class="btn btn-primary btn-block">Message {{playdate.name}}</button>
+                            <button ng-click="main.openModal(playdate)" type="button" class="btn btn-primary btn-block">Message {{::playdate.name}}</button>
                         </div>
                     </div>
                 </div>

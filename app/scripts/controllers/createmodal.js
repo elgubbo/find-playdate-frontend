@@ -88,6 +88,20 @@
         $modalInstance.dismiss('cancel');
     };
 
+    $scope.getPlatformPrettyName = function (apiname) {
+        for (var i = $scope.platforms.length - 1; i >= 0; i--) {
+            if ($scope.platforms[i].hasOwnProperty('apiName')) {
+                console.log($scope.platforms[i]);
+                if ($scope.platforms[i].apiName === apiname)
+                {
+                    if ($scope.platforms[i].hasOwnProperty('name')) {
+                        return $scope.platforms[i].name;
+                    }
+                }
+            }
+        }
+    };
+
     //this
     $scope.$watch('newPlayDate', function(newVal, oldVal) {
         if (newVal) {
