@@ -34,7 +34,6 @@ angular.module('findPlayDate')
     };
 
     this.openUpdateModal = function (playdate, mUpdateHash) {
-        console.log(playdate);
         var modalInstance = $modal.open({
             templateUrl: 'views/updatemodal.html',
             controller: 'UpdatemodalCtrl',
@@ -60,7 +59,6 @@ angular.module('findPlayDate')
     this.getPlatformPrettyName = function (apiname) {
         for (var i = this.platforms.length - 1; i >= 0; i--) {
             if (this.platforms[i].hasOwnProperty('apiName')) {
-                console.log(this.platforms[i]);
                 if (this.platforms[i].apiName === apiname)
                 {
                     if (this.platforms[i].hasOwnProperty('name')) {
