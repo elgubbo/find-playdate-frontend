@@ -91,7 +91,6 @@
     $scope.getPlatformPrettyName = function (apiname) {
         for (var i = $scope.platforms.length - 1; i >= 0; i--) {
             if ($scope.platforms[i].hasOwnProperty('apiName')) {
-                console.log($scope.platforms[i]);
                 if ($scope.platforms[i].apiName === apiname)
                 {
                     if ($scope.platforms[i].hasOwnProperty('name')) {
