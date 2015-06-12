@@ -47,6 +47,7 @@ var english = {
 	}
 };
 
+//thanks  shinmai_rookie @ reddit
 var spanish = {
     HEADER: {
         FILTER_PLATFORM:    'Filtrar según la plataforma',
@@ -94,6 +95,7 @@ var spanish = {
     }
 };
 
+//thanks  shinmai_rookie @ reddit
 var galician = {
     HEADER: {
         FILTER_PLATFORM:    'Filtrar segundo a plataforma',
