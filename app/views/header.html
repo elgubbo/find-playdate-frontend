@@ -17,7 +17,7 @@
                             class="hidden-sm btn-group"
                             dropdown is-open="status.isopen" ng-if="!header.search.platform">
                             <a class="btn btn-primary dropdown-toggle" dropdown-toggle>
-                            filter by Platform <span class="caret"></span>
+                            <span translate="HEADER.FILTER_PLATFORM"></span> <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li ng-repeat="platform in header.platforms">
@@ -29,7 +29,7 @@
                             class="hidden-lg hidden-md hidden-xs btn-group"
                             dropdown is-open="status.isopen" ng-if="!header.search.platform">
                             <a class="btn btn-primary btn-sm dropdown-toggle" dropdown-toggle ng-disabled="disabled">
-                            filter by Platform <span class="caret"></span>
+                            <span translate="HEADER.FILTER_PLATFORM"></span> <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li ng-repeat="platform in header.platforms">
@@ -45,7 +45,7 @@
                             typeahead="game as game.label for game in header.getGame($viewValue, header.search.platform.apiName)"
                             class="form-control"
                             typeahead-editable="'false'"
-                            placeholder="filter by {{header.search.platform.name}}game">
+                            placeholder="{{ 'HEADER.FILTER_GAME' | translate:{platform: header.search.platform.name} }}">
                             <span class="input-group-addon">
                                 <span class="fa fa-gamepad"></span>
                             </span>
@@ -60,7 +60,7 @@
                             typeahead="region as region.label for region in header.getRegion($viewValue)"
                             class="form-control"
                             typeahead-editable="'false'"
-                            placeholder="and timezone">
+                            placeholder="{{ 'HEADER.FILTER_TIMEZONE' | translate }}">
                             <span class="input-group-addon">
                                 <span class="fa fa-globe"></span>
                             </span>
@@ -75,7 +75,7 @@
                             typeahead="language as language.label for language in header.getLanguage($viewValue)"
                             class="form-control"
                             typeahead-editable="'false'"
-                            placeholder="and language">
+                            placeholder="{{ 'HEADER.FILTER_LANGUAGE' | translate }}">
                             <span class="input-group-addon">
                                 <span class="fa fa-language"></span>
                             </span>
@@ -84,13 +84,13 @@
                     <div
                         class="hidden-sm hidden-xs btn btn-primary form-control mt-5"
                         ng-click="header.openCreateModal(header.search)">
-                        <span>Add PlayDate</span>
+                        <span translate="HEADER.ADD_PLAYDATE"></span>
                         <span class="fa fa-plus"></span>
                     </div>
                     <div
                         class="hidden-lg hidden-md hidden-xs form-group col-sm-4 btn btn-primary btn-sm"
                         ng-click="header.openCreateModal(header.search)">
-                        <span>Add PlayDate</span>
+                        <span translate="HEADER.ADD_PLAYDATE"></span>
                         <span class="fa fa-plus"></span>
                     </div>
                 </div>

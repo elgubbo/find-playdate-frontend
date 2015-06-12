@@ -8,7 +8,7 @@
  * Controller of the findPlayDate
  */
  angular.module('findPlayDate')
- .controller('CreatemodalCtrl', function ($scope, $modalInstance, Autocomplete, PlayDate, Search, newPlayDate, FlashMessage, PlatformService) {
+ .controller('CreatemodalCtrl', function ($scope, $modalInstance, Autocomplete, PlayDate, Search, newPlayDate, FlashMessage, PlatformService, $translate) {
     //these will be resolved when opening the modal
     $scope.newPlayDate = angular.copy(newPlayDate);
     $scope.playDateMaster = {};
@@ -19,42 +19,55 @@
     $scope.getLanguage = Autocomplete.getLanguage;
     $scope.getRegion = Autocomplete.getRegion;
     $scope.platforms = PlatformService.platforms;
-    $scope.validateAttributes = [
-        {'game' :
-            {
-                gameValidator : 'Select a game from the Dropdown',
-                required : 'You have not entered a game'
-            }
 
-        },
-        {'geoRegion' :
-            {
-                regionValidator : 'Select a region from the Dropdown',
-                required : 'You have not entered a region'
-            }
+    //this is ridiculous - find another solution
+    $translate(['CREATEMODAL.REQUIRED_GAME',
+            'CREATEMODAL.REQUIRED_TIMEZONE',
+            'CREATEMODAL.REQUIRED_LANGUAGE',
+            'CREATEMODAL.REQUIRED_EMAIL',
+            'CREATEMODAL.REQUIRED_NAME',
+            'CREATEMODAL.REQUIRED_INFO',
+            'CREATEMODAL.ERR_GAME',
+            'CREATEMODAL.ERR_REGION',
+            'CREATEMODAL.ERR_EMAIL']).then(function (translations) {
+            $scope.validateAttributes = [
+                {'game' :
+                    {
+                        gameValidator : translations['CREATEMODAL.ERR_GAME'],
+                        required : translations['CREATEMODAL.REQUIRED_GAME']
+                    }
 
-        },
-        {'preferences.language' :
-            {
-                regionValidator : 'Select a language from the Dropdown',
-                required : 'You have not entered a language'
-            }
+                },
+                {'geoRegion' :
+                    {
+                        regionValidator : translations['CREATEMODAL.ERR_TIMEZONE'],
+                        required : translations['CREATEMODAL.REQUIRED_TIMEZONE']
+                    }
 
-        },
-        {'email' :
-            {
-                required : 'You have not entered an email',
-                pattern: 'This is not a valid e-mail address'
-            }
+                },
+                {'preferences.language' :
+                    {
+                        regionValidator : translations['CREATEMODAL.ERR_LANGUAGE'],
+                        required : translations['CREATEMODAL.REQUIRED_LANGUAGE']
+                    }
 
-        },
-        {'name' :
-            {required : 'You must enter a name'}
-        },
-        {'additional' :
-            {required : 'You have not entered additional info'}
-        },
-    ];
+                },
+                {'email' :
+                    {
+                        required : translations['CREATEMODAL.REQUIRED_EMAIL'],
+                        pattern: translations['CREATEMODAL.ERR_EMAIL']
+                    }
+
+                },
+                {'name' :
+                    {required : translations['CREATEMODAL.REQUIRED_NAME']}
+                },
+                {'additional' :
+                    {required : translations['CREATEMODAL.REQUIRED_INFO']}
+                },
+            ];
+    });
+
 
     $scope.save = function () {
         if($scope.createForm.$invalid) {

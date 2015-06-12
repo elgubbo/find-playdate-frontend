@@ -15,12 +15,11 @@
         infinite-scroll='main.searchService.loadMore()'
         infinite-scroll-disabled='main.searchService.isLoading || main.searchService.finished'
         infinite-scroll-distance='1'>
-        <div ng-repeat="playdate in main.searchService.results track by playdate._id | orderBy:name" class="masonry-brick col-xs-12 col-md-3 col-sm-4">
+        <div ng-repeat="playdate in main.searchService.results track by playdate._id" class="masonry-brick col-xs-12 col-md-3 col-sm-4">
             <div class="panel panel-default possibly-long-text playdate-item">
                 <!-- item head -->
                 <div class="panel-heading clearfix">
-                    <h6 class="panel-title pull-left">
-                        {{::playdate.name}} would like to play on <b>{{::main.getPlatformPrettyName(playdate.platform)}}</b>
+                    <h6 class="panel-title pull-left" translate="MAIN.HEADLINE" translate-values="{username : playdate.name, platform: main.getPlatformPrettyName(playdate.platform)}">
                     </h6>
                 </div>
                 <a ng-href="{{::playdate.detail_url}}" target="_blank">
@@ -28,7 +27,7 @@
                         <img class="item-image tb-shadow"
                             style="visibility:hidden"
                             ng-src="{{::playdate.game.image_url}}" alt="no image"
-                            err-src="{{::'http://placehold.it/460x215/f5f5f5&text='+playdate.game.label}}">
+                            err-src="{{'http://placehold.it/460x215/f5f5f5&text='+playdate.game.label}}">
                     </div>
                 </a>
                 <!-- item footer -->
@@ -37,20 +36,25 @@
                         <dl>
                             <dt><span class="fa fa-gamepad pr-5"></span>{{::playdate.game.label}}</dt>
                             <dd>{{::playdate.description}}</dd>
-                            <dt><span class="fa pr-5 fa-globe"></span>Timezone</dt>
+                            <dt><span class="fa pr-5 fa-globe"></span><span translate="MAIN.TIMEZONE"></span></dt>
                             <dd>{{::playdate.geoRegion.label}}</dd>
-                            <dt ng-if="playdate.preferences && playdate.preferences.language"><span class="fa pr-5 fa-language"></span>Language</dt>
+                            <dt ng-if="playdate.preferences && playdate.preferences.language"><span class="fa pr-5 fa-language"></span><span translate="MAIN.LANGUAGE"></span></dt>
                             <dd>{{::playdate.preferences.language.label}}</dd>
-                            <dt ng-if="playdate.preferences && (playdate.preferences.microphone || playdate.preferences.group)">Preferences</dt>
+                            <dt ng-if="playdate.preferences && (playdate.preferences.microphone || playdate.preferences.group)"
+                                translate="MAIN.PREFERENCES"></dt>
                             <dd>
-                                <span ng-if="playdate.preferences.group"><i class="fa pr-5 fa-group"></i> <span>A group of people wants to play</span></span>
+                                <span ng-if="playdate.preferences.group"><i class="fa pr-5 fa-group"></i> <span translate="MAIN.GROUP"></span></span>
                             </dd>
                             <dd>
-                                <span ng-if="playdate.preferences.microphone"><i class="fa pr-5 fa-microphone"></i> <span>A microphone is required</span></span>
+                                <span ng-if="playdate.preferences.microphone"><i class="fa pr-5 fa-microphone"></i> <span translate="MAIN.MIC"></span></span>
                             </dd>
                         </dl>
                         <div class="row">
-                            <button ng-click="main.openModal(playdate)" type="button" class="btn btn-primary btn-block">Message {{::playdate.name}}</button>
+                            <button ng-click="main.openModal(playdate)"
+                                    type="button" class="btn btn-primary btn-block"
+                                    translate="MAIN.MESSAGE"
+                                    translate-values="{username : playdate.name}">
+                            </button>
                         </div>
                     </div>
                 </div>

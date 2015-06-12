@@ -5,7 +5,7 @@
                 <div class="row-fluid">
                     <div class="btn-group form-group col-md-5" style="" dropdown is-open="status.isopen" ng-if="!newPlayDate.platform">
                         <a class="btn btn-primary col-md-12" dropdown-toggle ng-disabled="disabled">
-                        select Platform <span class="caret"></span>
+                        <span translate="CREATEMODAL.SELECT_PLATFORM"></span> <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" style="margin-left: 15px">
                             <li ng-repeat="platform in platforms">
@@ -24,7 +24,7 @@
                             typeahead-editable="'false'"
                             game-validator
                             class="form-control"
-                            placeholder="{{getPlatformPrettyName(newPlayDate.platform)}}-game?">
+                            placeholder="{{ 'CREATEMODAL.FILTER_GAME' | translate:{platform: getPlatformPrettyName(newPlayDate.platform)} }}">
                             <span class="input-group-addon">
                                 <span class="fa fa-gamepad"></span>
                             </span>
@@ -41,7 +41,7 @@
                             typeahead-editable="'false'"
                             region-validator
                             class="form-control"
-                            placeholder="Your timezone?">
+                            placeholder="{{ 'CREATEMODAL.TIMEZONE' | translate }}">
                             <span class="input-group-addon">
                                 <span class="fa fa-globe"></span>
                             </span>
@@ -57,7 +57,7 @@
                             class="form-control"
                             ng-model="newPlayDate.name"
                             name="name"
-                            placeholder="Your (ingame) Name?">
+                            placeholder="{{ 'CREATEMODAL.NAME' | translate }}">
                             <span class="input-group-addon">
                                 <span class="fa fa-user"></span>
                             </span>
@@ -72,7 +72,7 @@
                             ng-model="newPlayDate.email"
                             ng-pattern="/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/"
                             name="email"
-                            placeholder="Your e-mail?">
+                            placeholder="{{ 'CREATEMODAL.EMAIL' | translate }}">
                             <span class="input-group-addon">
                                 <span class="fa fa-at"></span>
                             </span>
@@ -91,7 +91,7 @@
                             typeahead-editable="'false'"
                             game-validator
                             class="form-control"
-                            placeholder="pref. Language?">
+                            placeholder="{{ 'CREATEMODAL.LANGUAGE' | translate }}">
                             <span class="input-group-addon">
                                 <span class="fa fa-language"></span>
                             </span>
@@ -103,7 +103,7 @@
                         <div class="row">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" ng-model="newPlayDate.preferences.microphone"> <i class="fa fa-microphone"></i> Mic required
+                                    <input type="checkbox" ng-model="newPlayDate.preferences.microphone"> <i class="fa fa-microphone"></i> <span translate="CREATEMODAL.MIC"></span>
                                 </label>
                             </div>
                         </div>
@@ -112,7 +112,7 @@
                         <div class="row">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" ng-model="newPlayDate.preferences.group"> <i class="fa fa-group"></i> We are a group
+                                    <input type="checkbox" ng-model="newPlayDate.preferences.group"> <i class="fa fa-group"></i> <span translate="CREATEMODAL.GROUP"></span>
                                 </label>
                             </div>
                         </div>
@@ -125,7 +125,7 @@
                             <textarea
                                 required
                                 class="form-control"
-                                placeholder = "Additional Info?"
+                                placeholder="{{ 'CREATEMODAL.INFO' | translate }}"
                                 ng-model="newPlayDate.description"
                                 name="additional"
                                 cols="80"

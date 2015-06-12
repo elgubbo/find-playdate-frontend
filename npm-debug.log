@@ -1,0 +1,344 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'update', '-g', 'bower' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.37
+4 verbose node symlink /usr/bin/node
+5 verbose request where is /bower
+6 verbose request registry https://registry.npmjs.org/
+7 verbose request id 95223e976b9c96ba
+8 verbose url raw /bower
+9 verbose url resolving [ 'https://registry.npmjs.org/', './bower' ]
+10 verbose url resolved https://registry.npmjs.org/bower
+11 verbose request where is https://registry.npmjs.org/bower
+12 info trying registry request attempt 1 at 14:33:31
+13 verbose etag "7J4DUFGV8RENLGE7GYLT3F4JP"
+14 http GET https://registry.npmjs.org/bower
+15 http 200 https://registry.npmjs.org/bower
+16 silly registry.get cb [ 200,
+16 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+16 silly registry.get     etag: '"666U6M9B7GFHAZTPM76JCEUV6"',
+16 silly registry.get     'content-type': 'application/json',
+16 silly registry.get     'cache-control': 'max-age=60',
+16 silly registry.get     'content-length': '112229',
+16 silly registry.get     'accept-ranges': 'bytes',
+16 silly registry.get     date: 'Sun, 07 Jun 2015 12:33:32 GMT',
+16 silly registry.get     via: '1.1 varnish',
+16 silly registry.get     age: '9',
+16 silly registry.get     connection: 'keep-alive',
+16 silly registry.get     'x-served-by': 'cache-fra1242-FRA',
+16 silly registry.get     'x-cache': 'HIT',
+16 silly registry.get     'x-cache-hits': '2',
+16 silly registry.get     'x-timer': 'S1433680412.165275,VS0,VE0',
+16 silly registry.get     vary: 'Accept' } ]
+17 verbose request where is /bower
+18 verbose request registry https://registry.npmjs.org/
+19 verbose url raw /bower
+20 verbose url resolving [ 'https://registry.npmjs.org/', './bower' ]
+21 verbose url resolved https://registry.npmjs.org/bower
+22 verbose request where is https://registry.npmjs.org/bower
+23 info trying registry request attempt 1 at 14:33:32
+24 verbose etag "7J4DUFGV8RENLGE7GYLT3F4JP"
+25 http GET https://registry.npmjs.org/bower
+26 http 200 https://registry.npmjs.org/bower
+27 silly registry.get cb [ 200,
+27 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 silly registry.get     etag: '"666U6M9B7GFHAZTPM76JCEUV6"',
+27 silly registry.get     'content-type': 'application/json',
+27 silly registry.get     'cache-control': 'max-age=60',
+27 silly registry.get     'content-length': '112229',
+27 silly registry.get     'accept-ranges': 'bytes',
+27 silly registry.get     date: 'Sun, 07 Jun 2015 12:33:32 GMT',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     age: '0',
+27 silly registry.get     connection: 'keep-alive',
+27 silly registry.get     'x-served-by': 'cache-lcy1126-LCY',
+27 silly registry.get     'x-cache': 'HIT',
+27 silly registry.get     'x-cache-hits': '1',
+27 silly registry.get     'x-timer': 'S1433680412.603855,VS0,VE355',
+27 silly registry.get     vary: 'Accept' } ]
+28 verbose registry.get https://registry.npmjs.org/bower not expired, no request
+29 info outdated updating [ [ '/usr/lib', 'bower', '1.3.12', '1.4.1', '1.4.1', 'latest' ],
+29 info outdated   [ '/usr/lib/node_modules/grunt-google-cdn/node_modules/google-cdn',
+29 info outdated     'bower',
+29 info outdated     '1.3.12',
+29 info outdated     '1.3.12',
+29 info outdated     '1.4.1',
+29 info outdated     '~1.3.1' ],
+29 info outdated   [ '/usr/lib/node_modules/grunt-google-cdn',
+29 info outdated     'bower',
+29 info outdated     '1.3.12',
+29 info outdated     '1.4.1',
+29 info outdated     '1.4.1',
+29 info outdated     '>=1.0.0' ] ]
+30 verbose install where,what [ '/usr/lib', [ 'bower@1.4.1' ] ]
+31 verbose install where,what [ '/usr/lib/node_modules/grunt-google-cdn/node_modules/google-cdn',
+31 verbose install   [ 'bower@1.3.12' ] ]
+32 verbose install where,what [ '/usr/lib/node_modules/grunt-google-cdn', [ 'bower@1.4.1' ] ]
+33 verbose cache add [ 'bower@1.4.1', null ]
+34 verbose cache add name=undefined spec="bower@1.4.1" args=["bower@1.4.1",null]
+35 verbose parsed url { protocol: null,
+35 verbose parsed url   slashes: null,
+35 verbose parsed url   auth: null,
+35 verbose parsed url   host: null,
+35 verbose parsed url   port: null,
+35 verbose parsed url   hostname: null,
+35 verbose parsed url   hash: null,
+35 verbose parsed url   search: null,
+35 verbose parsed url   query: null,
+35 verbose parsed url   pathname: 'bower@1.4.1',
+35 verbose parsed url   path: 'bower@1.4.1',
+35 verbose parsed url   href: 'bower@1.4.1' }
+36 verbose cache add name="bower" spec="1.4.1" args=["bower","1.4.1"]
+37 verbose parsed url { protocol: null,
+37 verbose parsed url   slashes: null,
+37 verbose parsed url   auth: null,
+37 verbose parsed url   host: null,
+37 verbose parsed url   port: null,
+37 verbose parsed url   hostname: null,
+37 verbose parsed url   hash: null,
+37 verbose parsed url   search: null,
+37 verbose parsed url   query: null,
+37 verbose parsed url   pathname: '1.4.1',
+37 verbose parsed url   path: '1.4.1',
+37 verbose parsed url   href: '1.4.1' }
+38 verbose addNamed [ 'bower', '1.4.1' ]
+39 verbose addNamed [ '1.4.1', '1.4.1' ]
+40 silly lockFile 185f46c0-bower-1-4-1 bower@1.4.1
+41 verbose lock bower@1.4.1 /home/alexander/.npm/185f46c0-bower-1-4-1.lock
+42 verbose readDependencies using package.json deps
+43 verbose cache add [ 'bower@1.3.12', null ]
+44 verbose cache add name=undefined spec="bower@1.3.12" args=["bower@1.3.12",null]
+45 verbose parsed url { protocol: null,
+45 verbose parsed url   slashes: null,
+45 verbose parsed url   auth: null,
+45 verbose parsed url   host: null,
+45 verbose parsed url   port: null,
+45 verbose parsed url   hostname: null,
+45 verbose parsed url   hash: null,
+45 verbose parsed url   search: null,
+45 verbose parsed url   query: null,
+45 verbose parsed url   pathname: 'bower@1.3.12',
+45 verbose parsed url   path: 'bower@1.3.12',
+45 verbose parsed url   href: 'bower@1.3.12' }
+46 verbose readDependencies using package.json deps
+47 verbose cache add [ 'bower@1.4.1', null ]
+48 verbose cache add name=undefined spec="bower@1.4.1" args=["bower@1.4.1",null]
+49 verbose parsed url { protocol: null,
+49 verbose parsed url   slashes: null,
+49 verbose parsed url   auth: null,
+49 verbose parsed url   host: null,
+49 verbose parsed url   port: null,
+49 verbose parsed url   hostname: null,
+49 verbose parsed url   hash: null,
+49 verbose parsed url   search: null,
+49 verbose parsed url   query: null,
+49 verbose parsed url   pathname: 'bower@1.4.1',
+49 verbose parsed url   path: 'bower@1.4.1',
+49 verbose parsed url   href: 'bower@1.4.1' }
+50 verbose cache add name="bower" spec="1.3.12" args=["bower","1.3.12"]
+51 verbose parsed url { protocol: null,
+51 verbose parsed url   slashes: null,
+51 verbose parsed url   auth: null,
+51 verbose parsed url   host: null,
+51 verbose parsed url   port: null,
+51 verbose parsed url   hostname: null,
+51 verbose parsed url   hash: null,
+51 verbose parsed url   search: null,
+51 verbose parsed url   query: null,
+51 verbose parsed url   pathname: '1.3.12',
+51 verbose parsed url   path: '1.3.12',
+51 verbose parsed url   href: '1.3.12' }
+52 verbose addNamed [ 'bower', '1.3.12' ]
+53 verbose addNamed [ '1.3.12', '1.3.12' ]
+54 silly lockFile 9819431c-bower-1-3-12 bower@1.3.12
+55 verbose lock bower@1.3.12 /home/alexander/.npm/9819431c-bower-1-3-12.lock
+56 verbose cache add name="bower" spec="1.4.1" args=["bower","1.4.1"]
+57 verbose parsed url { protocol: null,
+57 verbose parsed url   slashes: null,
+57 verbose parsed url   auth: null,
+57 verbose parsed url   host: null,
+57 verbose parsed url   port: null,
+57 verbose parsed url   hostname: null,
+57 verbose parsed url   hash: null,
+57 verbose parsed url   search: null,
+57 verbose parsed url   query: null,
+57 verbose parsed url   pathname: '1.4.1',
+57 verbose parsed url   path: '1.4.1',
+57 verbose parsed url   href: '1.4.1' }
+58 verbose addNamed [ 'bower', '1.4.1' ]
+59 verbose request where is /bower
+60 verbose request registry https://registry.npmjs.org/
+61 verbose url raw /bower
+62 verbose url resolving [ 'https://registry.npmjs.org/', './bower' ]
+63 verbose url resolved https://registry.npmjs.org/bower
+64 verbose request where is https://registry.npmjs.org/bower
+65 info trying registry request attempt 1 at 14:33:44
+66 verbose etag "666U6M9B7GFHAZTPM76JCEUV6"
+67 http GET https://registry.npmjs.org/bower
+68 verbose request where is /bower
+69 verbose request registry https://registry.npmjs.org/
+70 verbose url raw /bower
+71 verbose url resolving [ 'https://registry.npmjs.org/', './bower' ]
+72 verbose url resolved https://registry.npmjs.org/bower
+73 verbose request where is https://registry.npmjs.org/bower
+74 info trying registry request attempt 1 at 14:33:44
+75 verbose etag "666U6M9B7GFHAZTPM76JCEUV6"
+76 http GET https://registry.npmjs.org/bower
+77 http 304 https://registry.npmjs.org/bower
+78 silly registry.get cb [ 304,
+78 silly registry.get   { date: 'Sun, 07 Jun 2015 12:33:44 GMT',
+78 silly registry.get     via: '1.1 varnish',
+78 silly registry.get     'cache-control': 'max-age=60',
+78 silly registry.get     etag: '"666U6M9B7GFHAZTPM76JCEUV6"',
+78 silly registry.get     age: '22',
+78 silly registry.get     connection: 'keep-alive',
+78 silly registry.get     'x-served-by': 'cache-fra1241-FRA',
+78 silly registry.get     'x-cache': 'HIT',
+78 silly registry.get     'x-cache-hits': '1',
+78 silly registry.get     'x-timer': 'S1433680424.582481,VS0,VE0',
+78 silly registry.get     vary: 'Accept' } ]
+79 verbose etag https://registry.npmjs.org/bower from cache
+80 silly lockFile 04dcb06b--npmjs-org-bower-bower-1-4-1-tgz https://registry.npmjs.org/bower/-/bower-1.4.1.tgz
+81 verbose lock https://registry.npmjs.org/bower/-/bower-1.4.1.tgz /home/alexander/.npm/04dcb06b--npmjs-org-bower-bower-1-4-1-tgz.lock
+82 verbose addRemoteTarball [ 'https://registry.npmjs.org/bower/-/bower-1.4.1.tgz',
+82 verbose addRemoteTarball   'a18be39d030792754f30f1c5b32d37b0156ba8dd' ]
+83 info retry fetch attempt 1 at 14:33:44
+84 verbose fetch to= /tmp/npm-27950-K-qoCrGz/registry.npmjs.org/bower/-/bower-1.4.1.tgz
+85 http GET https://registry.npmjs.org/bower/-/bower-1.4.1.tgz
+86 http 304 https://registry.npmjs.org/bower
+87 silly registry.get cb [ 304,
+87 silly registry.get   { date: 'Sun, 07 Jun 2015 12:33:44 GMT',
+87 silly registry.get     via: '1.1 varnish',
+87 silly registry.get     'cache-control': 'max-age=60',
+87 silly registry.get     etag: '"666U6M9B7GFHAZTPM76JCEUV6"',
+87 silly registry.get     age: '22',
+87 silly registry.get     connection: 'keep-alive',
+87 silly registry.get     'x-served-by': 'cache-fra1229-FRA',
+87 silly registry.get     'x-cache': 'HIT',
+87 silly registry.get     'x-cache-hits': '1',
+87 silly registry.get     'x-timer': 'S1433680424.601817,VS0,VE0',
+87 silly registry.get     vary: 'Accept' } ]
+88 verbose etag https://registry.npmjs.org/bower from cache
+89 silly lockFile 9819431c-bower-1-3-12 bower@1.3.12
+90 silly lockFile 9819431c-bower-1-3-12 bower@1.3.12
+91 silly resolved [ { name: 'bower',
+91 silly resolved     version: '1.3.12',
+91 silly resolved     description: 'The browser package manager',
+91 silly resolved     author: { name: 'Twitter' },
+91 silly resolved     licenses: [ [Object] ],
+91 silly resolved     repository: { type: 'git', url: 'https://github.com/bower/bower' },
+91 silly resolved     main: 'lib',
+91 silly resolved     homepage: 'http://bower.io',
+91 silly resolved     engines: { node: '>=0.10.0' },
+91 silly resolved     dependencies:
+91 silly resolved      { abbrev: '~1.0.4',
+91 silly resolved        archy: '0.0.2',
+91 silly resolved        'bower-config': '~0.5.2',
+91 silly resolved        'bower-endpoint-parser': '~0.2.2',
+91 silly resolved        'bower-json': '~0.4.0',
+91 silly resolved        'bower-logger': '~0.2.2',
+91 silly resolved        'bower-registry-client': '~0.2.0',
+91 silly resolved        cardinal: '0.4.0',
+91 silly resolved        chalk: '0.5.0',
+91 silly resolved        chmodr: '0.1.0',
+91 silly resolved        'decompress-zip': '0.0.8',
+91 silly resolved        fstream: '~1.0.2',
+91 silly resolved        'fstream-ignore': '~1.0.1',
+91 silly resolved        glob: '~4.0.2',
+91 silly resolved        'graceful-fs': '~3.0.1',
+91 silly resolved        handlebars: '~2.0.0',
+91 silly resolved        inquirer: '0.7.1',
+91 silly resolved        insight: '0.4.3',
+91 silly resolved        'is-root': '~1.0.0',
+91 silly resolved        junk: '~1.0.0',
+91 silly resolved        lockfile: '~1.0.0',
+91 silly resolved        'lru-cache': '~2.5.0',
+91 silly resolved        mkdirp: '0.5.0',
+91 silly resolved        mout: '~0.9.0',
+91 silly resolved        nopt: '~3.0.0',
+91 silly resolved        opn: '~1.0.0',
+91 silly resolved        osenv: '0.1.0',
+91 silly resolved        'p-throttler': '0.1.0',
+91 silly resolved        promptly: '0.2.0',
+91 silly resolved        q: '~1.0.1',
+91 silly resolved        request: '~2.42.0',
+91 silly resolved        'request-progress': '0.3.0',
+91 silly resolved        retry: '0.6.0',
+91 silly resolved        rimraf: '~2.2.0',
+91 silly resolved        semver: '~2.3.0',
+91 silly resolved        'shell-quote': '~1.4.1',
+91 silly resolved        'stringify-object': '~1.0.0',
+91 silly resolved        'tar-fs': '0.5.2',
+91 silly resolved        tmp: '0.0.23',
+91 silly resolved        'update-notifier': '0.2.0',
+91 silly resolved        which: '~1.0.5' },
+91 silly resolved     devDependencies:
+91 silly resolved      { coveralls: '~2.11.0',
+91 silly resolved        'expect.js': '~0.3.1',
+91 silly resolved        grunt: '~0.4.4',
+91 silly resolved        'grunt-cli': '^0.1.13',
+91 silly resolved        'grunt-contrib-jshint': '~0.10.0',
+91 silly resolved        'grunt-contrib-watch': '~0.6.1',
+91 silly resolved        'grunt-exec': '~0.4.2',
+91 silly resolved        'grunt-simple-mocha': '~0.4.0',
+91 silly resolved        istanbul: '~0.3.2',
+91 silly resolved        'load-grunt-tasks': '~0.6.0',
+91 silly resolved        mocha: '~1.21.4',
+91 silly resolved        nock: '~0.46.0',
+91 silly resolved        'node-uuid': '~1.4.1',
+91 silly resolved        proxyquire: '~1.0.1' },
+91 silly resolved     scripts: { test: 'grunt test' },
+91 silly resolved     bin: { bower: 'bin/bower' },
+91 silly resolved     preferGlobal: true,
+91 silly resolved     gitHead: 'b26c072f0db054a1902ec4d2e3726dbf8a1c799a',
+91 silly resolved     bugs: { url: 'https://github.com/bower/bower/issues' },
+91 silly resolved     _id: 'bower@1.3.12',
+91 silly resolved     _shasum: '37de0edb3904baf90aee13384a1a379a05ee214c',
+91 silly resolved     _from: 'bower@1.3.12',
+91 silly resolved     _npmVersion: '2.0.0',
+91 silly resolved     _npmUser: { name: 'sheerun', email: 'sheerun@sher.pl' },
+91 silly resolved     maintainers: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+91 silly resolved     dist:
+91 silly resolved      { shasum: '37de0edb3904baf90aee13384a1a379a05ee214c',
+91 silly resolved        tarball: 'http://registry.npmjs.org/bower/-/bower-1.3.12.tgz' },
+91 silly resolved     directories: {},
+91 silly resolved     _resolved: 'https://registry.npmjs.org/bower/-/bower-1.3.12.tgz',
+91 silly resolved     readme: 'ERROR: No README data found!' } ]
+92 info install bower@1.3.12 into /usr/lib/node_modules/grunt-google-cdn/node_modules/google-cdn
+93 info installOne bower@1.3.12
+94 verbose lib/node_modules/grunt-google-cdn/node_modules/google-cdn/node_modules/bower unbuild
+95 verbose tar unpack /home/alexander/.npm/bower/1.3.12/package.tgz
+96 silly lockFile ae6a577e-es-google-cdn-node-modules-bower tar:///usr/lib/node_modules/grunt-google-cdn/node_modules/google-cdn/node_modules/bower
+97 verbose lock tar:///usr/lib/node_modules/grunt-google-cdn/node_modules/google-cdn/node_modules/bower /home/alexander/.npm/ae6a577e-es-google-cdn-node-modules-bower.lock
+98 silly lockFile a833d12e-der-npm-bower-1-3-12-package-tgz tar:///home/alexander/.npm/bower/1.3.12/package.tgz
+99 verbose lock tar:///home/alexander/.npm/bower/1.3.12/package.tgz /home/alexander/.npm/a833d12e-der-npm-bower-1-3-12-package-tgz.lock
+100 silly gunzTarPerm modes [ '775', '664' ]
+101 error Error: EACCES, mkdir '/usr/lib/node_modules/grunt-google-cdn/node_modules/google-cdn/node_modules/bower'
+101 error  { [Error: EACCES, mkdir '/usr/lib/node_modules/grunt-google-cdn/node_modules/google-cdn/node_modules/bower']
+101 error   errno: 3,
+101 error   code: 'EACCES',
+101 error   path: '/usr/lib/node_modules/grunt-google-cdn/node_modules/google-cdn/node_modules/bower',
+101 error   fstream_type: 'Directory',
+101 error   fstream_path: '/usr/lib/node_modules/grunt-google-cdn/node_modules/google-cdn/node_modules/bower',
+101 error   fstream_class: 'DirWriter',
+101 error   fstream_stack:
+101 error    [ '/usr/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+101 error      '/usr/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+101 error      'Object.oncomplete (fs.js:108:15)' ] }
+102 error Please try running this command again as root/Administrator.
+103 error System Linux 3.13.0-49-generic
+104 error command "/usr/bin/node" "/usr/bin/npm" "update" "-g" "bower"
+105 error cwd /home/alexander/www/playdate-frontend
+106 error node -v v0.10.37
+107 error npm -v 1.4.28
+108 error path /usr/lib/node_modules/grunt-google-cdn/node_modules/google-cdn/node_modules/bower
+109 error fstream_path /usr/lib/node_modules/grunt-google-cdn/node_modules/google-cdn/node_modules/bower
+110 error fstream_type Directory
+111 error fstream_class DirWriter
+112 error code EACCES
+113 error errno 3
+114 error stack Error: EACCES, mkdir '/usr/lib/node_modules/grunt-google-cdn/node_modules/google-cdn/node_modules/bower'
+115 error fstream_stack /usr/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+115 error fstream_stack /usr/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+115 error fstream_stack Object.oncomplete (fs.js:108:15)
+116 verbose exit [ 3, true ]
