@@ -35,7 +35,7 @@ var english = {
 		HEADLINE: 			"{{username}} would like to play on <b>{{platform}}</b>",
 		TIMEZONE: 			"Timezone",
 		LANGUAGE: 			"Language",
-		MESSAGE: 			"message {{username}}",
+		MESSAGE: 			"<span class='text-wrap-ellipsis'>message {{username}}</span>",
 		MIC: 				"A mic is required",
 		GROUP: 				"A group wants to play",
 		PREFERENCES: 		"Preferences"
@@ -83,7 +83,7 @@ var spanish = {
         HEADLINE:           "A {{username}} le gustaría jugar a un juego de <b>{{platform}}</b>",
         TIMEZONE:           "Huso horario",
         LANGUAGE:           "Idioma",
-        MESSAGE:            "Enviar un mensaje a {{username}}",
+        MESSAGE:            "<span class='text-wrap-ellipsis'>Enviar un mensaje a {{username}}</span>",
         MIC:                "Se necesita un micrófono",
         GROUP:              "Un grupo quiere jugar",
         PREFERENCES:        "Preferencias"
@@ -131,7 +131,7 @@ var galician = {
         HEADLINE:           "{{username}} quere xogar a un xogo de <b>{{platform}}</b>",
         TIMEZONE:           "Fuso horario",
         LANGUAGE:           "Idioma",
-        MESSAGE:            "Enviar unha mensaxe a {{username}}",
+        MESSAGE:            "<span class='text-wrap-ellipsis'>Enviar unha mensaxe a {{username}}</span>",
         MIC:                "Necesítase un micrófono",
         GROUP:              "Un grupo quere xogar",
         PREFERENCES:        "Preferencias"
@@ -178,7 +178,7 @@ var german = {
 		HEADLINE: 			"{{username}} würde gerne auf <b> {{platform}} </b> spielen",
 		TIMEZONE: 			"Zeitzone",
 		LANGUAGE: 			"Sprache",
-		MESSAGE: 			"nachricht an {{username}}",
+		MESSAGE: 			"<span class='text-wrap-ellipsis'>nachricht an {{username}}</span>",
 		MIC: 				"Ein Microfon wird benötigt.",
 		GROUP: 				"Eine Gruppe möchte spielen",
 		PREFERENCES: 		"Vorlieben"

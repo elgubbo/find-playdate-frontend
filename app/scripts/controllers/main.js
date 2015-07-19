@@ -13,6 +13,7 @@ angular.module('findPlayDate')
     this.searchService = Search;
     this.flashMessage = FlashMessage;
     this.platforms = PlatformService.platforms;
+    this.showShare = [];
 
     this.openModal = function (playdate) {
 
