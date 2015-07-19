@@ -8,8 +8,9 @@
  * Controller of the findPlayDate
  */
 angular.module('findPlayDate')
-  .controller('ModalCtrl', function ($scope, $http, $modalInstance, message) {
+  .controller('ModalCtrl', function ($scope, $http, $modalInstance, message, playdate, $location) {
     $scope.message = message;
+    $scope.playdate = playdate;
     $scope.errorMessage = null;
 
     $scope.send = function () {
@@ -28,6 +29,7 @@ angular.module('findPlayDate')
 
     $scope.cancel = function () {
         $modalInstance.dismiss('There has been an error. Please try again later.');
+        $location.search({});
     };
 
   });

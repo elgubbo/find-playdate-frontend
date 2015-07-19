@@ -14,6 +14,21 @@ app.directive('errSrc', function() {
     };
 });
 
+
+app.directive('errSrcModal', function() {
+    return {
+        link: function(scope, element, attrs) {
+            element.bind('error', function() {
+                if (attrs.src !== attrs.errSrc) {
+                    attrs.$set('src', attrs.errSrc);
+                    element.css('visibility', 'initial');
+                }
+            });
+        }
+    };
+});
+
+
  app.directive('backImg', function(){
     return function(scope, element, attrs){
         attrs.$observe('backImg', function(value) {

@@ -154,6 +154,9 @@ body{
   margin-right: 5px;
   margin-left: 5px;
 }
+.allcaps {
+    text-transform: uppercase;
+}
 
 .add-playdate-row {
   margin-left: -5px;
@@ -173,6 +176,10 @@ body{
 }
 .masonry-brick .item-image {
   width: 100%;
+}
+.modal-image {
+  max-width: 100%;
+  padding-bottom: 10px;
 }
 .masonry-brick .item-footer {
   margin: 5px;

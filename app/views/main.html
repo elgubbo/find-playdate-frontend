@@ -50,7 +50,8 @@
                             </dd>
                         </dl>
                         <div class="row">
-                            <button ng-click="main.openModal(playdate)"
+                            <button
+                                    ng-click="main.openMessage(playdate._id)"
                                     type="button" class="btn btn-primary btn-block"
                                     translate="MAIN.MESSAGE"
                                     translate-values="{username : playdate.name}">
@@ -66,7 +67,7 @@
 <div id="footer" class="container-fluid">
     <div class="row">
         <div class="col-md-3 pull-right">
-            <a href="/#/tos" class="btn btn-xs pull-right">read the TOS and site notice</a>
+            <a href="/tos" class="btn btn-xs pull-right">read the TOS and site notice</a>
         </div>
     </div>
 </div>

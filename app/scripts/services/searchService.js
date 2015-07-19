@@ -16,8 +16,8 @@ angular.module('findPlayDate')
     {
         var res = [];
         angular.forEach(this.results, function(value) {
-            if (value.id === id) {
-                this.push(value);
+            if (value._id === id) {
+                return value;
             }
         }, res);
         return res;

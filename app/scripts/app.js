@@ -29,6 +29,7 @@
 
     $routeProvider
     .when('/', {
+        reloadOnSearch: false,
         templateUrl: 'views/main.html',
         controller: 'MainCtrl as main',
     })
@@ -43,7 +44,7 @@
         redirectTo: '/'
     });
 
-    $locationProvider.html5Mode(false);
+    $locationProvider.html5Mode(true);
 
 
 });

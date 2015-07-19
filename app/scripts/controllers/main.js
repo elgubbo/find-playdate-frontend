@@ -8,7 +8,7 @@
 * Controller of the findPlayDate
 */
 angular.module('findPlayDate')
-    .controller('MainCtrl',['$scope', '$modal', '$routeParams', 'Search', 'PlayDate', 'FlashMessage', 'PlatformService',  function ($scope, $modal, $routeParams, Search, PlayDate, FlashMessage, PlatformService) {
+    .controller('MainCtrl',['$scope', '$modal', '$routeParams', 'Search', 'PlayDate', 'FlashMessage', 'PlatformService', '$location',  function ($scope, $modal, $routeParams, Search, PlayDate, FlashMessage, PlatformService, $location) {
 
     this.searchService = Search;
     this.flashMessage = FlashMessage;
@@ -24,6 +24,9 @@ angular.module('findPlayDate')
             resolve: {
                 message : function () {
                     return {to: playdate.name, playdateId: playdate._id};
+                },
+                playdate : function () {
+                    return playdate;
                 }
             }
         });
@@ -49,6 +52,7 @@ angular.module('findPlayDate')
             }
         });
 
+
         modalInstance.result.then(function (message) {
             if(message === 'success') {
                 $scope.main.searchService.findPlayDates();
@@ -69,14 +73,42 @@ angular.module('findPlayDate')
         }
     };
 
+    this.openMessage = function(id) {
+        $location.search({'message': id});
+    };
+
+    $scope.$on('$routeUpdate', function(scope, next, current) {
+        if (next && next.hasOwnProperty('params') && next.params.hasOwnProperty('message')) {
+            var pdId = next.params.message;
+            $scope.main.prepareAndOpenMessageModal(pdId);
+        }
+    });
+
+    this.prepareAndOpenMessageModal = function(id) {
+        var pdId = id;
+        var resArray = $scope.main.searchService.findByPk(pdId);
+        if (resArray.length > 0) {
+            $scope.main.openModal(resArray[0]);
+        } else {
+            PlayDate.get({id: pdId}).$promise.then(function (playdate)
+            {
+              $scope.main.openModal(playdate);
+            });
+        }
+    };
+
     $scope.$on('$viewContentLoaded', function() {
         console.log('[WELCOME TO FIND-PLAYDATE.COM]');
         Search.findPlayDates({});
-        if($routeParams.hash && $routeParams.id){
+        if ($routeParams.hash && $routeParams.id) {
             PlayDate.getForUpdate({id: $routeParams.id, updateHash: $routeParams.hash}).$promise.then(function (playdate)
             {
               $scope.main.openUpdateModal(playdate, $routeParams.hash);
           });
+        }
+        var searchParams = $location.search();
+        if (searchParams.hasOwnProperty('message')) {
+            $scope.main.prepareAndOpenMessageModal(searchParams.message);
         }
         // $scope.main.searchService.findPlayDates();
     });
