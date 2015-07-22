@@ -8,12 +8,21 @@
 * Controller of the findPlayDate
 */
 angular.module('findPlayDate')
-    .controller('MainCtrl',['$scope', '$modal', '$routeParams', 'Search', 'PlayDate', 'FlashMessage', 'PlatformService', '$location',  function ($scope, $modal, $routeParams, Search, PlayDate, FlashMessage, PlatformService, $location) {
+    .controller('MainCtrl',['$rootScope', '$scope', '$modal', '$routeParams', 'Search', 'PlayDate', 'FlashMessage', 'PlatformService', '$location', '$window',  function ($rootScope, $scope, $modal, $routeParams, Search, PlayDate, FlashMessage, PlatformService, $location, $window) {
 
     this.searchService = Search;
     this.flashMessage = FlashMessage;
     this.platforms = PlatformService.platforms;
     this.showShare = [];
+
+    this.twitterLink = function() {
+        $window.open('https://twitter.com/find_playdate', '_blank');
+    };
+
+    this.openCreateModal = function(){
+        console.log('sending event');
+        $rootScope.$emit('startCreate');
+    };
 
     this.openModal = function (playdate) {
 

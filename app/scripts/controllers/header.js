@@ -8,13 +8,22 @@
  * Controller of the findPlayDate
  */
  angular.module('findPlayDate')
- .controller('HeaderCtrl', function ($scope, $http, $modal, PlayDate, Search, Autocomplete, FlashMessage, $rootScope, $anchorScroll, $location, PlatformService) {
+ .controller('HeaderCtrl', function ($scope, $http, $modal, $window, PlayDate, Search, Autocomplete, FlashMessage, $rootScope, $anchorScroll, $location, PlatformService) {
     this.search = {};
     this.lastSearch = {};
     this.platforms = PlatformService.platforms;
     this.getGame = Autocomplete.getGame;
     this.getLanguage = Autocomplete.getLanguage;
     this.getRegion = Autocomplete.getRegion;
+
+    $rootScope.$on('startCreate', function(event, args) {
+        console.log('caught event');
+        $scope.header.openCreateModal($scope.header.search);
+    });
+
+    this.twitterLink = function() {
+        $window.open('https://twitter.com/find_playdate', '_blank');
+    };
 
     this.openCreateModal = function (prefill) {
         if(typeof prefill.platform === 'object') {

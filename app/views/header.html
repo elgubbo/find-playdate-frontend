@@ -5,10 +5,14 @@
             <div class="col-md-2 col-xs-8 col-sm-3">
                 <a class="navbar-brand" id="header-brand" href="/" ng-click="header.resetSearch()"><span class="bigfont orange">Play</span><span class="bigfont">Date</span></a>
             </div>
-            <div class="col-xs-2 hidden-sm hidden-lg hidden-md" style="margin-top:10px; margin-left:35px;">
-                <div
-                class="btn-circle btn-lg btn-primary"
-                ng-click="header.openCreateModal(header.search)"><span class="fa fa-plus"></span></div>
+            <div class="col-xs-2 hidden-sm hidden-lg hidden-md">
+                <nav class="custom-mfb-color" mfb-menu position="tr" effect="zoomin" label="menu"
+                     active-icon="fa fa-arrow-left" resting-icon="fa fa-bars"
+                     toggling-method="click">
+                  <button ng-click="header.openCreateModal(header.search)" mfb-button icon="fa fa-plus" label="{{ 'HEADER.ADD_PLAYDATE' | translate }}"></button>
+                  <button mfb-button icon="fa fa-twitter" label="twitter" ng-click="header.twitterLink();"></button>
+
+                </nav>
             </div>
             <form class="form-inline col-md-9 col-sm-8 mt-10 pull-right" id="search-form">
                 <div class="row search-row">
@@ -81,7 +85,7 @@
                             </span>
                         </div>
                     </div>
-                    <div
+<!--                     <div
                         class="hidden-sm hidden-xs btn btn-primary form-control mt-5"
                         ng-click="header.openCreateModal(header.search)">
                         <span translate="HEADER.ADD_PLAYDATE"></span>
@@ -92,7 +96,7 @@
                         ng-click="header.openCreateModal(header.search)">
                         <span translate="HEADER.ADD_PLAYDATE"></span>
                         <span class="fa fa-plus"></span>
-                    </div>
+                    </div> -->
                 </div>
             </form>
         </div>
