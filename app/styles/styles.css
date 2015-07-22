@@ -21,7 +21,7 @@ author: bootply.com
 }
 @media only screen and (min-width: 768px) and (max-width: 970px) {
     #main {
-      padding-top: 110px;
+      padding-top: 80px;
 
     }
 }
@@ -217,13 +217,15 @@ body{
 .custom-mfb-color  > li > ul > li > a{
     background-image: radial-gradient(circle, #2196f3 80%, #0d87e9 81%);
   }
-.custom-mfb-color-br  > li > a{
-    background: orange;
+.custom-mfb-color-tr  > li > a{
+    background-image: radial-gradient(circle, #2196f3 80%, #0d87e9 81%);
   }
-.custom-mfb-color-br  > li > ul > li > a{
-    background: orange;
+.custom-mfb-color-tr  > li > ul > li > a{
+    background-image: radial-gradient(circle, #2196f3 80%, #0d87e9 81%);
   }
-
+.custom-mfb-color-tr {
+  z-index: 2000;
+}
 
 #footer {
   top: 800px;
