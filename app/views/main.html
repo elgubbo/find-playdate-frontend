@@ -1,4 +1,4 @@
-<div class="container-fluid" id="main">
+<div class="container-fluid" id="main" itemscope itemtype="http://schema.org/Article">
     <div class="messages row">
         <div ng-repeat="message in main.flashMessage.messages" class="message col-sm-12">
             <div class="alert alert-{{::message.type}}" role="alert">
@@ -15,18 +15,23 @@
         infinite-scroll='main.searchService.loadMore()'
         infinite-scroll-disabled='main.searchService.isLoading || main.searchService.finished'
         infinite-scroll-distance='1'>
-        <div ng-repeat="playdate in main.searchService.results track by playdate._id" class="masonry-brick col-xs-12 col-md-3 col-sm-4">
+        <div ng-repeat="playdate in main.searchService.results track by playdate._id"
+            class="masonry-brick col-xs-12 col-md-3 col-sm-4"
+            itemscope itemtype="http://schema.org/Article">
+            <meta itemprop="datePublished" content="{{playdate.created}}"></meta>
+            <meta itemprop="url" content="http://find-playdate.com/?message={{playdate._id}}"></meta>
+            <meta itemprop="headline" content="{{playdate.name}} would like to play {{playdate.game.label}} on {{main.getPlatformPrettyName(playdate.platform)}}"></meta>
             <div class="panel panel-default possibly-long-text playdate-item">
                 <!-- item head -->
                 <div class="panel-heading clearfix">
                     <div class="row">
-                        <h6 class="col-md-10 panel-title pull-left" translate="MAIN.HEADLINE" translate-values="{username : playdate.name, platform: main.getPlatformPrettyName(playdate.platform)}">
+                        <h6 itemprop="name" class="col-md-10 panel-title pull-left" translate="MAIN.HEADLINE" translate-values="{username : playdate.name, platform: main.getPlatformPrettyName(playdate.platform)}">
                         </h6>
                     </div>
                 </div>
                 <a ng-href="{{::playdate.detail_url}}" target="_blank">
                     <div ng-class="{'steam-image': playdate.platform=='steam', 'console-image': playdate.platform!='steam'}" class="tb-shadow panel-content" back-img="{{::playdate.game.image_url}}">
-                        <img class="item-image tb-shadow"
+                        <img itemprop="image" class="item-image tb-shadow"
                             style="visibility:hidden"
                             ng-src="{{::playdate.game.image_url}}" alt="no image"
                             err-src="{{'http://placehold.it/460x215/f5f5f5&text='+playdate.game.label}}">
@@ -36,8 +41,8 @@
                 <div class="panel-footer">
                     <div class="item-footer" style="word-wrap: break-word">
                         <dl>
-                            <dt><span class="fa fa-gamepad pr-5"></span>{{::playdate.game.label}}</dt>
-                            <dd>{{::playdate.description}}</dd>
+                            <dt itemprop="articleSection"><span class="fa fa-gamepad pr-5"></span>{{::playdate.game.label}}</dt>
+                            <dd itemprop="articleBody">{{::playdate.description}}</dd>
                             <dt><span class="fa pr-5 fa-globe"></span><span translate="MAIN.TIMEZONE"></span></dt>
                             <dd>{{::playdate.geoRegion.label}}</dd>
                             <dt ng-if="playdate.preferences && playdate.preferences.language"><span class="fa pr-5 fa-language"></span><span translate="MAIN.LANGUAGE"></span></dt>
@@ -51,14 +56,6 @@
                                 <span ng-if="playdate.preferences.microphone"><i class="fa pr-5 fa-microphone"></i> <span translate="MAIN.MIC"></span></span>
                             </dd>
                         </dl>
-<!--                         <div class="row">
-                            <button
-                                    ng-click="main.openMessage(playdate._id)"
-                                    type="button" class="btn btn-primary btn-block"
-                                    translate="MAIN.MESSAGE"
-                                    translate-values="{username : playdate.name}">
-                            </button>
-                        </div> -->
                     </div>
                     <div class="btn-group btn-group-justified">
 
@@ -82,7 +79,6 @@
                                     </a>
                                   </li>
                                     <li class="rrssb-googleplus">
-                                      <!-- Replace href with your meta and URL information.  -->
                                       <a href="https://plus.google.com/share?url=http://find-playdate.com/?message={{::playdate._id}}" class="popup" target="_blank">
                                         <span class="rrssb-icon">
                                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
