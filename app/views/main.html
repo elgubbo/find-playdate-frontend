@@ -18,9 +18,9 @@
         <div ng-repeat="playdate in main.searchService.results track by playdate._id"
             class="masonry-brick col-xs-12 col-md-3 col-sm-4"
             itemscope itemtype="http://schema.org/Article">
-            <meta itemprop="datePublished" content="{{playdate.created}}"></meta>
-            <meta itemprop="url" content="http://find-playdate.com/?message={{playdate._id}}"></meta>
-            <meta itemprop="headline" content="{{playdate.name}} would like to play {{playdate.game.label}} on {{main.getPlatformPrettyName(playdate.platform)}}"></meta>
+            <meta itemprop="datePublished" content="{{::playdate.created}}"></meta>
+            <meta itemprop="url" content="http://find-playdate.com/?message={{::playdate._id}}"></meta>
+            <meta itemprop="headline" content="{{::playdate.name}} would like to play {{::playdate.game.label}} on {{main.getPlatformPrettyName(playdate.platform)}}"></meta>
             <div class="panel panel-default possibly-long-text playdate-item">
                 <!-- item head -->
                 <div class="panel-heading clearfix">
