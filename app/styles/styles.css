@@ -40,6 +40,10 @@ body{
   	padding-top:0px; /*padding for navbar*/
 }
 
+.simple-shadow {
+      outline: 1px solid black;
+}
+
 .btn-circle {
   width: 30px;
   height: 30px;
