@@ -14,14 +14,12 @@
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngMessages',
     'ngTouch',
     'ui.bootstrap',
     'ngTagsInput',
     'wu.masonry',
     'angular-loading-bar',
     'infinite-scroll',
-    'headroom',
     'pascalprecht.translate',
     'ng-mfb'
     ])

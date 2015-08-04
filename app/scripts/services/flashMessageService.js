@@ -12,6 +12,11 @@ angular.module("findPlayDate")
 			this.messages.push({type: type, title: message});
 		}
 	};
+
+	Messages.flush = function() {
+		this.messages = [];
+	};
+
 	return Messages;
 
 });

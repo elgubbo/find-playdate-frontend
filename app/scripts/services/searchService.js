@@ -69,6 +69,7 @@ angular.module('findPlayDate')
         //return the this in case someone wants to handle the promise themselves
         return PlayDate.query(data).$promise.then(
             function(results){
+                FlashMessage.flush();
                 if (results.length === 0) {
                     FlashMessage.setMessage('info', 'Unfortunately no playdates have been found for your search. Be the first and add one. Just click "ADD PLAYDATE"!');
                 }

@@ -10,13 +10,13 @@ author: bootply.com
 
 @media only screen and (max-width: 480px) {
     #main {
-      padding-top: 255px;
+      padding-top: 80px;
 
     }
 }
 @media only screen and (min-width: 480px) and (max-width: 768px) {
     #main {
-      padding-top: 255px;
+      padding-top: 80px;
     }
 }
 @media only screen and (min-width: 768px) and (max-width: 970px) {
@@ -310,77 +310,16 @@ body{
 body.modal-open { overflow:inherit; padding-right:inherit !important; }
 
 
-
-/*animation*/
-@-webkit-keyframes bounceInDown {
-  0%, 60%, 75%, 90%, 100% {
-    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-            transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+.form-animate.ng-hide-remove {
+    -webkit-animation: flipInX 0.4s;
+    -moz-animation: flipInX 0.4s;
+    -ms-animation: flipInX 0.4s;
+    animation: flipInX 0.4s;
   }
 
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -3000px, 0);
-            transform: translate3d(0, -3000px, 0);
+.form-animate.ng-hide-add {
+    -webkit-animation: flipOutX 0.4s;
+    -moz-animation: flipOutX 0.4s;
+    -ms-animation: flipOutX 0.4s;
+    animation: flipOutX 0.4s;
   }
-
-  60% {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 25px, 0);
-            transform: translate3d(0, 25px, 0);
-  }
-
-  75% {
-    -webkit-transform: translate3d(0, -10px, 0);
-            transform: translate3d(0, -10px, 0);
-  }
-
-  90% {
-    -webkit-transform: translate3d(0, 5px, 0);
-            transform: translate3d(0, 5px, 0);
-  }
-
-  100% {
-    -webkit-transform: none;
-            transform: none;
-  }
-}
-
-@keyframes bounceInDown {
-  0%, 60%, 75%, 90%, 100% {
-    -webkit-transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-            transition-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-  }
-
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -3000px, 0);
-            transform: translate3d(0, -3000px, 0);
-  }
-
-  60% {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 25px, 0);
-            transform: translate3d(0, 25px, 0);
-  }
-
-  75% {
-    -webkit-transform: translate3d(0, -10px, 0);
-            transform: translate3d(0, -10px, 0);
-  }
-
-  90% {
-    -webkit-transform: translate3d(0, 5px, 0);
-            transform: translate3d(0, 5px, 0);
-  }
-
-  100% {
-    -webkit-transform: none;
-            transform: none;
-  }
-}
-
-.bounceInDown {
-  -webkit-animation-name: bounceInDown;
-          animation-name: bounceInDown;
-}
