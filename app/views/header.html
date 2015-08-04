@@ -24,7 +24,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li ng-repeat="platform in header.platforms">
-                                    <a href ng-click="header.search.platform=platform">{{platform.name}}</a>
+                                    <a href ng-click="header.search.platform=platform">{{::platform.name}}</a>
                                 </li>
                             </ul>
                         </div>
@@ -85,7 +85,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li ng-repeat="platform in header.platforms">
-                                    <a href ng-click="header.search.platform=platform">{{platform.name}}</a>
+                                    <a href ng-click="header.search.platform=platform">{{::platform.name}}</a>
                                 </li>
                             </ul>
                         </div>
@@ -97,7 +97,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li ng-repeat="platform in header.platforms">
-                                    <a href ng-click="header.search.platform=platform">{{platform.name}}</a>
+                                    <a href ng-click="header.search.platform=platform">{{::platform.name}}</a>
                                 </li>
                             </ul>
                         </div>
