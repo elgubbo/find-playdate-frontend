@@ -10,13 +10,13 @@ author: bootply.com
 
 @media only screen and (max-width: 480px) {
     #main {
-      padding-top: 80px;
+      padding-top: 255px;
 
     }
 }
 @media only screen and (min-width: 480px) and (max-width: 768px) {
     #main {
-      padding-top: 80px;
+      padding-top: 255px;
     }
 }
 @media only screen and (min-width: 768px) and (max-width: 970px) {
@@ -309,17 +309,17 @@ body{
 
 body.modal-open { overflow:inherit; padding-right:inherit !important; }
 
-
-.form-animate.ng-hide-remove {
+.headroom-pinned {
     -webkit-animation: flipInX 0.4s;
     -moz-animation: flipInX 0.4s;
     -ms-animation: flipInX 0.4s;
     animation: flipInX 0.4s;
-  }
-
-.form-animate.ng-hide-add {
+    display: block;
+}
+.headroom-unpinned {
     -webkit-animation: flipOutX 0.4s;
     -moz-animation: flipOutX 0.4s;
     -ms-animation: flipOutX 0.4s;
     animation: flipOutX 0.4s;
-  }
+    display: none;
+}

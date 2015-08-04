@@ -21,7 +21,8 @@
     'angular-loading-bar',
     'infinite-scroll',
     'pascalprecht.translate',
-    'ng-mfb'
+    'ng-mfb',
+    'headroom'
     ])
  .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';

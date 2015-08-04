@@ -1,6 +1,6 @@
 <div class="container-fluid" ng-controller="HeaderCtrl as header">
     <div id="topanchor"></div>
-    <div id="header" class="navbar navbar-fixed-top"  tolearance="15" offset="15">
+    <div id="header" class="navbar navbar-fixed-top" >
         <div class="navbar-inner">
             <div class="col-md-2 col-xs-8 col-sm-2">
                 <a class="navbar-brand" id="header-brand" href="/" ng-click="header.resetSearch()"><span class="bigfont orange">Play</span><span class="bigfont">Date</span></a>
@@ -9,16 +9,15 @@
                 <nav class="custom-mfb-color" mfb-menu position="tr" effect="zoomin" label="menu"
                      active-icon="fa fa-arrow-left" resting-icon="fa fa-bars"
                      toggling-method="click">
-                  <button mfb-button icon="fa fa-search" label="search" ng-click="header.showSearch = !header.showSearch;"></button>
                   <button ng-click="header.openCreateModal(header.search)" mfb-button icon="fa fa-plus" label="{{ 'HEADER.ADD_PLAYDATE' | translate }}"></button>
                   <button mfb-button icon="fa fa-twitter" label="twitter" ng-click="header.twitterLink();"></button>
                 </nav>
             </div>
-            <form ng-show="header.showSearch" class="form-inline col-md-9 col-sm-9 mt-10 pull-right form-animate" id="search-form">
+            <form headroom classes='{"initial":"animated","pinned":"headroom-pinned","unpinned":"headroom-unpinned"}' tolearance="15" offset="15" class="form-inline col-md-9 col-sm-9 mt-10 pull-right form-animate hidden-sm hidden-xl hidden-md" id="search-form">
                 <div class="row search-row">
                     <div class="col-md-4 col-sm-3 col-xs-12 form-group">
                         <div
-                            class="hidden-sm btn-group"
+                            class="btn-group btn-xs"
                             dropdown is-open="status.isopen" ng-if="!header.search.platform">
                             <a class="btn btn-primary dropdown-toggle" dropdown-toggle>
                             <span translate="HEADER.FILTER_PLATFORM"></span> <span class="caret"></span>
@@ -29,25 +28,13 @@
                                 </li>
                             </ul>
                         </div>
-                        <div
-                            class="hidden-lg hidden-md hidden-xs btn-group"
-                            dropdown is-open="status.isopen" ng-if="!header.search.platform">
-                            <a class="btn btn-primary btn-sm dropdown-toggle" dropdown-toggle ng-disabled="disabled">
-                            <span translate="HEADER.FILTER_PLATFORM"></span> <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li ng-repeat="platform in header.platforms">
-                                    <a href ng-click="header.search.platform=platform">{{platform.name}}</a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="input-group" ng-if="header.search.platform">
+                        <div class="input-group input-group-sm" ng-if="header.search.platform">
                           <input
                             type="text"
                             ng-model="header.search.game"
                             ng-model-options="{ updateOn: 'default keyup blur' }"
                             typeahead="game as game.label for game in header.getGame($viewValue, header.search.platform.apiName)"
-                            class="form-control"
+                            class="form-control input-sm"
                             typeahead-editable="'false'"
                             placeholder="{{ 'HEADER.FILTER_GAME' | translate:{platform: header.search.platform.name} }}">
                             <span class="input-group-addon">
@@ -56,13 +43,13 @@
                         </div>
                     </div>
                     <div class="form-group col-md-4 col-sm-3 col-md-offset-0 col-sm-offset-2 col-xs-12">
-                        <div class="input-group">
+                        <div class="input-group input-group-sm">
                           <input
                             type="text"
                             ng-model="header.search.geoRegion"
                             ng-model-options="{ updateOn: 'default keyup blur' }"
                             typeahead="region as region.label for region in header.getRegion($viewValue)"
-                            class="form-control"
+                            class="form-control input-sm"
                             typeahead-editable="'false'"
                             placeholder="{{ 'HEADER.FILTER_TIMEZONE' | translate }}">
                             <span class="input-group-addon">
@@ -71,13 +58,13 @@
                         </div>
                     </div>
                     <div class="form-group col-md-4 col-sm-3 col-xs-12">
-                        <div class="input-group">
+                        <div class="input-group input-group-sm">
                           <input
                             type="text"
                             ng-model="header.search.preferences.language"
                             ng-model-options="{ updateOn: 'default keyup blur' }"
                             typeahead="language as language.label for language in header.getLanguage($viewValue)"
-                            class="form-control"
+                            class="form-control input-sm"
                             typeahead-editable="'false'"
                             placeholder="{{ 'HEADER.FILTER_LANGUAGE' | translate }}">
                             <span class="input-group-addon">
