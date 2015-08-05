@@ -20,14 +20,13 @@ angular.module('findPlayDate')
     };
 
     this.openCreateModal = function(){
-        console.log('sending event');
         $rootScope.$emit('startCreate');
     };
 
     this.openModal = function (playdate) {
 
       var modalInstance = $modal.open({
-            templateUrl: 'views/modal.html',
+            templateUrl: 'modal.html',
             controller: 'ModalCtrl',
             size: 'lg',
             backdrop: false,
@@ -48,7 +47,7 @@ angular.module('findPlayDate')
 
     this.openUpdateModal = function (playdate, mUpdateHash) {
         var modalInstance = $modal.open({
-            templateUrl: 'views/updatemodal.html',
+            templateUrl: 'updatemodal.html',
             controller: 'UpdatemodalCtrl',
             size: 'lg',
             backdrop: false,
@@ -120,6 +119,5 @@ angular.module('findPlayDate')
         if (searchParams.hasOwnProperty('message')) {
             $scope.main.prepareAndOpenMessageModal(searchParams.message);
         }
-        // $scope.main.searchService.findPlayDates();
     });
 }]);

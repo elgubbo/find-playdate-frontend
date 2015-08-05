@@ -30,7 +30,7 @@
             prefill.platform = prefill.platform.apiName;
         }
         var modalInstance = $modal.open({
-            templateUrl: 'views/createmodal.html',
+            templateUrl: 'createmodal.html',
             controller: 'CreatemodalCtrl',
             size: 'lg',
             backdrop: false,

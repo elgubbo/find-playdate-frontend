@@ -74,12 +74,6 @@ body{
     margin-bottom: 5px;
 }
 
-.headroom {
-    transition: transform 200ms linear;
-    -webkit-transition: transform 200ms linear;
-
-}
-
 .panel-default.playdate-item > .panel-heading {
   background-color: white;
 }
@@ -91,30 +85,21 @@ body{
   background-color: #F5F5F5;
 }
 
-.headroom--pinned {
-    transform: translateY(0%);
-    -webkit-transform: translateY(0%);
-
-}
-.headroom--unpinned {
-    transform: translateY(-100%);
-    -webkit-transform: translateY(-100%);
-}
 
 .masonry-brick.ng-enter, .cases.ng-enter {
-  opacity: 0 ;
+  -webkit-animation: fadeInUp 0.4s;
+  -moz-animation: fadeInUp 0.4s;
+  -ms-animation: fadeInUp 0.4s;
+  animation: fadeInUp 0.4s;
   transition: all ease 250ms ;
 }
 .masonry-brick.ng-enter-stagger, .cases.ng-enter-stagger {
-  transition-delay: 0.1s ;
-    -webkit-transition-delay: 0.1s ;
-  /*
-    FROM THE DOCUMENTATION:
-    In case the stagger doesn't work then these two values must be set
-    to 0 to avoid an accidental CSS inheritance.
-  */
-  transition-duration: 0s ;
-    -webkit-transition-duration: 0s ;
+  animation-delay: 0.1s ;
+    -webkit-animation-delay: 0.1s ;
+    -moz-animation-delay: 0.1s ;
+    -ms-animation-delay: 0.1s ;
+
+
 }
 .masonry-brick.ng-enter-active, .cases.ng-enter-active{
   opacity: 1.0 ;
@@ -301,6 +286,7 @@ body{
 #loading-bar .bar {
   height: 6px;
   background: orange;
+  z-index: 99999;
 }
 
 .clickable {

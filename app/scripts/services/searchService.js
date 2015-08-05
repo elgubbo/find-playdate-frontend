@@ -7,7 +7,6 @@ angular.module('findPlayDate')
         observerCallbacks : [],
         pushCallbacks : [],
         results : [],
-        finishedLoading : false,
         isLoading : true,
         lastTime : '',
     };
@@ -36,7 +35,6 @@ angular.module('findPlayDate')
                 return;
             }
 
-            //wtf - scopes in js. i'm not good at this
             var that = this;
 
             PlayDate.query(this.data).$promise.then(
@@ -54,10 +52,7 @@ angular.module('findPlayDate')
     };
 
     Search.appendResults = function(items) {
-        var that = this;
-        angular.forEach(items, function(value, key) {
-            that.results.push(value);
-        });
+        this.results.push.apply(this.results, items);
     };
 
     Search.findPlayDates = function(data)
