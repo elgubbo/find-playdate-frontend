@@ -5,21 +5,18 @@
             <div class="col-md-2 col-xs-8 col-sm-2">
                 <a class="navbar-brand" id="header-brand" href="/" ng-click="header.resetSearch()"><span class="bigfont orange">Play</span><span class="bigfont">Date</span></a>
             </div>
-            <div class="col-xs-2 hidden-sm hidden-lg hidden-md">
-                <nav class="custom-mfb-color" mfb-menu position="tr" effect="zoomin" label="menu"
-                     active-icon="fa fa-arrow-left" resting-icon="fa fa-bars"
-                     toggling-method="click">
-                  <button ng-click="header.openCreateModal(header.search)" mfb-button icon="fa fa-plus" label="{{ 'HEADER.ADD_PLAYDATE' | translate }}"></button>
-                  <button mfb-button icon="fa fa-twitter" label="twitter" ng-click="header.twitterLink();"></button>
-                </nav>
-            </div>
-            <form headroom classes='{"initial":"animated","pinned":"headroom-pinned","unpinned":"headroom-unpinned"}' tolearance="15" offset="15" class="form-inline col-md-9 col-sm-9 mt-10 pull-right form-animate hidden-sm hidden-xl hidden-lg hidden-md" id="search-form">
+            <!-- mobile form -->
+            <form
+                headroom classes='{"initial":"animated","pinned":"headroom-pinned","unpinned":"headroom-unpinned"}'
+                tolearance="100"
+                offset="100"
+                class="form-animate hidden-sm hidden-xl hidden-lg hidden-md" id="search-form-mobile">
                 <div class="row search-row">
-                    <div class="col-md-4 col-sm-3 col-xs-12 form-group">
+                    <div class="col-xs-12 form-group">
                         <div
-                            class="btn-group btn-xs"
+                            class="btn-group btn-block"
                             dropdown is-open="status.isopen" ng-if="!header.search.platform">
-                            <a class="btn btn-primary dropdown-toggle" dropdown-toggle>
+                            <a class="btn btn-block btn-primary dropdown-toggle" dropdown-toggle>
                             <span translate="HEADER.FILTER_PLATFORM"></span> <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
@@ -42,7 +39,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="form-group col-md-4 col-sm-3 col-md-offset-0 col-sm-offset-2 col-xs-12">
+                    <div class="form-group col-xs-12">
                         <div class="input-group input-group-sm">
                           <input
                             type="text"
@@ -74,6 +71,7 @@
                     </div>
                 </div>
             </form>
+            <!-- desktop form -->
             <form class="form-inline col-md-9 col-sm-9 mt-10 pull-right hidden-xs" id="search-form">
                 <div class="row search-row">
                     <div class="col-md-4 col-sm-3 col-xs-12 form-group">

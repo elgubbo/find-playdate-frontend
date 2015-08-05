@@ -10,13 +10,28 @@ author: bootply.com
 
 @media only screen and (max-width: 480px) {
     #main {
-      padding-top: 255px;
+      padding-top: 185px;
 
+    }
+    #header {
+      min-height: 48px;
+    }
+    .navbar-brand {
+      height: 48px;
+      padding-top: 15px;
+      padding-bottom: 5px;
+    }
+    .form-group {
+      margin-bottom: 5px;
+    }
+    #search-form-mobile {
+      margin-right: 25px;
+      margin-left: 15px;
     }
 }
 @media only screen and (min-width: 480px) and (max-width: 768px) {
     #main {
-      padding-top: 255px;
+      padding-top: 240px;
     }
 }
 @media only screen and (min-width: 768px) and (max-width: 970px) {
