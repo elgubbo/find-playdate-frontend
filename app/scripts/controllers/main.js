@@ -17,10 +17,12 @@ angular.module('findPlayDate')
 
     this.twitterLink = function() {
         $window.open('https://twitter.com/find_playdate', '_blank');
+        this.menuState = "closed";
     };
 
     this.openCreateModal = function(){
         $rootScope.$emit('startCreate');
+        this.menuState = "closed";
     };
 
     this.openModal = function (playdate) {
@@ -104,6 +106,7 @@ angular.module('findPlayDate')
               $scope.main.openModal(playdate);
             });
         }
+        this.menuState = "closed";
     };
 
     $scope.$on('$viewContentLoaded', function() {
