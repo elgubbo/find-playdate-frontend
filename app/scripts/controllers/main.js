@@ -95,9 +95,9 @@ angular.module('findPlayDate')
 
     this.prepareAndOpenMessageModal = function(id) {
         var pdId = id;
-        var resArray = $scope.main.searchService.findByPk(pdId);
-        if (resArray.length > 0) {
-            $scope.main.openModal(resArray[0]);
+        var res = $scope.main.searchService.findByPk(pdId);
+        if (res && res.hasOwnProperty('_id')) {
+            $scope.main.openModal(res);
         } else {
             PlayDate.get({id: pdId}).$promise.then(function (playdate)
             {

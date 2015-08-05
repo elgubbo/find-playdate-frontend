@@ -13,13 +13,11 @@ angular.module('findPlayDate')
 
     Search.findByPk = function(id)
     {
-        var res = [];
-        angular.forEach(this.results, function(value) {
-            if (value._id === id) {
-                return value;
+        for (var i = this.results.length - 1; i >= 0; i--) {
+            if (this.results[i]._id === id) {
+                return this.results[i];
             }
-        }, res);
-        return res;
+        }
     };
 
     Search.loadMore = function()
