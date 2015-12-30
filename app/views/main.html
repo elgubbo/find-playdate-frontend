@@ -42,7 +42,7 @@
                     <div class="item-footer" style="word-wrap: break-word">
                         <dl>
                             <dt itemprop="articleSection"><span class="fa fa-gamepad pr-5"></span>{{::playdate.game.label}}</dt>
-                            <dd itemprop="articleBody">{{::playdate.description}}</dd>
+                            <dd itemprop="articleBody" ng-bind-html="playdate.description | linky:'_blank'"></dd>
                             <dt><span class="fa pr-5 fa-globe"></span><span translate="MAIN.TIMEZONE"></span></dt>
                             <dd>{{::playdate.geoRegion.label}}</dd>
                             <dt ng-if="playdate.preferences && playdate.preferences.language"><span class="fa pr-5 fa-language"></span><span translate="MAIN.LANGUAGE"></span></dt>

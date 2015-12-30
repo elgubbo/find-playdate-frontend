@@ -8,7 +8,7 @@
 * Controller of the findPlayDate
 */
 angular.module('findPlayDate')
-    .controller('MainCtrl',['$rootScope', '$scope', '$modal', '$routeParams', 'Search', 'PlayDate', 'FlashMessage', 'PlatformService', '$location', '$window',  function ($rootScope, $scope, $modal, $routeParams, Search, PlayDate, FlashMessage, PlatformService, $location, $window) {
+    .controller('MainCtrl',['$rootScope', '$scope', '$modal', '$routeParams', 'Search', 'PlayDate', 'FlashMessage', 'PlatformService', '$location', '$window', '$sce',  function ($rootScope, $scope, $modal, $routeParams, Search, PlayDate, FlashMessage, PlatformService, $location, $window, $sce) {
 
     this.searchService = Search;
     this.flashMessage = FlashMessage;
