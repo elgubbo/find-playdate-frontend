@@ -117,8 +117,8 @@
     $scope.setWidgetId = function (widgetId) {
         // store the `widgetId` for future usage.
         // For example for getting the response with
+        console.log(vcRecaptchaService.getResponse(widgetId));
         $scope.newPlayDate.captcha = vcRecaptchaService.getResponse(widgetId);
-        console.log($scope.newPlayDate.captcha);
     };
 
     $scope.setResponse = function (response) {
