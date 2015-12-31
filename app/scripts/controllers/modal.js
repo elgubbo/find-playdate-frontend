@@ -13,6 +13,13 @@ angular.module('findPlayDate')
     $scope.playdate = playdate;
     $scope.errorMessage = null;
 
+    $scope.setResponse = function (response) {
+        $scope.message.captcha = response;
+    };
+
+    $scope.cbExpiration = function() {
+        $scope.message.captcha = null;
+    };
     $scope.send = function () {
         if(!$scope.messageForm.$dirty || !$scope.messageForm.$valid) {
             $scope.errorMessage = "Please fill out all fields and try again";
