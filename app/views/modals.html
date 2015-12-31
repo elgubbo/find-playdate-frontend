@@ -90,13 +90,6 @@
         </div>
     </div>
     <div class="modal-footer">
-        <div
-            vc-recaptcha
-            key="'6LfmNBQTAAAAAF57tD_GplJ1nqdSVBFU_i5u6KrZ'"
-            on-create="setWidgetId(widgetId)"
-            on-success="setResponse(response)"
-            on-expire="cbExpiration()"
-        ></div>
         <button class="btn btn-primary" ng-click="send()">{{'CREATEMODAL.SAVE' | translate}} <span class="fa fa-send"></span> </button>
         <button class="btn btn-warning" ng-click="cancel()">{{'CREATEMODAL.CANCEL' | translate}} <span class="fa fa-close"></span> </button>
     </div>
@@ -260,6 +253,13 @@
     </div>
 </div>
 <div class="modal-footer">
+        <div
+            vc-recaptcha
+            key="'6LfmNBQTAAAAAF57tD_GplJ1nqdSVBFU_i5u6KrZ'"
+            on-create="setWidgetId(widgetId)"
+            on-success="setResponse(response)"
+            on-expire="cbExpiration()"
+        ></div>
     <button class="btn btn-primary" ng-disabled="createForm.$pristine || saving" ng-click="save()">{{'CREATEMODAL.SAVE' | translate}} <span class="fa fa-save"></span></button>
     <button class="btn btn-warning" ng-click="cancel()">{{'CREATEMODAL.CANCEL' | translate}} <span class="fa fa-close"></span></button>
 </div>
