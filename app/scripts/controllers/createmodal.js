@@ -122,7 +122,7 @@
     };
 
     $scope.setResponse = function (response) {
-        // send the `response` to your server for verification.
+        $scope.newPlayDate.captcha = response;
     };
 
     $scope.cbExpiration = function() {
