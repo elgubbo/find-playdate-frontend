@@ -8,7 +8,7 @@
  * Controller of the findPlayDate
  */
  angular.module('findPlayDate')
- .controller('CreatemodalCtrl', function ($scope, $modalInstance, Autocomplete, PlayDate, Search, newPlayDate, FlashMessage, PlatformService, $translate) {
+ .controller('CreatemodalCtrl', function ($scope, $modalInstance, Autocomplete, PlayDate, Search, newPlayDate, FlashMessage, PlatformService, $translate, vcRecaptchaService) {
     //these will be resolved when opening the modal
     $scope.newPlayDate = angular.copy(newPlayDate);
     $scope.playDateMaster = {};
@@ -112,6 +112,20 @@
                 }
             }
         }
+    };
+
+    $scope.setWidgetId = function (widgetId) {
+        // store the `widgetId` for future usage.
+        // For example for getting the response with
+        $scope.newPlayDate.captcha = vcRecaptchaService.getResponse(widgetId); // returns the string response
+    };
+
+    $scope.setResponse = function (response) {
+        // send the `response` to your server for verification.
+    };
+
+    $scope.cbExpiration = function() {
+        $scope.newPlayDate.captcha = null;
     };
 
     //this
