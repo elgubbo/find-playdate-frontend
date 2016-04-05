@@ -16,7 +16,7 @@
         infinite-scroll-disabled='main.searchService.isLoading || main.searchService.finished'
         infinite-scroll-distance='5'>
         <div ng-repeat="playdate in main.searchService.results track by playdate._id"
-            class="masonry-brick col-xs-12 col-md-3 col-sm-4"
+            class="masonry-brick col-xs-12 col-md-4 col-sm-4"
             itemscope itemtype="http://schema.org/Article">
             <meta itemprop="datePublished" content="{{::playdate.created}}"></meta>
             <meta itemprop="url" content="http://find-playdate.com/?message={{::playdate._id}}"></meta>
