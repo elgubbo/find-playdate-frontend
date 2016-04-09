@@ -38,18 +38,35 @@ author: bootply.com
       margin-left: 25px;
     }
 }
-@media only screen and (min-width: 768px) and (max-width: 970px) {
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
     #main {
       padding-top: 80px;
 
     }
 }
-@media only screen and (min-width: 970px) {
+@media only screen and (min-width: 1200px) {
     #main {
-      padding-top: 80px;
-      width: 90%;
-      margin: auto;
+      padding-top: 15px;
     }
+
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border-right: 1px solid #eee;
+-webkit-box-shadow: 4px 0px 11px -5px rgba(0,0,0,0.75);
+-moz-box-shadow: 4px 0px 11px -5px rgba(0,0,0,0.75);
+box-shadow: 4px 0px 11px -5px rgba(0,0,0,0.75);
+}
+
+.sidebar-item {
 
 }
 
@@ -104,7 +121,7 @@ body{
 }
 
 .container-fluid {
-  background-color: #F5F5F5;
+  background-color: white;
 }
 
 
@@ -296,9 +313,11 @@ body{
   border-top-color:  orange;
   border-left-color: orange;
   border-radius: 10px;
+  z-index: 20000;
 }
 /* Fancy blur effect */
 #loading-bar .peg {
+  z-index: 20000;
   height: 8px;
   -moz-box-shadow: orange 1px 0 6px 1px;
   -ms-box-shadow: orange 1px 0 6px 1px;
@@ -313,6 +332,25 @@ body{
 
 .clickable {
   cursor: pointer;
+}
+
+.pt5 {
+  padding-top: 5px;
+}
+.pt10 {
+  padding-top: 10px;
+}
+.pt15 {
+  padding-top: 15px;
+}
+.pt20 {
+  padding-top: 20px;
+}
+
+.tos {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 
 body.modal-open { overflow:inherit; padding-right:inherit !important; }
