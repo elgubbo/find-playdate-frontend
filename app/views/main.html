@@ -49,7 +49,7 @@
 
                             <div class="card__meta">
                                 <a href="#" ng-bind="main.getPlatformPrettyName(playdate.platform)"></a> -
-                                <a href="{{::playdate.detail_url}}">{{::playdate.game.label}}</a><br />
+                                <a target="_blank" href="{{::playdate.detail_url}}">{{::playdate.game.label}}</a><br />
                                 <time ng-bind="main.shorten(playdate.geoRegion.label)"></time>
                             </div>
 
@@ -74,7 +74,7 @@
                             <div class="card-message">
                                 <span class="message-icon"
                                     ng-click="main.openMessage(playdate._id)"></span>
-                                <div class="card__author-content">
+                                <div class="card__message-content">
                                     <span translate="MAIN.MESSAGE"
                                             translate-values="{username : playdate.name}"></span>
                                 </div>

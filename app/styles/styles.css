@@ -502,21 +502,12 @@ h2 {
   padding-bottom: 1.6rem;
 }
 
-.card__author {
-}
-
-.card__author img,
-.card__author-content {
+.card__message-content {
   display: inline-block;
   vertical-align: middle;
   text-transform: uppercase;
-
 }
 
-.card__author img{
-  border-radius: 50%;
-  margin-right: 0.6em;
-}
 
 .card__share {
   float: right;
@@ -589,6 +580,7 @@ h2 {
 }
 
 .message-icon {
+  cursor: pointer;
   display: inline-block;
   width: 48px;
   height: 48px;

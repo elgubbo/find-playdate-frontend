@@ -16,7 +16,7 @@ angular.module('findPlayDate')
     this.showShare = [];
 
     this.shorten = function(str) {
-        return str.slice(0, 20)+'...';
+        return str.slice(0, 30)+'...';
     };
 
     this.shareClicked = function(ev) {
