@@ -7,7 +7,7 @@ app.directive('errSrc', function() {
                 if (attrs.src !== attrs.errSrc) {
                     attrs.$set('src', attrs.errSrc);
                     element.css('visibility', 'initial');
-                    element.css('margin-top', '-53.73%');
+                    //element.css('margin-top', '-53.73%');
                 }
             });
         }

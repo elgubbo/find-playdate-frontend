@@ -15,6 +15,17 @@ angular.module('findPlayDate')
     this.platforms = PlatformService.platforms;
     this.showShare = [];
 
+    this.shorten = function(str) {
+        return str.slice(0, 20)+'...';
+    };
+
+    this.shareClicked = function(ev) {
+        ev.preventDefault();
+        var el = angular.element(ev.target);
+        el.parent().find( 'div' ).toggleClass( 'card__social--active' );
+        el.toggleClass('share-expanded');
+    };
+
     this.twitterLink = function() {
         $window.open('https://twitter.com/find_playdate', '_blank');
         this.menuState = "closed";
