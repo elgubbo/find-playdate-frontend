@@ -39,9 +39,9 @@
                         <div class="card__content card__padding">
                             <div class="card__share">
                                 <div class="card__social">
-                                    <a class="share-icon facebook" href="#"><span class="fa fa-facebook"></span></a>
-                                    <a class="share-icon twitter" href="#"><span class="fa fa-twitter"></span></a>
-                                    <a class="share-icon googleplus" href="#"><span class="fa fa-google-plus"></span></a>
+                                    <a class="share-icon facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://find-playdate.com/?message={{::playdate._id}}"><span class="fa fa-facebook"></span></a>
+                                    <a class="share-icon twitter" target="_blank" href="https://twitter.com/intent/tweet?text=http://find-playdate.com/?message={{::playdate._id}} #playdate"><span class="fa fa-twitter"></span></a>
+                                    <a class="share-icon googleplus" target="_blank" href="https://plus.google.com/share?url=http://find-playdate.com/?message={{::playdate._id}}"><span class="fa fa-google-plus"></span></a>
                                 </div>
 
                                 <a id="share" class="share-toggle share-icon" ng-click="main.shareClicked($event)" href="#"></a>
@@ -52,7 +52,7 @@
                                 <a target="_blank" href="{{::playdate.detail_url}}">{{::playdate.game.label}}</a><br />
                                 <time ng-bind="main.shorten(playdate.geoRegion.label)"></time>
                             </div>
-
+                            <hr>
                             <article class="card__article">
                                 <p itemprop="articleBody" ng-bind-html="playdate.description | linky:'_blank'" style="word-wrap: break-word;"></p>
                                 <dl class="prefs-dl">
@@ -67,6 +67,8 @@
                                     </dd>
                                 </dl>
                             </article>
+                            <hr>
+
                         </div>
 
                         <div class="card__action">
@@ -89,7 +91,7 @@
     <!-- /item list -->
 </div>
 
-<div class="hidden-xs hidden-lg">
+<div class="hidden-xs hidden-lg hidden">
     <nav class="custom-mfb-color-tr" mfb-menu position="tr" effect="zoomin" menu-state="open" label="menu"
          active-icon="fa fa-arrow-left" resting-icon="fa fa-plus"
          toggling-method="click">
@@ -97,7 +99,7 @@
       <button mfb-button icon="fa fa-twitter" label="twitter" ng-click="main.twitterLink();"></button>
     </nav>
 </div>
-<div class="hidden-sm hidden-lg hidden-md">
+<div class="visible-xs">
     <nav class="custom-mfb-color-tr" mfb-menu position="bl" menu-state="main.menuState" effect="zoomin" menu-state="open" label="menu"
          active-icon="fa fa-arrow-left" resting-icon="fa fa-plus"
          toggling-method="click">

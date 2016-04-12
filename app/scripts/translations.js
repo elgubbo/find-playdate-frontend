@@ -145,7 +145,7 @@ var galician = {
 
 var german = {
 	HEADER: {
-		FILTER_PLATFORM: 	'Nach Plattform filtern',
+		FILTER_PLATFORM: 	'Plattform Filter',
 		FILTER_GAME: 		"Nach {{platform}}-Spiel",
 		FILTER_TIMEZONE: 	'und Zeitzone',
 		FILTER_LANGUAGE: 	'und Sprache',

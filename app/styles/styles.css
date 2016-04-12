@@ -49,6 +49,14 @@ author: bootply.com
     padding-top: 15px;
   }
 
+  .masonry-wrapper {
+    padding-left: 5%;
+  }
+
+  .fullwidth {
+    width: 100%
+  }
+
 }
 
 .sidebar {
@@ -122,7 +130,7 @@ body{
 }
 
 .container-fluid {
-  background-color: #727272;
+  background-color: #E0E0E0;
 }
 
 .panel-footer {
@@ -251,16 +259,16 @@ body{
 }
 
 .custom-mfb-color  > li > a{
-  background-image: radial-gradient(circle, #2196f3 80%, #0d87e9 81%);
+  background-image: radial-gradient(circle, #78909C 80%,#607D8B 81%);
 }
 .custom-mfb-color  > li > ul > li > a{
-  background-image: radial-gradient(circle, #2196f3 80%, #0d87e9 81%);
+  background-image: radial-gradient(circle, #78909C 80%,#607D8B 81%);
 }
 .custom-mfb-color-tr  > li > a{
-  background-image: radial-gradient(circle, #2196f3 80%, #0d87e9 81%);
+  background-image: radial-gradient(circle, #78909C 80%,#607D8B 81%);
 }
 .custom-mfb-color-tr  > li > ul > li > a{
-  background-image: radial-gradient(circle, #2196f3 80%, #0d87e9 81%);
+  background-image: radial-gradient(circle, #78909C 80%,#607D8B 81%);
 }
 .custom-mfb-color-tr {
   z-index: 2000;
@@ -421,8 +429,7 @@ h2 {
 }
 
 .wrapper {
-  max-width: 400px;
-  margin: 20px auto;
+  margin: 10px auto;
   padding-left: 1em;
   padding-right: 1em;
 }
@@ -501,7 +508,9 @@ h2 {
   padding-left: 1.6rem;
   padding-bottom: 1.6rem;
 }
-
+.card-message {
+  white-space: nowrap;
+}
 .card__message-content {
   white-space: nowrap;
   display: inline-block;
@@ -629,10 +638,6 @@ h2 {
 .twitter:hover,
 .googleplus:hover {
   color: #eee;
-}
-
-.masonry-wrapper {
-  padding-left: 5%;
 }
 
 .prefs-dl {
