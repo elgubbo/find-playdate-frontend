@@ -503,6 +503,7 @@ h2 {
 }
 
 .card__message-content {
+  white-space: nowrap;
   display: inline-block;
   vertical-align: middle;
   text-transform: uppercase;
