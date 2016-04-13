@@ -571,6 +571,39 @@ h2 {
   0 2px 4px rgba(0,0,0, 0.24);
 }
 
+
+.inner-card {
+  background-color: #fff;
+  height: 100%
+}
+
+.inner-card__padding {
+}
+
+.inner-card__content {
+  position: relative;
+}
+
+/* inner-card action */
+.inner-card__action {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding-right: 1.6rem;
+  padding-left: 1.6rem;
+  padding-bottom: 1.6rem;
+}
+.inner-card-message {
+  white-space: nowrap;
+}
+.inner-card__message-content {
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
 .share-icon:hover,
 .share-icon:focus {
   box-shadow:
@@ -617,6 +650,41 @@ h2 {
   -o-transform: scale(1.2);
   transform: scale(1.2);
 }
+.cancel-icon:before {
+  content: "\f00d";
+  font-family: 'FontAwesome';
+  color: red;
+}
+
+.cancel-icon {
+  cursor: pointer;
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: all 0.3s ease;
+  outline: 0;
+
+  box-shadow:
+  0 2px 4px rgba(0,0,0, 0.12),
+  0 2px 4px rgba(0,0,0, 0.24);
+}
+.cancel-icon:hover,
+.cancel-icon:focus {
+  box-shadow:
+  0 3px 6px rgba(0,0,0, 0.12),
+  0 3px 6px rgba(0,0,0, 0.24);
+
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
 
 .facebook {
   background-color: #3b5998;
@@ -644,3 +712,44 @@ h2 {
   font-size: 0.8em;
 }
 
+.masonry-brick .paper {
+  width: 92%;
+  position: absolute;
+  top: 0;
+  left: 16px;
+  height: 98%;
+  z-index: 3000;
+  padding: 1em;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+  -webkit-transition: box-shadow 0.5s;
+  transition: box-shadow 0.5s;
+  background-color: white;
+  -webkit-animation: fadeIn 0.5s;
+  -moz-animation: fadeIn 0.5s;
+  -ms-animation: fadeIn 0.5s;
+  animation: fadeIn 0.5s;
+  transition: all ease 250ms ;
+}
+.masonry-brick .paper .content {
+  visibility: visible;
+}
+.masonry-brick .paper.hidden-custom {
+  -webkit-animation: fadeOut 0.5s;
+  -moz-animation: fadeOut 0.5s;
+  -ms-animation: fadeOut 0.5s;
+  animation: fadeOut 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  /*background-color: #607D8B;*/
+}
+.masonry-brick .paper.hidden-custom .content {
+  opacity: 0;
+  visibility: hidden;
+}
+.masonry-brick .paper #close {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 3;
+  cursor: pointer;
+}

@@ -26,6 +26,18 @@ angular.module('findPlayDate')
         el.toggleClass('share-expanded');
     };
 
+    this.messageClicked = function(ev) {
+        ev.preventDefault();
+        var el = angular.element(ev.target);
+        el.parent().parent().parent().parent().find('.paper').toggleClass( 'hidden-custom' );
+    };
+
+    this.cancelInnerClicked = function(ev) {
+        ev.preventDefault();
+        var el = angular.element(ev.target);
+        el.parent().parent().parent().parent().parent().toggleClass( 'hidden-custom' );
+    };
+
     this.twitterLink = function() {
         $window.open('https://twitter.com/find_playdate', '_blank');
         this.menuState = "closed";
