@@ -14,9 +14,18 @@ angular.module('findPlayDate')
     this.flashMessage = FlashMessage;
     this.platforms = PlatformService.platforms;
     this.showShare = [];
-
+    this.showMessage = {};
     this.shorten = function(str) {
         return str.slice(0, 30)+'...';
+    };
+
+    this.isMessageShown = function(id) {
+        console.log(this.showMessage[id]);
+        if (this.showMessage[id]) {
+            return true;
+        } else {
+            return false;
+        }
     };
 
     this.shareClicked = function(ev) {
@@ -26,16 +35,18 @@ angular.module('findPlayDate')
         el.toggleClass('share-expanded');
     };
 
-    this.messageClicked = function(ev) {
+    this.messageClicked = function(ev, id) {
         ev.preventDefault();
         var el = angular.element(ev.target);
         el.parent().parent().parent().parent().find('.paper').toggleClass( 'hidden-custom' );
+        this.showMessage[id] = true;
     };
 
-    this.cancelInnerClicked = function(ev) {
+    this.cancelInnerClicked = function(ev, id) {
         ev.preventDefault();
         var el = angular.element(ev.target);
         el.parent().parent().parent().parent().parent().toggleClass( 'hidden-custom' );
+        this.showMessage[id] = false;
     };
 
     this.twitterLink = function() {

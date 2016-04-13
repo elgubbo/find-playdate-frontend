@@ -22,7 +22,7 @@
                     ng-repeat="playdate in main.searchService.results track by playdate._id"
                     itemscope itemtype="http://schema.org/Article">
                     <div class="paper hidden-custom">
-                        <div class="content">
+                        <div class="content" ng-if="main.isMessageShown(playdate._id)">
                             <div class="inner-card content">
                                 <div class="inner-card__meta">
                                     <a href="#" ng-bind="main.getPlatformPrettyName(playdate.platform)"></a> -
@@ -77,17 +77,16 @@
                                 <div
                                     vc-recaptcha
                                     key="'6LfmNBQTAAAAAF57tD_GplJ1nqdSVBFU_i5u6KrZ'"
-                                    on-create="setWidgetId(widgetId)"
-                                    on-success="setResponse(response)"
-                                    on-expire="cbExpiration()"
+                                    on-create="$parent.setWidgetId(widgetId)"
+                                    on-success="$parent.setResponse(response)"
+                                    on-expire="$parent.cbExpiration()"
                                 ></div>
-
                                 <div class="inner-card__action content">
                                     <div class="inner-card-message">
                                         <span class="cancel-icon"
-                                            ng-click="main.cancelInnerClicked($event)"></span>
+                                            ng-click="$parent.main.cancelInnerClicked($event, $parent.playdate._id)"></span>
                                         <span class="message-icon"
-                                            ng-click="main.messageClicked($event)"></span>
+                                            ng-click="$parent.main.messageClicked($event)"></span>
                                         <div class="card__message-content">
                                             <span translate="CREATEMODAL.SAVE"></span>
                                         </div>
@@ -151,7 +150,7 @@
 
                             <div class="card-message">
                                 <span class="message-icon"
-                                    ng-click="main.messageClicked($event)"></span>
+                                    ng-click="main.messageClicked($event, playdate._id)"></span>
                                 <div class="card__message-content">
                                     <span translate="MAIN.MESSAGE"
                                             translate-values="{username : playdate.name}"></span>
