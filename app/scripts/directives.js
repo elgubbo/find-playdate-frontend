@@ -80,3 +80,11 @@ app.directive('regionValidator', function() {
         }
     };
 });
+
+app.directive('formLocator', function($parse) {
+    return {
+      link: function(scope, element, attrs) {
+        scope.$emit('formLocator', $parse(attrs.playDate)(scope));
+      }
+    };
+});

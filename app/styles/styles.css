@@ -507,11 +507,13 @@ h2 {
   padding-right: 1.6rem;
   padding-left: 1.6rem;
   padding-bottom: 1.6rem;
+  padding-top: 1.6rem;
 }
 .card-message {
   white-space: nowrap;
 }
 .card__message-content {
+  padding-top: 15px;
   white-space: nowrap;
   display: inline-block;
   vertical-align: middle;
@@ -593,6 +595,7 @@ h2 {
   padding-right: 1.6rem;
   padding-left: 1.6rem;
   padding-bottom: 1.6rem;
+  padding-top: 1.6rem;
 }
 .inner-card-message {
   white-space: nowrap;
@@ -717,7 +720,7 @@ h2 {
   position: absolute;
   top: 0;
   left: 16px;
-  height: 98%;
+  height: 97%;
   z-index: 3000;
   padding: 1em;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
@@ -741,6 +744,9 @@ h2 {
   opacity: 0;
   visibility: hidden;
   /*background-color: #607D8B;*/
+}
+.message-username {
+  padding-left: 15px;
 }
 .masonry-brick .paper.hidden-custom .content {
   opacity: 0;

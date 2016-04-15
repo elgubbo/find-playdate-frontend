@@ -21,23 +21,24 @@
                 <div class="wrapper masonry-brick col-lg-4 col-xs-12 col-md-6 col-sm-6"
                     ng-repeat="playdate in main.searchService.results track by playdate._id"
                     itemscope itemtype="http://schema.org/Article">
-                    <div class="paper hidden-custom">
+                    <div class="paper hidden-custom visible-lg">
                         <div class="content" ng-if="main.isMessageShown(playdate._id)">
                             <div class="inner-card content">
                                 <div class="inner-card__meta">
                                     <a href="#" ng-bind="main.getPlatformPrettyName(playdate.platform)"></a> -
                                     <a target="_blank" href="{{::playdate.detail_url}}">{{::playdate.game.label}}</a><br />
-                                    <time ng-bind="main.shorten(playdate.geoRegion.label)"></time>
+                                    <time ng-bind="parent.main.shorten(playdate.geoRegion.label)"></time>
                                 </div>
                                 <hr>
                                 <article class="inner-card__article content">
-                                    <form name="messageForm" novalidate>
+                                    <form name="messageForm" novalidate form-locator play-date="playdate">
                                         <fieldset>
                                             <div class="form-group">
-                                                <div class="input-group" ng-class="{'has-error': messageForm.email.$error.required&&messageForm.email.$dirty}">
+                                                <div class="input-group" ng-class="{'has-error': $parent.main.hasError($parent.main.getCardForm(playdate), 'email')}">
                                                     <input
+                                                        name="email"
                                                         type="email"
-                                                        ng-model="main.message.email"
+                                                        ng-model="main.getCardMessage(playdate).message.email"
                                                         class="form-control"
                                                         placeholder="Your E-Mail"
                                                         required>
@@ -45,10 +46,11 @@
                                                         <span class="fa fa-at"></span>
                                                     </span>
                                                 </div>
-                                                <div class="input-group mt-5" ng-class="{'has-error': messageForm.name.$error.required&&messageForm.name.$dirty}">
+                                                <div class="input-group mt-5" ng-class="{'has-error': $parent.main.hasError($parent.main.getCardForm(playdate), 'name')}">
                                                     <input
+                                                        name="name"
                                                         type="text"
-                                                        ng-model="main.message.name"
+                                                        ng-model="main.getCardMessage(playdate).message.name"
                                                         class="form-control"
                                                         placeholder="Your (ingame) name"
                                                         required>
@@ -56,11 +58,12 @@
                                                         <span class="fa fa-user"></span>
                                                     </span>
                                                 </div>
-                                                <div class="input-group mt-5" ng-class="{'has-error': messageForm.content.$error.required&&messageForm.content.$dirty}">
+                                                <div class="input-group mt-5" ng-class="{'has-error': $parent.main.hasError($parent.main.getCardForm(playdate), 'content')}">
                                                     <textarea
+                                                        name="content"
                                                         class="form-control"
-                                                        placeholder = "Your message to {{main.message.to}}"
-                                                        ng-model="main.message.content"
+                                                        placeholder = "Your message to {{main.getCardMessage(playdate).message.to}}"
+                                                        ng-model="main.getCardMessage(playdate).message.content"
                                                         cols="80"
                                                         rows="4"
                                                         required>
@@ -72,21 +75,23 @@
                                             </div>
                                         </fieldset>
                                     </form>
+                                    <div ng-class="{'bg-danger': main.getCardMessage(playdate).errorMessage}" ng-bind="main.getCardMessage(playdate).errorMessage">
+                                    </div>
                                 </article>
                                 <hr>
                                 <div
                                     vc-recaptcha
                                     key="'6LfmNBQTAAAAAF57tD_GplJ1nqdSVBFU_i5u6KrZ'"
-                                    on-create="$parent.setWidgetId(widgetId)"
-                                    on-success="$parent.setResponse(response)"
-                                    on-expire="$parent.cbExpiration()"
+                                    on-create="main.getCardMessage(playdate).setWidgetId(widgetId)"
+                                    on-success="main.getCardMessage(playdate).setResponse(response)"
+                                    on-expire="main.getCardMessage(playdate).cbExpiration()"
                                 ></div>
                                 <div class="inner-card__action content">
                                     <div class="inner-card-message">
                                         <span class="cancel-icon"
                                             ng-click="$parent.main.cancelInnerClicked($event, $parent.playdate._id)"></span>
                                         <span class="message-icon"
-                                            ng-click="$parent.main.messageClicked($event)"></span>
+                                            ng-click="$parent.main.getCardMessage(playdate).send()"></span>
                                         <div class="card__message-content">
                                             <span translate="CREATEMODAL.SAVE"></span>
                                         </div>
@@ -109,7 +114,6 @@
                                 </div>
                             </a>
                         </div>
-
                         <div class="card__content card__padding">
                             <div class="card__share">
                                 <div class="card__social">
@@ -132,8 +136,6 @@
                                 <p itemprop="articleBody" ng-bind-html="playdate.description | linky:'_blank'" style="word-wrap: break-word;"></p>
                                 <dl class="prefs-dl">
                                     <dt ng-if="playdate.preferences && playdate.preferences.language"><span class="fa pr-5 fa-language"></span><span translate="MAIN.LANGUAGE"></span> - {{::playdate.preferences.language.label}}</dt>
-                                    <dt ng-if="playdate.preferences && (playdate.preferences.microphone || playdate.preferences.group)"
-                                        translate="MAIN.PREFERENCES"></dt>
                                     <dd>
                                         <span ng-if="playdate.preferences.group"><i class="fa pr-5 fa-group"></i> <span translate="MAIN.GROUP"></span></span>
                                     </dd>
@@ -143,17 +145,19 @@
                                 </dl>
                             </article>
                             <hr>
-
                         </div>
-
                         <div class="card__action">
-
-                            <div class="card-message">
-                                <span class="message-icon"
-                                    ng-click="main.messageClicked($event, playdate._id)"></span>
-                                <div class="card__message-content">
-                                    <span translate="MAIN.MESSAGE"
-                                            translate-values="{username : playdate.name}"></span>
+                            <div class="card-message row">
+                                <div class="col-lg-2 visible-lg">
+                                    <span class="message-icon "
+                                        ng-click="main.messageClicked($event, playdate)"></span>
+                                </div>
+                                <div class="col-md-2 hidden-lg">
+                                    <span class="message-icon "
+                                        ng-click="main.openMessage(playdate_id)"></span>
+                                </div>
+                                <div class="card__message-content col-md-10">
+                                    <span class="message-username">{{::main.shorten(playdate.name)}}</span>
                                 </div>
                             </div>
                         </div>
