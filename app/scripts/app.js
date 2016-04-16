@@ -23,7 +23,8 @@
     'pascalprecht.translate',
     'ng-mfb',
     'headroom',
-    'vcRecaptcha'
+    'vcRecaptcha',
+    'ui-notification'
     ])
  .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';

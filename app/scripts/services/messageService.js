@@ -1,5 +1,5 @@
 angular.module('findPlayDate')
-.factory('MessageService', function($http) {
+.factory('MessageService', function($http, Notification) {
 
    return function(playdate, message, scope) {
        return {
@@ -17,14 +17,14 @@ angular.module('findPlayDate')
             },
 
             send : function () {
-                if(!scope.messageForm.$dirty || !scope.messageForm.$valid) {
+                if(!scope.getCardForm(playdate).$dirty || !scope.getCardForm(playdate).$valid) {
                     this.errorMessage = "Please fill out all fields and try again";
                     return;
                 }
                 // Simple POST request example (passing data) :
                 return $http.post('api/message', this.message, {params: {'playdate_id': this.playdate._id}}).
                 success(function() {
-                    //success
+                    Notification.primary("Message sent");
                 }).error(function(err) {
                     this.errorMessage = err;
                     //error

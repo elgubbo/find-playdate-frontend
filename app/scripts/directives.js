@@ -88,3 +88,72 @@ app.directive('formLocator', function($parse) {
       }
     };
 });
+//REFACTOR THIS SHIT
+app.directive('messageButton', function($parse, CardService) {
+    return {
+        scope: false,
+        link: function(scope, element, attrs) {
+            element.bind('click', function(ev) {
+                var playdate = $parse(attrs.playDate)(scope);
+                ev.preventDefault();
+                var el = angular.element(ev.target);
+                element.parent().parent().parent().parent().parent().parent().find('.shown').toggleClass( 'hidden-custom' );
+                element.parent().parent().parent().parent().parent().parent().find('.shown').removeClass( 'shown' );
+                element.parent().parent().parent().parent().parent().find('.paper').toggleClass( 'hidden-custom' );
+                element.parent().parent().parent().parent().parent().find('.paper').toggleClass( 'shown' );
+                CardService.showMessage[playdate._id] = true;
+                CardService.startCardMessage(playdate);
+                scope.$digest();
+            });
+        },
+    };
+});
+app.directive('cancelButton', function($parse, CardService) {
+    return {
+        scope: false,
+        link: function(scope, element, attrs) {
+            element.bind('click', function(ev) {
+                var playdate = $parse(attrs.playDate)(scope);
+                ev.preventDefault();
+                var el = angular.element(ev.target);
+                el.parent().parent().parent().parent().parent().toggleClass( 'hidden-custom' );
+                el.parent().parent().parent().parent().parent().toggleClass( 'shown' );
+                CardService.showMessage[playdate._id] = false;
+                scope.$digest();
+            });
+        },
+    };
+});
+
+app.directive('sendButton', function($parse, CardService) {
+    return {
+        scope: false,
+        link: function(scope, element, attrs) {
+            element.bind('click', function(ev) {
+                var playdate = $parse(attrs.playDate)(scope);
+                CardService.getCardMessage(playdate).send();
+                ev.preventDefault();
+                var el = angular.element(ev.target);
+                el.parent().parent().parent().parent().parent().toggleClass( 'hidden-custom' );
+                el.parent().parent().parent().parent().parent().toggleClass( 'shown' );
+                CardService.showMessage[playdate._id] = false;
+                scope.$digest();
+            });
+        },
+    };
+});
+
+app.directive('shareButton', function() {
+    return {
+        restrict: 'A',
+        scope: true,
+        controller: function($scope, $element){
+            $element.bind('click', function(ev, $element) {
+                ev.preventDefault();
+                var el = angular.element(ev.target);
+                el.parent().find( 'div' ).toggleClass( 'card__social--active' );
+                el.toggleClass('share-expanded');
+            });
+        }
+    };
+});

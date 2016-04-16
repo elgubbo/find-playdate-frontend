@@ -8,64 +8,19 @@
 * Controller of the findPlayDate
 */
 angular.module('findPlayDate')
-    .controller('MainCtrl',['$rootScope', '$scope', '$modal', '$routeParams', 'Search', 'PlayDate', 'FlashMessage', 'PlatformService', '$location', '$window', '$sce', 'MessageService',  function ($rootScope, $scope, $modal, $routeParams, Search, PlayDate, FlashMessage, PlatformService, $location, $window, $sce, MessageService) {
+    .controller('MainCtrl',['$rootScope', '$scope', '$modal', '$routeParams', 'Search', 'PlayDate', 'FlashMessage', 'PlatformService', '$location', '$window', '$sce', 'MessageService', 'CardService',  function ($rootScope, $scope, $modal, $routeParams, Search, PlayDate, FlashMessage, PlatformService, $location, $window, $sce, MessageService, CardService) {
 
     this.searchService = Search;
     this.flashMessage = FlashMessage;
     this.platforms = PlatformService.platforms;
-    this.showShare = [];
-    this.showMessage = {};
-    this.cardForms = {};
-    this.cardMessages = {};
+    this.cardService = CardService;
 
-
-    /*UTILITY FUNCTIONS*/
-    this.getCardMessage = function(playdate) {
-        return this.cardMessages[playdate._id];
-    };
-    this.getCardForm = function(playdate) {
-        return this.cardForms[playdate._id];
-    };
     this.shorten = function(str) {
         if (str.length > 40) {
             return str.slice(0, 40)+'...';
         } else {
             return str;
         }
-    };
-    this.isMessageShown = function(id) {
-        if (this.showMessage[id]) {
-            return true;
-        } else {
-            return false;
-        }
-    };
-
-    this.shareClicked = function(ev) {
-        ev.preventDefault();
-        var el = angular.element(ev.target);
-        el.parent().find( 'div' ).toggleClass( 'card__social--active' );
-        el.toggleClass('share-expanded');
-    };
-
-    this.messageClicked = function(ev, playdate) {
-        ev.preventDefault();
-        var el = angular.element(ev.target);
-        el.parent().parent().parent().parent().parent().parent().find('.shown').toggleClass( 'hidden-custom' );
-        el.parent().parent().parent().parent().parent().parent().find('.shown').removeClass( 'shown' );
-        el.parent().parent().parent().parent().parent().find('.paper').toggleClass( 'hidden-custom' );
-        el.parent().parent().parent().parent().parent().find('.paper').toggleClass( 'shown' );
-        this.showMessage[playdate._id] = true;
-        this.startCardMessage(playdate);
-    };
-
-    this.cancelInnerClicked = function(ev, playdate) {
-        ev.preventDefault();
-        var el = angular.element(ev.target);
-        el.parent().parent().parent().parent().parent().toggleClass( 'hidden-custom' );
-        el.parent().parent().parent().parent().parent().toggleClass( 'shown' );
-
-        this.showMessage[playdate._id] = false;
     };
 
     this.twitterLink = function() {
@@ -124,17 +79,6 @@ angular.module('findPlayDate')
             }
         });
     };
-    /* When a user clicks messsage on a card directly*/
-    this.startCardMessage = function(playdate) {
-        if (this.cardMessages[playdate._id]) {
-            return this.cardMessages[playdate._id];
-        } else {
-            var message = {to: playdate.name, playdateId: playdate._id};
-            var messageService = new MessageService(playdate, message, this);
-            this.cardMessages[playdate._id] = messageService;
-            return this.cardMessages[playdate._id];
-        }
-    };
 
     this.getPlatformPrettyName = function (apiname) {
         for (var i = this.platforms.length - 1; i >= 0; i--) {
@@ -151,16 +95,6 @@ angular.module('findPlayDate')
 
     this.openMessage = function(id) {
         $location.search({'message': id});
-    };
-
-    this.hasError = function(form, field) {
-        if (!form[field].$dirty) {
-            return false;
-        } else {
-            if (Object.keys(form[field].$error).length) {
-                return true;
-            }
-        }
     };
 
     $scope.$on('$routeUpdate', function(scope, next, current) {
@@ -185,8 +119,8 @@ angular.module('findPlayDate')
     };
 
     $scope.$on('formLocator', function(event, playdate) {
-        if (!$scope.main.cardForms[playdate._id]) {
-            $scope.main.cardForms[playdate._id] = event.targetScope.messageForm;
+        if (!$scope.main.cardService.cardForms[playdate._id]) {
+            $scope.main.cardService.cardForms[playdate._id] = event.targetScope.messageForm;
         }
     });
 
