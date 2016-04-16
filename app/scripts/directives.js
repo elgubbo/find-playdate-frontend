@@ -131,13 +131,14 @@ app.directive('sendButton', function($parse, CardService) {
         link: function(scope, element, attrs) {
             element.bind('click', function(ev) {
                 var playdate = $parse(attrs.playDate)(scope);
-                CardService.getCardMessage(playdate).send();
-                ev.preventDefault();
-                var el = angular.element(ev.target);
-                el.parent().parent().parent().parent().parent().toggleClass( 'hidden-custom' );
-                el.parent().parent().parent().parent().parent().toggleClass( 'shown' );
-                CardService.showMessage[playdate._id] = false;
-                scope.$digest();
+                CardService.getCardMessage(playdate).send().success(function() {
+                    ev.preventDefault();
+                    var el = angular.element(ev.target);
+                    el.parent().parent().parent().parent().parent().toggleClass( 'hidden-custom' );
+                    el.parent().parent().parent().parent().parent().toggleClass( 'shown' );
+                    CardService.showMessage[playdate._id] = false;
+                    scope.$digest();
+                });
             });
         },
     };
