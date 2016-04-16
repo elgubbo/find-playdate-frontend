@@ -8,16 +8,16 @@
 * Controller of the findPlayDate
 */
 angular.module('findPlayDate')
-    .controller('MainCtrl',['$rootScope', '$scope', '$modal', '$routeParams', 'Search', 'PlayDate', 'FlashMessage', 'PlatformService', '$location', '$window', '$sce', 'MessageService', 'CardService',  function ($rootScope, $scope, $modal, $routeParams, Search, PlayDate, FlashMessage, PlatformService, $location, $window, $sce, MessageService, CardService) {
+    .controller('MainCtrl',['$rootScope', '$scope', '$modal', '$routeParams', 'Search', 'PlayDate', 'FlashMessage', 'PlatformService', '$location', '$window', '$sce', 'MessageService', 'CardService', 'Notification',  function ($rootScope, $scope, $modal, $routeParams, Search, PlayDate, FlashMessage, PlatformService, $location, $window, $sce, MessageService, CardService, Notification) {
 
     this.searchService = Search;
     this.flashMessage = FlashMessage;
     this.platforms = PlatformService.platforms;
     this.cardService = CardService;
 
-    this.shorten = function(str) {
-        if (str.length > 40) {
-            return str.slice(0, 40)+'...';
+    this.shorten = function(length, str) {
+        if (str.length > length) {
+            return str.slice(0, length)+'...';
         } else {
             return str;
         }
@@ -50,10 +50,15 @@ angular.module('findPlayDate')
                 }
             }
         });
-
-      modalInstance.result.then(function (message) {
-        FlashMessage.setMessage(message);
-      });
+      modalInstance.result.then(
+        function(message) {
+            if (message)
+                Notification.primary(message);
+        },
+        function(err) {
+            //nothing
+        }
+      );
     };
 
     this.openUpdateModal = function (playdate, mUpdateHash) {

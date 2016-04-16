@@ -27,7 +27,7 @@
                                 <div class="inner-card__meta">
                                     <a href="#" ng-bind="main.getPlatformPrettyName(playdate.platform)"></a> -
                                     <a target="_blank" href="{{::playdate.detail_url}}">{{::playdate.game.label}}</a><br />
-                                    <time ng-bind="parent.main.shorten(playdate.geoRegion.label)"></time>
+                                    <time ng-bind="parent.main.shorten(30, playdate.geoRegion.label)"></time>
                                 </div>
                                 <hr>
                                 <article class="inner-card__article content">
@@ -127,7 +127,7 @@
                             <div class="card__meta">
                                 <a href="#" ng-bind="main.getPlatformPrettyName(playdate.platform)"></a> -
                                 <a target="_blank" href="{{::playdate.detail_url}}">{{::playdate.game.label}}</a><br />
-                                <time ng-bind="main.shorten(playdate.geoRegion.label)"></time>
+                                <time ng-bind="main.shorten(30, playdate.geoRegion.label)"></time>
                             </div>
                             <hr>
                             <article class="card__article">
@@ -149,12 +149,12 @@
                                 <div class="col-lg-2 visible-lg">
                                     <span class="message-icon" play-date="playdate" message-button></span>
                                 </div>
-                                <div class="col-md-2 hidden-lg">
+                                <div class="col-xs-2 hidden-lg">
                                     <span class="message-icon "
                                         ng-click="main.openMessage(playdate._id)"></span>
                                 </div>
-                                <div class="card__message-content col-md-10">
-                                    <span class="message-username">{{::main.shorten(playdate.name)}}</span>
+                                <div class="card__message-content col-xs-10">
+                                    <span class="message-username">{{::main.shorten(18, playdate.name)}}</span>
                                 </div>
                             </div>
                         </div>

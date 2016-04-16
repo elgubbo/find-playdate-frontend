@@ -25,7 +25,6 @@ angular.module('findPlayDate')
             $scope.errorMessage = "Please fill out all fields and try again";
             return;
         }
-        console.log(message);
         // Simple POST request example (passing data) :
         $http.post('api/message', $scope.message, {params: {'playdate_id': message.playdate_id}}).
           success(function() {
