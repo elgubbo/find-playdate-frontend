@@ -41,11 +41,15 @@
             },
         });
 
-    modalInstance.result.then(function (message) {
-        console.log("[MODAL WAS CLOSED]");
-        $scope.header.search = message;
-        $scope.header.doSearch();
-        });
+    modalInstance.result.then(
+        function (message) {
+            $scope.header.search = message;
+            $scope.header.doSearch();
+        },
+        function(error) {
+            //nothing
+        }
+        );
     };
 
     this.resetSearch = function() {
