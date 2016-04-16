@@ -4,8 +4,8 @@ var english = {
 	HEADER: {
 		FILTER_PLATFORM: 	'Filter by platform',
 		FILTER_GAME: 		"Filter by {{platform}}-game",
-		FILTER_TIMEZONE: 	'and/or timezone',
-		FILTER_LANGUAGE: 	'and/or language',
+		FILTER_TIMEZONE: 	'timezone',
+		FILTER_LANGUAGE: 	'language',
 		ADD_PLAYDATE: 		'add playdate'
 	},
 	CREATEMODAL: {
@@ -52,8 +52,8 @@ var spanish = {
     HEADER: {
         FILTER_PLATFORM:    'Filtrar según la plataforma',
         FILTER_GAME:        "Filtrar según el juego de {{platform}}",
-        FILTER_TIMEZONE:    'y/o el huso horario',
-        FILTER_LANGUAGE:    'y/o el idioma',
+        FILTER_TIMEZONE:    'huso horario',
+        FILTER_LANGUAGE:    'idioma',
         ADD_PLAYDATE:     	'crear una playdate'
     },
     CREATEMODAL: {
@@ -100,8 +100,8 @@ var galician = {
     HEADER: {
         FILTER_PLATFORM:    'Filtrar segundo a plataforma',
         FILTER_GAME:        "Filtrar segundo o xogo da {{platform}}",
-        FILTER_TIMEZONE:    'e/ou o fuso horario',
-        FILTER_LANGUAGE:    'e/ou a lingua',
+        FILTER_TIMEZONE:    'fuso horario',
+        FILTER_LANGUAGE:    'lingua',
         ADD_PLAYDATE:     	'crear unha playdate'
     },
     CREATEMODAL: {
@@ -147,8 +147,8 @@ var german = {
 	HEADER: {
 		FILTER_PLATFORM: 	'Plattform Filter',
 		FILTER_GAME: 		"Nach {{platform}}-Spiel",
-		FILTER_TIMEZONE: 	'und Zeitzone',
-		FILTER_LANGUAGE: 	'und Sprache',
+		FILTER_TIMEZONE: 	'Zeitzone',
+		FILTER_LANGUAGE: 	'Sprache',
 		ADD_PLAYDATE: 		'hinzufügen'
 	},
 	CREATEMODAL: {
