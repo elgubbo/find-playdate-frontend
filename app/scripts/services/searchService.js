@@ -4,11 +4,9 @@ angular.module('findPlayDate')
 .factory('Search', function(PlayDate, FlashMessage) {
     var Search = {
         data : {},
-        observerCallbacks : [],
-        pushCallbacks : [],
         results : [],
         isLoading : true,
-        lastTime : '',
+        lastTime : null,
     };
 
     Search.findByPk = function(id)

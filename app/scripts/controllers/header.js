@@ -9,7 +9,7 @@
  */
  angular.module('findPlayDate')
  .controller('HeaderCtrl', function ($scope, $http, $modal, $window, PlayDate, Search, Autocomplete, FlashMessage, $rootScope, $anchorScroll, $location, PlatformService) {
-    this.search = {};
+    this.search = Search.data;
     this.lastSearch = {};
     this.platforms = PlatformService.platforms;
     this.getGame = Autocomplete.getGame;
