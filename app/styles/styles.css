@@ -716,13 +716,12 @@ h2 {
 }
 
 .masonry-brick .paper {
-  width: 92%;
+  width: calc(100% - 20px - 1em);
   position: absolute;
-  top: 0;
-  left: 16px;
-  height: 98%;
+  top: 2px;
+  left: 18px;
+  height: calc(100% - 20px);
   z-index: 3000;
-  padding: 1em;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
   -webkit-transition: box-shadow 0.5s;
   transition: box-shadow 0.5s;
@@ -735,6 +734,7 @@ h2 {
 }
 .masonry-brick .paper .content {
   visibility: visible;
+  padding: 10px;
 }
 .masonry-brick .paper.hidden-custom {
   -webkit-animation: fadeOut 0.5s;
