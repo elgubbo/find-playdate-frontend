@@ -99,3 +99,15 @@ app.factory('PlatformService', function() {
         ]
     };
 });
+
+app.filter('steamworkaround', function() {
+  return function(input) {
+    return input.replace('http://cdn.akamai.steamstatic.com', 'https://steamcdn-a.akamaihd.net');
+  };
+});
+
+app.filter('https', function() {
+  return function(input) {
+    return input.replace('http://', 'https://');
+  };
+});

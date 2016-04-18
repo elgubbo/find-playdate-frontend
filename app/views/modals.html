@@ -14,8 +14,8 @@
             <div class="row">
                 <div class="col-md-7 col-xs-12">
                     <img class="modal-image"
-                        ng-src="{{::playdate.game.image_url}}" alt="no image"
-                        err-src-modal="{{'http://placehold.it/460x215/f5f5f5&text='+playdate.game.label}}">
+                        ng-src="{{::playdate.game.image_url | steamworkaround}}" alt="no image"
+                        err-src-modal="{{'https://placehold.it/460x215/f5f5f5&text='+playdate.game.label}}">
                 </div>
                 <div class="col-md-5 col-xs-12">
                     <div class="item-footer" style="word-wrap: break-word">
