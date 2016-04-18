@@ -31,7 +31,7 @@
                                 </div>
                                 <hr>
                                 <article class="inner-card__article content">
-                                    <form name="messageForm" novalidate form-locator play-date="playdate">
+                                    <form name="messageForm{{playdate._id}}" novalidate form-locator play-date="playdate">
                                         <fieldset>
                                             <div class="form-group">
                                                 <div class="input-group" ng-class="{'has-error': main.cardService.hasError(main.cardService.getCardForm(playdate), 'email')}">

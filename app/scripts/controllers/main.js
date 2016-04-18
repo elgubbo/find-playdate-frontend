@@ -124,9 +124,7 @@ angular.module('findPlayDate')
     };
 
     $scope.$on('formLocator', function(event, playdate) {
-        if (!$scope.main.cardService.cardForms[playdate._id]) {
-            $scope.main.cardService.cardForms[playdate._id] = event.targetScope.messageForm;
-        }
+        $scope.main.cardService.cardForms[playdate._id] = event.targetScope['messageForm'+playdate._id];
     });
 
     $scope.$on('$viewContentLoaded', function() {
