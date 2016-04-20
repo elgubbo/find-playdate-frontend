@@ -759,3 +759,16 @@ h2 {
   z-index: 3;
   cursor: pointer;
 }
+
+.btn-full-width {
+  width: 100%;
+}
+
+#tos, #presskit {
+  background-color: white;
+  min-height: 900px;
+}
+
+.paper-page {
+  box-shadow: 0 0 6px #ccc;
+}

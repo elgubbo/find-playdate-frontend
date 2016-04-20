@@ -42,6 +42,9 @@
     .when('/tos', {
         templateUrl: 'views/tos.html',
     })
+    .when('/presskit', {
+        templateUrl: 'views/presskit.html',
+    })
     .otherwise({
         redirectTo: '/'
     });

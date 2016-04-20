@@ -48,7 +48,7 @@
     <!-- Add your site or application content here -->
     <ng-include ng-cloak id="top" src="'views/header.html'"></ng-include>
     <div class="content">
-        <div ng-view  ng-cloak></div>
+        <div ng-view  ng-cloak autoscroll="true"></div>
     </div>
     <!-- inlining modals here so they wont have to load when they should open -->
     <ng-include ng-cloak src="'views/modals.html'"></ng-include>
