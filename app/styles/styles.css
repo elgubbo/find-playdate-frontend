@@ -471,7 +471,7 @@ h2 {
 }
 
 .card__image {
-  min-height: 100px;
+  min-height: 160px;
   background-color: #eee;
 }
 .card__image img {
