@@ -104,6 +104,7 @@
         if (!angular.equals($scope.header.lastSearch, tempSearch)) {
             Search.findPlayDates(tempSearch);
             $scope.header.lastSearch = tempSearch;
+                $location.path('/').search('return');
         }
         if (!angular.equals({}, tempSearch)) {
             var old = $location.hash();

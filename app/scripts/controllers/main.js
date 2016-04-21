@@ -129,14 +129,18 @@ angular.module('findPlayDate')
 
     $scope.$on('$viewContentLoaded', function() {
         console.log('[WELCOME TO FIND-PLAYDATE.COM]');
-        Search.findPlayDates({});
+        var searchParams = $location.search();
+        if (!searchParams.hasOwnProperty('return')) {
+            Search.findPlayDates({});
+        } else {
+            $location.search('return', null);
+        }
         if ($routeParams.hash && $routeParams.id) {
             PlayDate.getForUpdate({id: $routeParams.id, updateHash: $routeParams.hash}).$promise.then(function (playdate)
             {
               $scope.main.openUpdateModal(playdate, $routeParams.hash);
           });
         }
-        var searchParams = $location.search();
         if (searchParams.hasOwnProperty('message')) {
             $scope.main.prepareAndOpenMessageModal(searchParams.message);
         }
