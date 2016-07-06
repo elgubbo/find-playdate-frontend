@@ -130,7 +130,19 @@ angular.module('findPlayDate')
     $scope.$on('$viewContentLoaded', function() {
         console.log('[WELCOME TO FIND-PLAYDATE.COM]');
         var searchParams = $location.search();
-        if (!searchParams.hasOwnProperty('return')) {
+        var platformFound = $scope.main.platforms.filter(function(item) {
+            if (item.name == $routeParams.platform) {
+                return true;
+            } else if(item.apiName == $routeParams.platform) {
+                return true;
+            } else if (item.name.toLowerCase() == $routeParams.platform) {
+                return true;
+            }
+            return false;
+        });
+        if (platformFound.length) {
+            Search.findPlayDates({'platform': platformFound[0]});
+        } else if (!searchParams.hasOwnProperty('return')) {
             Search.findPlayDates({});
         } else {
             $location.search('return', null);
@@ -139,7 +151,7 @@ angular.module('findPlayDate')
             PlayDate.getForUpdate({id: $routeParams.id, updateHash: $routeParams.hash}).$promise.then(function (playdate)
             {
               $scope.main.openUpdateModal(playdate, $routeParams.hash);
-          });
+            });
         }
         if (searchParams.hasOwnProperty('message')) {
             $scope.main.prepareAndOpenMessageModal(searchParams.message);

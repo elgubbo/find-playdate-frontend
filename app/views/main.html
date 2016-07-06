@@ -104,10 +104,10 @@
                     <div class="card radius shadowDepth1">
                         <div class="card__image border-tlr-radius">
                             <a ng-href="{{::playdate.detail_url}}" target="_blank">
-                                <div ng-class="{'steam-image': playdate.platform=='steam', 'console-image': playdate.platform!='steam'}" class="tb-shadow panel-content border-tlr-radius" back-img="{{::playdate.game.image_url | steamworkaround }}">
+                                <div ng-class="{'steam-image': playdate.platform=='steam', 'console-image': playdate.platform!='steam'}" class="tb-shadow panel-content border-tlr-radius" back-img="{{::playdate.game.image_url }}">
                                     <img itemprop="image" class="item-image tb-shadow border-tlr-radius"
                                         style="visibility:hidden"
-                                        ng-src="{{::playdate.game.image_url | steamworkaround }}" alt="no image"
+                                        ng-src="{{::playdate.game.image_url }}" alt="no image"
                                         err-src="{{'https://placehold.it/460x215/f5f5f5&text='+playdate.game.label}}">
                                 </div>
                             </a>
@@ -183,10 +183,3 @@
       <button mfb-button icon="fa fa-twitter" label="twitter" ng-click="main.twitterLink();"></button>
     </nav>
 </div>
-<!-- <div id="footer" class="container-fluid tos">
-    <div class="row">
-        <div class="col-md-3 pull-right">
-            <a href="/tos" class="btn btn-xs pull-right">read the TOS and site notice</a>
-        </div>
-    </div>
-</div> -->

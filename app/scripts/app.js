@@ -35,6 +35,10 @@
         templateUrl: 'views/main.html',
         controller: 'MainCtrl as main',
     })
+    .when('/on/:platform', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl as main',
+    })
     .when('/update/:id/:hash', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl as main',
