@@ -131,11 +131,11 @@ angular.module('findPlayDate')
         console.log('[WELCOME TO FIND-PLAYDATE.COM]');
         var searchParams = $location.search();
         var platformFound = $scope.main.platforms.filter(function(item) {
-            if (item.name == $routeParams.platform) {
+            if (item.name === $routeParams.platform) {
                 return true;
-            } else if(item.apiName == $routeParams.platform) {
+            } else if(item.apiName === $routeParams.platform) {
                 return true;
-            } else if (item.name.toLowerCase() == $routeParams.platform) {
+            } else if (item.name.toLowerCase() === $routeParams.platform) {
                 return true;
             }
             return false;
