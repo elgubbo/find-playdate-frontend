@@ -2,7 +2,7 @@
 
 The frontend for find-playdate.com
 
-## Technologie
+## Technology
 
 Uses angular and some libraries.
 
@@ -12,7 +12,8 @@ checkout the project: git clone https://github.com/elgubbo/find-playdate-fronten
 
 cd find-playdate-frontend
 
-bower install
+bower install;
+
 grunt serve
 
  --
