@@ -97,10 +97,12 @@ app.directive('messageButton', function($parse, CardService) {
                 var playdate = $parse(attrs.playDate)(scope);
                 ev.preventDefault();
                 var el = angular.element(ev.target);
-                element.parent().parent().parent().parent().parent().parent().find('.shown').toggleClass( 'hidden-custom' );
-                element.parent().parent().parent().parent().parent().parent().find('.shown').removeClass( 'shown' );
-                element.parent().parent().parent().parent().parent().find('.paper').toggleClass( 'hidden-custom' );
-                element.parent().parent().parent().parent().parent().find('.paper').toggleClass( 'shown' );
+                var masonryBrick = el.parents('.masonry-brick');
+                var paperCard = el.parents('.paper');
+                masonryBrick.find('.shown').toggleClass( 'hidden-custom' );
+                masonryBrick.find('.shown').removeClass( 'shown' );
+                paperCard.find('.paper').toggleClass( 'hidden-custom' );
+                paperCard.find('.paper').toggleClass( 'shown' );
                 CardService.showMessage[playdate._id] = true;
                 CardService.startCardMessage(playdate);
                 scope.$digest();
@@ -116,8 +118,9 @@ app.directive('cancelButton', function($parse, CardService) {
                 var playdate = $parse(attrs.playDate)(scope);
                 ev.preventDefault();
                 var el = angular.element(ev.target);
-                el.parent().parent().parent().parent().parent().toggleClass( 'hidden-custom' );
-                el.parent().parent().parent().parent().parent().toggleClass( 'shown' );
+                var paperCard = el.parents('.paper');
+                paperCard.find('.paper').toggleClass( 'hidden-custom' );
+                paperCard.find('.paper').toggleClass( 'shown' );
                 CardService.showMessage[playdate._id] = false;
                 scope.$digest();
             });
@@ -134,8 +137,9 @@ app.directive('sendButton', function($parse, CardService) {
                 CardService.getCardMessage(playdate).send().success(function() {
                     ev.preventDefault();
                     var el = angular.element(ev.target);
-                    el.parent().parent().parent().parent().parent().toggleClass( 'hidden-custom' );
-                    el.parent().parent().parent().parent().parent().toggleClass( 'shown' );
+                    var paperCard = el.parents('.paper');
+                    paperCard.find('.paper').toggleClass( 'hidden-custom' );
+                    paperCard.find('.paper').toggleClass( 'shown' );
                     CardService.showMessage[playdate._id] = false;
                     scope.$digest();
                 });
